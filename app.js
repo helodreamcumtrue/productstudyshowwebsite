@@ -1,126 +1,144 @@
 // ==========================================================================
-// ADYATHA BHAT PORTFOLIO - APPLICATION SCRIPT
+// LAKSHAY JAIN PORTFOLIO - APPLICATION SCRIPT
 // Theme switcher, Client-side navigation, Case study modal reader
 // ==========================================================================
 
 const PROJECTS_DATA = [
   {
     id: "8club-onboarding-video",
-    title: "8 CLUB Onboarding Video",
-    tags: ["Motion Design", "Script writing"],
-    thumbnail: "https://framerusercontent.com/images/TTX6I3wwJ52GRBE0gUz9lXbJds.png?width=961&height=961",
-    shortDesc: "An electrifying 30-second motion piece that unveils 8Club’s invite-only Hotspots, setting the vibe with kinetic visuals and bold typography.",
-    projectType: "Motion Graphics, Visual design, Script Writing",
-    targetAudience: "Young Urban Professionals",
-    timeframe: "2 Weeks",
-    client: "8Club",
-    problem: "8Club reached out with an exciting ask: craft an onboarding video that captures the essence of their platform. 8Club is a members-only social platform that curates offline experiences called 'Hotspots' designed for people to meet, connect, and build real communities. This video needed to introduce what 8Club is, what makes it different, and what users can expect next.",
-    approach: "The brief was open-ended: no brand style guide, no visual references—just a clear ask for a video that felt fresh, dynamic, and uniquely them. 8Club isn’t just an events platform; it’s a curated experience about music, moments, and memory-making. From the start, I knew the video couldn’t just 'tell' people about 8Club. It had to sound like a beat drop, move like a dance floor, and look like a late-night poster you’d want to steal.",
-    responsibilities: "I was brought on as the communication designer to lead the entire process—from scripting and storyboarding to visual design and final animation. I developed the script from scratch, crafting an edgy rhythm, kinetic typography transitions, and vibrant high-contrast visual cues.",
+    title: "New Better PNB - UI/UX Case Study",
+    tags: ["UI/UX Design", "Design System", "Accessibility"],
+    thumbnail: "/assets/case_pnb_thumb.png",
+    pdfUrl: "/PNB Redesign by Lakshay.pdf",
+    shortDesc: "A complete usability redesign of Punjab National Bank’s digital experience, resolving navigation clutter and reducing transaction friction by 40%.",
+    projectType: "UI/UX Case Study, Banking Redesign",
+    targetAudience: "Retail Banking Customers & Senior Citizens",
+    timeframe: "4 Weeks",
+    client: "Punjab National Bank (Redesign)",
+    problem: "PNB's banking website is difficult to navigate, with complex menus and a cluttered homepage that frustrate users trying to complete tasks like fund transfers, bill payments, and account management. The lack of personalization and outdated design further complicates the user experience, especially for mobile users. These issues lead to inefficiency, user frustration, and a negative impact on customer retention.",
+    approach: "Discovery: Primary & secondary user interviews uncovering key friction points for elder demographics (Ramesh Verma, 56) and mobile-first students (Aditi Mehra, 20). Ideation: Formulated How-Might-We (HMW) frameworks, simplified 2-step UPI transfers, and designed a softer, accessible high-contrast palette (HEX #AF2A30, #FFF1D3, #C00000). Implementation: Built a complete design system with Outfit variable typography and interactive prototypes.",
+    responsibilities: "User research, persona development, information architecture, wireframing, high-contrast design tokens, interactive prototyping, and usability benchmarking.",
+    details: [
+      "Key Result: Task completion time reduced by 40% in user testing.",
+      "Typography & Colors: Outfit modern geometric typeface with accessible bank-heritage tones.",
+      "Personas Addressed: Ramesh Verma (simplified non-glitchy transfers) & Aditi Mehra (2-3 tap quick UPI)."
+    ],
     images: [
-      "https://framerusercontent.com/images/TTX6I3wwJ52GRBE0gUz9lXbJds.png?width=961&height=961"
+      "/assets/case_pnb_thumb.png"
     ]
   },
   {
     id: "show-me-the-money",
-    title: "Show me the money",
-    tags: ["Publication design", "AI generated design"],
-    thumbnail: "https://framerusercontent.com/images/VmS3aMgSsdk4LF6effc4953Cclk.png?width=921&height=921",
-    shortDesc: "A comprehensive report analyzing payment and hiring trends across 20 sectors, providing data-driven insights into salary patterns in India.",
-    projectType: "Publication design, AI generated design",
-    targetAudience: "Businesses of all sizes",
+    title: "Improving Discord for New Users",
+    tags: ["Product Strategy", "UX Research", "FTUX & Retention"],
+    thumbnail: "/assets/case_discord_thumb.png",
+    pdfUrl: "/Discord product teardown by Lakshay.pdf",
+    shortDesc: "A strategic deep dive into Discord’s first-time user experience, tackling the 'Empty Hallway' problem with role-based guided tours to boost Day-1 retention by 20%.",
+    projectType: "Product Teardown, Growth & Retention Strategy",
+    targetAudience: "Novice Discord Users, Students & Casual Gamers",
     timeframe: "3 Weeks",
-    client: "RazorpayX Payroll",
-    problem: "Businesses often face challenges in understanding evolving salary trends and hiring patterns, which can hinder their ability to make informed, data-driven decisions. Existing customers need fresh, insightful data to stay competitive, while new customers seek robust research tools to understand market dynamics. Without comprehensive analysis, companies may struggle to align their strategies with current corporate landscape trends.",
-    approach: "Designed a landmark 60+ page salary benchmark report featuring bespoke AI-generated visual motifs representing each sector, custom information design, infographics, and scannable visual executive summaries that made complex compensation metrics intuitive.",
-    responsibilities: "Lead publication designer, creative director for AI image synthesis pipelines, data visualization specialist, and layout typography director.",
+    client: "Product Teardown (Self-Directed)",
+    problem: "Discord has 150M+ MAU and 4B min/day conversations, but experiences ~60% Day 1 drop-off among non-gamers. 'The Empty Hallway' effect causes 4 out of 5 new users to leave a server within 10 minutes without posting a single message due to choice paralysis, cognitive load from bot notifications, and generic welcome screens.",
+    approach: "Evaluated user journeys and prioritized interventions using the RICE framework (Contextual Tooltips: RICE 900; Interactive Onboarding: RICE 600). Designed structured, role-based setup wizards ('I\'m a Designer', 'I\'m a Developer', 'Just Browsing') that highlight key channels and suppress notification noise until onboarding is complete. Created a Guided Discovery flow for interest curation in 3 clicks.",
+    responsibilities: "Product teardown research, friction mapping, RICE prioritization matrix, user journey maps, high-fidelity UI solutions, and projected retention modeling.",
+    details: [
+      "Projected Impact: +20% Day-1 Retention and +35% increase in first-week engagement.",
+      "Solution 1: Interactive Guided Tours replacing empty states with role-based setup (+15% retention, 2.5x speed).",
+      "Solution 2: Guided Discovery 'Curating the Chaos' helping users find top communities in under 3 clicks."
+    ],
     images: [
-      "https://framerusercontent.com/images/VmS3aMgSsdk4LF6effc4953Cclk.png?width=921&height=921",
-      "https://framerusercontent.com/images/g5KVRjBRFsmT99uhTbSd0YG9w.png",
-      "https://framerusercontent.com/images/RjddwP5s8UYE5YocYcjbPOzBzYg.png",
-      "https://framerusercontent.com/images/qjqcrU49O6gdzjURI715eVapRNY.png",
-      "https://framerusercontent.com/images/ytdMP227GFhEbbJptlLQ5geRw.png"
+      "/assets/case_discord_thumb.png",
+      "/assets/case_discord_preview.png"
     ]
   },
   {
     id: "enterprise-readiness",
-    title: "Enterprise Readiness GTM",
-    tags: ["GTM Strategy", "Motion Design", "Print Design"],
-    thumbnail: "https://framerusercontent.com/images/8xt1f8uMJqhBTJdZ7iTfaUqp1M8.svg",
-    shortDesc: "Brand campaign highlighting the evolution and expanded features of the payroll software, now optimized for enterprise-level use.",
-    projectType: "GTM Strategy, Motion design & Print Design",
-    targetAudience: "Enterprise businesses",
+    title: "Domino's New Packaging Redesign",
+    tags: ["Product Teardown", "Sustainability", "Systems Design"],
+    thumbnail: "/assets/case_dominos_thumb.png",
+    pdfUrl: "/Domino_s product teardown by Lakshay.pdf",
+    shortDesc: "A strategic redesign deconstructing thermal thermodynamics, eco-accountability, and supply-chain stackability across 1,500+ franchise locations.",
+    projectType: "Product & Packaging Strategy, Operations UX",
+    targetAudience: "Eco-Conscious Cravers & Last-Mile Delivery Fleets",
     timeframe: "3 Weeks",
-    client: "RazorpayX Payroll",
-    problem: "As companies grow and evolve into large enterprises, their payroll systems often struggle to keep up with increased demands, leading to issues such as payroll errors, compliance challenges, and inefficient processes. Many enterprises in India seek advanced payroll solutions offering institutional accuracy, scalability, and seamless integration with existing HR systems.",
-    approach: "Devised a comprehensive multi-channel Go-To-Market visual identity that communicated robustness, security compliance, and effortless scale. Produced high-fidelity motion graphics for launch events, architectural product diagrams, and executive physical collateral.",
-    responsibilities: "GTM narrative design, key visual direction, animation storyboarding, interactive asset guidelines, and trade show presentation materials.",
+    client: "Product Strategy Teardown",
+    problem: "Why the old pizza box failed: 1) Thermodynamics - 40% heat loss within 15 minutes due to standard uninsulated corrugated cardboard; 2) Sustainability - 30% of legacy boxes rendered unrecyclable due to oil grease saturation; 3) Structural Integrity - weak sidewalls caused crushing beyond 3 stacked boxes during rush deliveries.",
+    approach: "Strategic pivot across 4 core business pillars: 1) Sustainability First (-30% plastic, -12.5% carbon footprint); 2) Heat Retention (+15% longer thermal holding with corrugated air pockets); 3) Stackability (doubled courier bag density); 4) Brand Modernization (bi-color minimalist aesthetic inspired by tech-first unboxing). Designed phased rollout across 1,500+ franchise locations.",
+    responsibilities: "Strategic rationale decomposition, user persona modeling (Aman Kapoor, Junior Developer), operational ROI analysis, sustainability metrics, and unboxing UX.",
+    details: [
+      "Operational Results: 22% waste reduction in cardboard usage and 15% material cost savings.",
+      "Customer Sentiment: +8 Pts NPS post-launch customer satisfaction rating.",
+      "Rollout Plan: Phased transition from Tier-1 pilots (98% positive) to nationwide supply chain deployment."
+    ],
     images: [
-      "https://framerusercontent.com/images/8xt1f8uMJqhBTJdZ7iTfaUqp1M8.svg",
-      "https://framerusercontent.com/images/XytG8JmwkXGxemOLdVPup3WpGt0.png",
-      "https://framerusercontent.com/images/xGC69A1DxUHyR2xVkE1NUOJq8C8.png",
-      "https://framerusercontent.com/images/yKFJYHVJL99wosMCKdU1tHIBQo.png"
+      "/assets/case_dominos_thumb.png",
+      "/assets/case_dominos_preview.png"
     ]
   },
   {
     id: "ca-founder-collab",
-    title: "CA & Founder Collaboration",
-    tags: ["Motion Graphics", "Script Writing"],
-    thumbnail: "https://framerusercontent.com/images/6HbTgFxHBUu2DKXduj34oBzJ4S8.png?width=921&height=929",
-    shortDesc: "Social campaign highlighting the challenges of traditional founder-Chartered Accountant collaboration, promoting RazorpayX as a streamlined solution.",
-    projectType: "Motion Graphics, Script Writing",
-    targetAudience: "Startup Founders and Chartered Accountants",
-    timeframe: "2 Weeks",
-    client: "RazorpayX",
-    problem: "Many Founders and Chartered Accountants are unaware of the inefficiencies and challenges in their current collaboration process (or believe there is no better method available). Traditional practices often lead to miscommunication, incomplete data sharing, and administrative bottlenecks.",
-    approach: "Created a relatable, humorous, and insight-driven social campaign emphasizing common pain points—such as endless OTP ping-pongs, missing invoices at 11 PM on tax deadlines, and fragmented spreadsheets. Positioned RazorpayX as the ultimate unified workspace for CAs and founders.",
-    responsibilities: "Concept ideation, script writing, character and graphic illustration style, storyboard animatics, and final motion design.",
+    title: "Improving the Reels Experience on Instagram",
+    tags: ["Growth Strategy", "Mobile UX", "Creator Economy"],
+    thumbnail: "/assets/case_insta_thumb.png",
+    pdfUrl: "/Insta product teardown by Lakshay.pdf",
+    shortDesc: "Analyzing creator fatigue and algorithmic discovery on Instagram Reels, proposing collaborative co-creation flows and in-camera editing suites.",
+    projectType: "Product Teardown, Feature Design & Creator Strategy",
+    targetAudience: "Content Creators, Viewers & Emerging Influencers",
+    timeframe: "3 Weeks",
+    client: "Product Teardown (Instagram)",
+    problem: "Instagram Reels drives 200B+ daily plays, yet creators face high friction: 1) Content discovery fatigue from repetitive algorithm suggestions; 2) Intense pressure to perform with unpredictable reach; 3) Clunky built-in editing tools compared to dedicated tools, forcing creators to edit off-platform.",
+    approach: "Mapped the full Reels user journey from consumption to creation. Used RICE scoring to prioritize solutions: 1) Enhanced In-Camera Editing Suite with timeline trimming, multi-track audio mixing, and AI effect overlays; 2) Collaborative Reels enabling multiple co-creators to stitch clips into a single shared post with dual-attribution.",
+    responsibilities: "Product analytics teardown, user journey mapping, persona synthesis (Maya Singh, 22), RICE feature scoring, and high-fidelity mobile prototype design.",
+    details: [
+      "Strategic Solutions: Integrated In-Camera Studio & Collaborative Co-Creation posting.",
+      "Success Metrics: Tracked creation attempts, session duration, daily active users, and share frequency.",
+      "Outcome: Solved creator friction while elevating niche creator discovery beyond viral trends."
+    ],
     images: [
-      "https://framerusercontent.com/images/6HbTgFxHBUu2DKXduj34oBzJ4S8.png?width=921&height=929",
-      "https://framerusercontent.com/images/cvqQSjDSnDnnuUHr7246xSUYfN0.png",
-      "https://framerusercontent.com/images/i4MG0UAmoHGUFgqT3tBjzGfKPJM.png",
-      "https://framerusercontent.com/images/oXIdNsLxSbC9lRhm7weqiJZOctc.png"
+      "/assets/case_insta_thumb.png",
+      "/assets/case_insta_preview.png"
     ]
   },
   {
     id: "custom-access-controls",
-    title: "Custom Access Controls",
-    tags: ["Motion Graphics", "Story telling"],
-    thumbnail: "https://framerusercontent.com/images/Nivxw3CPF9PHkeZAxFyEE6gkq3A.png?width=919&height=920",
-    shortDesc: "Promotional video campaign showcasing new custom access controls and approval workflows in RazorpayX Banking, designed to enhance delegation and collaboration.",
-    projectType: "Motion Graphics, Script Writing",
-    targetAudience: "Founders & Finance Managers",
-    timeframe: "1.5 Weeks",
-    client: "RazorpayX Banking",
-    problem: "Startups often struggle with managing and delegating financial tasks effectively due to concerns about privacy, control, and security. The lack of customisable access and approval workflows can lead to bottlenecks and security vulnerabilities, making it stressful to ensure only the right team members have access to sensitive financial information.",
-    approach: "Crafted a slick UI walkthrough animation that demonstrated granular role creation, approval thresholds, and automated maker-checker workflows in under 45 seconds, transforming dry security architecture into an empowering feature.",
-    responsibilities: "Motion design, UI asset reconstruction, motion choreography, sound design curation, and script pacing.",
+    title: "ArtiApply - AI Cold Outreach SaaS",
+    tags: ["SaaS Product", "AI Workflow", "Full-Stack Design"],
+    thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=921",
+    shortDesc: "An automated outreach engine featuring BullMQ queue rate-limiting, Gmail API integration, and real-time deliverability analytics.",
+    projectType: "SaaS Product Design, AI Prompt Pipelines, Frontend Architecture",
+    targetAudience: "Founders, Freelancers & Sales Development Reps",
+    timeframe: "4 Weeks",
+    client: "ArtiApply SaaS (Founder)",
+    problem: "Manual cold outreach is slow, generic email templates generate dismal open rates, and conventional tools lack transparent deliverability monitoring, resulting in burned domain reputations and lost business opportunities.",
+    approach: "Designed and engineered an automated campaign cockpit featuring multi-step AI personalization pipelines, Gmail API rate-limiting via BullMQ worker queues, and live Supabase Realtime deliverability dashboards.",
+    responsibilities: "Product vision, system architecture, UX flow design, analytics dashboards, and frontend UI design.",
+    details: [
+      "Key Architecture: BullMQ queue management, Gmail API integration, Supabase Realtime, and Tailwind design system.",
+      "Key Result: Achieved 3x higher response rates compared to generic template campaigns."
+    ],
     images: [
-      "https://framerusercontent.com/images/Nivxw3CPF9PHkeZAxFyEE6gkq3A.png?width=919&height=920",
-      "https://framerusercontent.com/images/yfb4KMewFtLxqnmeNHHFZMong.png",
-      "https://framerusercontent.com/images/W1eHgCXCoDG9o1EdQIpymcRw6U.png",
-      "https://framerusercontent.com/images/H08TH8bPdrvF2DzFL1RDeVLmAMM.png"
+      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200"
     ]
   },
   {
     id: "you-are-okay",
-    title: "You Are Okay",
-    tags: ["Book Design", "Illustration", "Art Therapy"],
-    thumbnail: "https://framerusercontent.com/images/5LW0UNClgrtUszuu7lyCZ7HOESk.png?width=1379&height=1379",
-    shortDesc: "A self-help activity book that helps anxious teenagers express their emotions and frustrations creatively, enhancing their learning experience and aiding in self-reflection.",
-    projectType: "Illustration, Book Design, Art Therapy",
-    targetAudience: "Teenagers & young adults who experience anxiety, worry & stress",
-    timeframe: "6 Months",
-    client: "Graduation Project",
-    problem: "Anxiety, worry, and stress are prevalent mental health issues among teenagers, impacting their daily lives and overall well-being. Despite the availability of various psychological treatments, many teens struggle to find accessible and effective self-help tools that allow them to manage their anxiety independently without feeling judged.",
-    approach: "Conducted field research with adolescent psychologists and teenagers to design an interactive, tactfully illustrated workbook combining cognitive behavioral exercises with expressive art therapy prompts, tactile printing techniques, and soothing visual metaphors.",
-    responsibilities: "Research, narrative design, copy, visual styling, hand illustrations, publication layout, and print production.",
+    title: "Laundify - Campus Service App",
+    tags: ["Product Design", "Mobile App", "IoT Companion"],
+    thumbnail: "https://images.unsplash.com/photo-1545173153-5dd736fb688a?auto=format&fit=crop&q=80&w=921",
+    shortDesc: "An on-demand laundry reservation system for student residences featuring live machine telemetry, push notifications, and frictionless digital payments.",
+    projectType: "Product Design, Mobile UI/UX, IoT Companion",
+    targetAudience: "University Students & Hostel Residents",
+    timeframe: "3 Weeks",
+    client: "Campus Product Initiative",
+    problem: "Hostel students experience extreme scheduling friction with zero visibility into washer availability, resulting in long queues, wasted study time, and lost garments.",
+    approach: "Designed an IoT-synced mobile companion that provides live machine status countdowns, automated push alerts when cycles complete, and unified in-app QR payments.",
+    responsibilities: "Product conceptualization, mobile UI workflows, service blueprinting, prototype animation, and user testing with 100+ campus students.",
+    details: [
+      "Objective: Eliminate physical queues and provide transparent machine availability.",
+      "Key Features: Real-time telemetry, automated slot reservations, and campus wallet integration."
+    ],
     images: [
-      "https://framerusercontent.com/images/5LW0UNClgrtUszuu7lyCZ7HOESk.png?width=1379&height=1379",
-      "https://framerusercontent.com/images/SHeO9oDajrofd5foo4IFT4ZEEVA.png",
-      "https://framerusercontent.com/images/O62O8h2jOzC4ofjrjLL1kQ3MN98.png",
-      "https://framerusercontent.com/images/0Cncw0QLK5peyPmchGXk09XtgE.png",
-      "https://framerusercontent.com/images/iiYizBml6OFyx7M8SvF80VUKKaQ.png"
+      "https://images.unsplash.com/photo-1545173153-5dd736fb688a?auto=format&fit=crop&q=80&w=1200"
     ]
   }
 ];
@@ -162,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3 class="card-title">${proj.title}</h3>
           <p class="card-desc">${proj.shortDesc}</p>
           <div class="card-cta">
-            <span>View case study</span>
+            <span>View Case Study</span>
             <svg width="17" height="17" viewBox="0 0 17 17" fill="none">
               <path d="M3.68 8.1H13.01" stroke="currentColor" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
               <path d="M8.34 3.43L13.01 8.1L8.34 12.77" stroke="currentColor" stroke-width="1.33" stroke-linecap="round" stroke-linejoin="round"/>
@@ -193,36 +211,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const proj = PROJECTS_DATA.find(p => p.id === id);
     if (!proj) return;
 
-    modalHeroImg.src = proj.thumbnail;
-    modalHeroImg.alt = proj.title;
-    modalTags.innerHTML = proj.tags.map(t => `<span class="tag-badge">${t}</span>`).join('');
-    modalTitle.textContent = proj.title;
+    if (modalHeroImg) {
+      modalHeroImg.src = proj.thumbnail;
+      modalHeroImg.alt = proj.title;
+    }
+    if (modalTags) {
+      modalTags.innerHTML = proj.tags.map(t => `<span class="tag-badge">${t}</span>`).join('');
+    }
+    if (modalTitle) modalTitle.textContent = proj.title;
 
-    metaType.textContent = proj.projectType || "Communication Design";
-    metaAudience.textContent = proj.targetAudience || "General Public";
-    metaTimeframe.textContent = proj.timeframe || "2 Weeks";
+    if (metaType) metaType.textContent = proj.projectType || "UI/UX Case Study";
+    if (metaAudience) metaAudience.textContent = proj.targetAudience || "General Public";
+    if (metaTimeframe) metaTimeframe.textContent = proj.timeframe || "3 Weeks";
 
-    modalProblem.textContent = proj.problem;
-    modalApproach.textContent = proj.approach;
-    modalResponsibilities.textContent = proj.responsibilities;
+    if (modalProblem) modalProblem.textContent = proj.problem;
+    if (modalApproach) modalApproach.textContent = proj.approach;
+    if (modalResponsibilities) modalResponsibilities.textContent = proj.responsibilities;
 
-    // Render gallery images if any
-    if (proj.images && proj.images.length > 1) {
-      modalGallery.innerHTML = proj.images.slice(1).map(imgUrl => `
-        <img src="${imgUrl}" alt="${proj.title} visual" loading="lazy">
-      `).join('');
+    // Render gallery images or PDF action
+    if (modalGallery) {
+      let galleryHtml = "";
+      if (proj.pdfUrl) {
+        galleryHtml += `
+          <div style="grid-column: 1 / -1; margin-bottom: 1rem; display: flex; gap: 12px; align-items: center;">
+            <a href="${proj.pdfUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 14px rgba(37,99,235,0.4);">
+              <span>Download / Open Full PDF Presentation</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+        `;
+      }
+      if (proj.images && proj.images.length > 1) {
+        galleryHtml += proj.images.slice(1).map(imgUrl => `
+          <img src="${imgUrl}" alt="${proj.title} visual" loading="lazy">
+        `).join('');
+      }
+      modalGallery.innerHTML = galleryHtml;
       modalGallery.style.display = "grid";
-    } else {
-      modalGallery.innerHTML = "";
-      modalGallery.style.display = "none";
     }
 
-    modalOverlay.classList.add("active");
-    document.body.style.overflow = "hidden";
+    if (modalOverlay) {
+      modalOverlay.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
   }
 
   function closeModal() {
-    modalOverlay.classList.remove("active");
+    if (modalOverlay) modalOverlay.classList.remove("active");
     document.body.style.overflow = "";
   }
 
@@ -234,7 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modalOverlay.classList.contains("active")) {
+    if (e.key === "Escape" && modalOverlay && modalOverlay.classList.contains("active")) {
       closeModal();
     }
   });
@@ -242,17 +277,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // 3. Navigation View Switching (Home vs About)
   function switchView(viewName) {
     if (viewName === "about") {
-      homeView.classList.add("hidden");
-      aboutView.classList.add("active");
-      navHome.parentElement.classList.remove("active");
-      navAbout.parentElement.classList.add("active");
-      header.classList.add("scrolled-light");
+      if (homeView) homeView.classList.add("hidden");
+      if (aboutView) aboutView.classList.add("active");
+      if (navHome) navHome.parentElement.classList.remove("active");
+      if (navAbout) navAbout.parentElement.classList.add("active");
+      if (header) header.classList.add("scrolled-light");
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      aboutView.classList.remove("active");
-      homeView.classList.remove("hidden");
-      navAbout.parentElement.classList.remove("active");
-      navHome.parentElement.classList.add("active");
+      if (aboutView) aboutView.classList.remove("active");
+      if (homeView) homeView.classList.remove("hidden");
+      if (navAbout) navAbout.parentElement.classList.remove("active");
+      if (navHome) navHome.parentElement.classList.add("active");
       handleScroll();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -276,7 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function setTheme(theme) {
     if (!theme) return;
     document.body.setAttribute("data-theme", theme);
-    localStorage.setItem("adyatha_theme", theme);
+    try { localStorage.setItem("lakshay_theme", theme); } catch(e){}
 
     paletteDots.forEach(dot => {
       if (dot.getAttribute("data-theme") === theme) {
@@ -294,13 +329,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Load saved theme or default to 'indigo' (replaces pink)
-  const savedTheme = localStorage.getItem("adyatha_theme") || "indigo";
+  // Load saved theme or default to 'indigo'
+  let savedTheme = "indigo";
+  try { savedTheme = localStorage.getItem("lakshay_theme") || "indigo"; } catch(e){}
   setTheme(savedTheme);
 
   // 5. Scroll Header Visual State
   function handleScroll() {
-    if (aboutView.classList.contains("active")) {
+    if (!header) return;
+    if (aboutView && aboutView.classList.contains("active")) {
       header.classList.add("scrolled-light");
       return;
     }

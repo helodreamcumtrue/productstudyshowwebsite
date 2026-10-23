@@ -18,6 +18,7 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
   '.woff': 'font/woff',
   '.woff2': 'font/woff2',
+  '.pdf': 'application/pdf',
   '.map': 'application/json'
 };
 
@@ -33,7 +34,7 @@ const ROUTE_MAP = {
 };
 
 const server = http.createServer((req, res) => {
-  let cleanUrl = req.url.split('?')[0].split('#')[0];
+  let cleanUrl = decodeURIComponent(req.url.split('?')[0].split('#')[0]);
   if (cleanUrl.endsWith('/') && cleanUrl.length > 1) {
     cleanUrl = cleanUrl.slice(0, -1);
   }
