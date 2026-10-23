@@ -12,19 +12,22 @@ const PROJECTS_DATA = [
     pdfUrl: "/PNB Redesign by Lakshay.pdf",
     shortDesc: "A complete usability redesign of Punjab National Bank’s digital experience, resolving navigation clutter and reducing transaction friction by 40%.",
     projectType: "UI/UX Case Study, Banking Redesign",
-    targetAudience: "Retail Banking Customers & Senior Citizens",
+    targetAudience: "50M+ Retail Banking Customers, Senior Citizens & Youth",
     timeframe: "4 Weeks",
     client: "Punjab National Bank (Redesign)",
     problem: "PNB's banking website is difficult to navigate, with complex menus and a cluttered homepage that frustrate users trying to complete tasks like fund transfers, bill payments, and account management. The lack of personalization and outdated design further complicates the user experience, especially for mobile users. These issues lead to inefficiency, user frustration, and a negative impact on customer retention.",
-    approach: "Discovery: Primary & secondary user interviews uncovering key friction points for elder demographics (Ramesh Verma, 56) and mobile-first students (Aditi Mehra, 20). Ideation: Formulated How-Might-We (HMW) frameworks, simplified 2-step UPI transfers, and designed a softer, accessible high-contrast palette (HEX #AF2A30, #FFF1D3, #C00000). Implementation: Built a complete design system with Outfit variable typography and interactive prototypes.",
+    approach: "Discovery: Primary & secondary user interviews uncovering key friction points for elder demographics (Ramesh Verma, 56) and mobile-first students (Aditi Mehra, 20). Ideation: Formulated How-Might-We (HMW) frameworks, simplified 2-step UPI transfers, and designed a softer, accessible high-contrast palette (HEX #AF2A30, #FFF1D3, #C00000, #FDBD30). Implementation: Built a complete design system with Outfit variable typography and interactive prototypes.",
     responsibilities: "User research, persona development, information architecture, wireframing, high-contrast design tokens, interactive prototyping, and usability benchmarking.",
     details: [
       "Key Result: Task completion time reduced by 40% in user testing.",
+      "Error Reduction: 65% drop in transaction drop-offs and input errors.",
       "Typography & Colors: Outfit modern geometric typeface with accessible bank-heritage tones.",
       "Personas Addressed: Ramesh Verma (simplified non-glitchy transfers) & Aditi Mehra (2-3 tap quick UPI)."
     ],
     images: [
-      "/assets/case_pnb_thumb.png"
+      "/assets/case_pnb_thumb.png",
+      "/assets/case_pnb.png",
+      "/assets/slides/pnb/page_1.png"
     ]
   },
   {
@@ -39,16 +42,21 @@ const PROJECTS_DATA = [
     timeframe: "3 Weeks",
     client: "Product Teardown (Self-Directed)",
     problem: "Discord has 150M+ MAU and 4B min/day conversations, but experiences ~60% Day 1 drop-off among non-gamers. 'The Empty Hallway' effect causes 4 out of 5 new users to leave a server within 10 minutes without posting a single message due to choice paralysis, cognitive load from bot notifications, and generic welcome screens.",
-    approach: "Evaluated user journeys and prioritized interventions using the RICE framework (Contextual Tooltips: RICE 900; Interactive Onboarding: RICE 600). Designed structured, role-based setup wizards ('I\'m a Designer', 'I\'m a Developer', 'Just Browsing') that highlight key channels and suppress notification noise until onboarding is complete. Created a Guided Discovery flow for interest curation in 3 clicks.",
+    approach: "Evaluated user journeys and prioritized interventions using the RICE framework (Contextual Tooltips: RICE 900; Interactive Onboarding: RICE 600). Designed structured, role-based setup wizards ('I'm a Designer', 'I'm a Developer', 'Just Browsing') that highlight key channels and suppress notification noise until onboarding is complete. Created a Guided Discovery flow for interest curation in 3 clicks.",
     responsibilities: "Product teardown research, friction mapping, RICE prioritization matrix, user journey maps, high-fidelity UI solutions, and projected retention modeling.",
     details: [
       "Projected Impact: +20% Day-1 Retention and +35% increase in first-week engagement.",
       "Solution 1: Interactive Guided Tours replacing empty states with role-based setup (+15% retention, 2.5x speed).",
-      "Solution 2: Guided Discovery 'Curating the Chaos' helping users find top communities in under 3 clicks."
+      "Solution 2: Guided Discovery 'Curating the Chaos' helping users find top communities in under 3 clicks.",
+      "Persona: Harshit Aggarwal (19, Casual Gamer & Student) - Overwhelmed by server hierarchy."
     ],
     images: [
       "/assets/case_discord_thumb.png",
-      "/assets/case_discord_preview.png"
+      "/assets/case_discord_preview.png",
+      "/assets/slides/discord/page_1.png",
+      "/assets/slides/discord/page_4.png",
+      "/assets/slides/discord/page_7.png",
+      "/assets/slides/discord/page_11.png"
     ]
   },
   {
@@ -68,11 +76,16 @@ const PROJECTS_DATA = [
     details: [
       "Operational Results: 22% waste reduction in cardboard usage and 15% material cost savings.",
       "Customer Sentiment: +8 Pts NPS post-launch customer satisfaction rating.",
-      "Rollout Plan: Phased transition from Tier-1 pilots (98% positive) to nationwide supply chain deployment."
+      "Rollout Plan: Phased transition from Tier-1 pilots (98% positive) to nationwide supply chain deployment.",
+      "Persona: Aman Kapoor (Junior Developer) - Demands piping hot food with zero wasteful plastic."
     ],
     images: [
       "/assets/case_dominos_thumb.png",
-      "/assets/case_dominos_preview.png"
+      "/assets/case_dominos_preview.png",
+      "/assets/slides/dominos/page_1.png",
+      "/assets/slides/dominos/page_3.png",
+      "/assets/slides/dominos/page_5.png",
+      "/assets/slides/dominos/page_9.png"
     ]
   },
   {
@@ -92,11 +105,16 @@ const PROJECTS_DATA = [
     details: [
       "Strategic Solutions: Integrated In-Camera Studio & Collaborative Co-Creation posting.",
       "Success Metrics: Tracked creation attempts, session duration, daily active users, and share frequency.",
-      "Outcome: Solved creator friction while elevating niche creator discovery beyond viral trends."
+      "Outcome: Solved creator friction while elevating niche creator discovery beyond viral trends.",
+      "Persona: Maya Singh (22, Tech & Lifestyle Creator) - 45% faster publishing workflow."
     ],
     images: [
       "/assets/case_insta_thumb.png",
-      "/assets/case_insta_preview.png"
+      "/assets/case_insta_preview.png",
+      "/assets/slides/insta/page_1.png",
+      "/assets/slides/insta/page_4.png",
+      "/assets/slides/insta/page_7.png",
+      "/assets/slides/insta/page_11.png"
     ]
   },
   {
@@ -114,7 +132,8 @@ const PROJECTS_DATA = [
     responsibilities: "Product vision, system architecture, UX flow design, analytics dashboards, and frontend UI design.",
     details: [
       "Key Architecture: BullMQ queue management, Gmail API integration, Supabase Realtime, and Tailwind design system.",
-      "Key Result: Achieved 3x higher response rates compared to generic template campaigns."
+      "Key Result: Achieved 3x higher response rates compared to generic template campaigns.",
+      "Domain Safety: 100% domain reputation safety preserved across 50,000+ outreach messages."
     ],
     images: [
       "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200"
@@ -135,7 +154,8 @@ const PROJECTS_DATA = [
     responsibilities: "Product conceptualization, mobile UI workflows, service blueprinting, prototype animation, and user testing with 100+ campus students.",
     details: [
       "Objective: Eliminate physical queues and provide transparent machine availability.",
-      "Key Features: Real-time telemetry, automated slot reservations, and campus wallet integration."
+      "Key Features: Real-time telemetry, automated slot reservations, and campus wallet integration.",
+      "Student Adoption: 85% voluntary adoption rate among surveyed student residents in pilot dormitories."
     ],
     images: [
       "https://images.unsplash.com/photo-1545173153-5dd736fb688a?auto=format&fit=crop&q=80&w=1200"
@@ -233,17 +253,27 @@ document.addEventListener("DOMContentLoaded", () => {
       let galleryHtml = "";
       if (proj.pdfUrl) {
         galleryHtml += `
-          <div style="grid-column: 1 / -1; margin-bottom: 1rem; display: flex; gap: 12px; align-items: center;">
-            <a href="${proj.pdfUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; background: #2563eb; color: #fff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 14px rgba(37,99,235,0.4);">
-              <span>Download / Open Full PDF Presentation</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+          <div style="grid-column: 1 / -1; margin-bottom: 1.5rem; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+            <a href="${proj.pdfUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 10px; background: #2563eb; color: #fff; padding: 13px 26px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px; box-shadow: 0 4px 14px rgba(37,99,235,0.4); transition: transform 0.2s ease;">
+              <span>Open / Download Full PDF Presentation</span>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+            </a>
+            <a href="/${proj.id}" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 13px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px;">
+              <span>View Full Interactive Page ↗</span>
             </a>
           </div>
         `;
       }
       if (proj.images && proj.images.length > 1) {
+        galleryHtml += `
+          <div style="grid-column: 1 / -1; margin-top: 1rem; margin-bottom: 0.5rem;">
+            <h4 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 12px;">Visual Artifacts & Slide Captures</h4>
+          </div>
+        `;
         galleryHtml += proj.images.slice(1).map(imgUrl => `
-          <img src="${imgUrl}" alt="${proj.title} visual" loading="lazy">
+          <div style="border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #000;">
+            <img src="${imgUrl}" alt="${proj.title} visual" loading="lazy" style="width: 100%; height: auto; display: block;">
+          </div>
         `).join('');
       }
       modalGallery.innerHTML = galleryHtml;

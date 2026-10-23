@@ -1,0 +1,397 @@
+
+=======================================================
+=== PDF: PNB Redesign by Lakshay.pdf ===
+=======================================================
+Total Pages: 1
+
+--- Page 1 ---
+UI/UX 
+CASE
+STUDY
+2025
+Himani & Lakshay
+Lack of clear navigation 
+paths hinder users from 
+quickly finding the 
+services they need.
+The site fails to provide 
+users with personalized 
+content or dashboard 
+views, which could help 
+them quickly access their 
+most used services.
+The homepage is 
+cluttered with excessive 
+information, making it 
+difficult for users to focus 
+on their primary goals.
+The website’s design and 
+typography are outdated, 
+affecting readability and 
+overall aesthetics.
+User Interface
+New Better PNB
+Problem Statement
+PNB's banking website is difficult to navigate, with complex menus and a cluttered homepage 
+that frustrate users trying to complete tasks like fund transfers, bill payments, and account 
+management. The lack of personalization and outdated design further complicates the user 
+experience, especially for mobile users. These issues lead to inefficiency, user frustration, and a 
+negative impact on customer retention.
+
+This case study seeks to improve the website’s usability by addressing navigation, information 
+overload, and visual design, ultimately enhancing the overall user experience.
+Designing Process
+DISCOVERY
+Primary & Secondary Research
+In this step, we conducted Primary 
+Research  and secondary Research to 
+understand the User perspective on PNB 
+current website. What are the key 
+challenges faced by them by conducting 
+surveys  and interviews , allowing us ti 
+identify key problem statements and 
+articulate the challenges faced by users.
+STEP 01
+IDEATION
+HMW  & Solutions
+In this step, we defined solutions that 
+provided 
+an 
+overarching 
+overview, 
+emphasizing 
+improvements 
+in 
+two 
+specific user flows: the visibility of 
+important features and the Redesign UI 
+with consistent and softer color palettes, 
+utilizing the How Might We (HMW) 
+method. This targeted approach aims to 
+enhance usability and user experience 
+within these key interactions.
+STEP 02
+IMPLEMENTATION
+W ireframe & UI
+In this step, we established the visual 
+direction and utilized this guide to create 
+wireframes and user interfaces that align 
+with the design system. This approach 
+culminated in the development of a 
+functional prototype, ensuring a cohesive 
+and user-centered design that effectively 
+addresses the identified challenges.
+STEP 03
+Interview Questions
+Q1. Was the log in successful  during your last visit to PNB website?
+Q2. How user friendly did the navigation feel after going through the site ?﻿
+Q3. How visually clear and well-organized did the page/app appear?﻿
+Q4. How did you feel about the website's mobile responsiveness?﻿
+Q5. How likely would you be to recommend PNB’s website/app based on your experience?﻿
+Q6. What was the single most frustrating part of your last visit to PNB’s platform?﻿
+Demographics
+Personality 
+Introvert 
+Extrovert
+Intuition 
+Sensing
+Feelings
+Thinking
+Judging 
+Perceiving 
+Technology 
+Mobile Apps
+Social Media 
+PC
+Technology
+Challenges
+U nclear icons and too many options on homepage.
+Difficult to find frequently used services.
+Small text and cluttered design confuse him.
+Often needs help from family to complete tasks.
+As a small business owner who isn’t tech-savvy, I want to manage my 
+banking quickly and without confusion, so I can focus on my business 
+instead of struggling with the site
+Goals
+E asily access balance and transaction history﻿
+Make fund transfers without external help﻿
+Understand icons and menu options clearly﻿
+Navigate without clicking wrong buttons﻿
+Feel confident in using the bank's website on his own﻿
+Ramesh Verma
+Age: 56 | Married
+Small Business Owner | Patiala, Punjab 
+As a student who’s always on the go, I want to do quick transactions on 
+my mobile without glitches, so I can save time and avoid frustration.
+Goals
+Perform fast UPI transfers﻿
+View mini statements and balances quickly﻿
+Use mobile site without needing zoom﻿
+Complete tasks in 2–3 taps﻿
+Feel modern, efficient digital experience
+Aditi Mehra
+Age: 20 | Single
+Undergraduate Student | Delhi, India 
+Personality 
+Introvert 
+Extrovert
+Intuition 
+Sensing
+Feelings
+Thinking
+Judging 
+Perceiving 
+Technology 
+Mobile Apps
+Social Media 
+PC
+Technology
+Challenges
+W ebsite not optimized for mobile screens﻿
+Touch targets (buttons/icons) are too small﻿
+Slow load time and freezing elements﻿
+Broken links or redirections
+User Journey Map
+Stage
+Action
+Feeling
+Pain Point
+Homepage 
+User open PNB’s website on laptop
+Neutral/ slightly impatient
+Homepage, navigation bar.
+Searching for Login
+They look around for the net banking 
+login area
+Annoyed / frustrated
+Login buttons, popups
+Login Process
+Users try logging in  (some succeed 
+smoothly, others retry.)
+Tensed 
+Login from, CAPTCHA, loading 
+speed
+Using Services
+Access account summary, check 
+statements, etc.
+Confident / Independent
+Account dashboard, quick view
+Completing a task
+Make a payment, download 
+statement, etc.
+Nervous → Accomplished
+Payment module, statement view
+Typography
+Outfit
+Classic and 
+Geometric 
+Outfit is a variable font family 
+carefully crafted & designed for 
+computer screens.
+Aa
+ABCDEFGHIJKLMNO
+PQRSTYUVWXYZ
+Color Palette
+HEX #AF2A30
+HEX #FFF1D3
+HEX #C00000
+HEX #FDBD30
+HEX #FFA7A8
+THANKYOU !
+THANKYOU !
+
+=======================================================
+=== PDF: Discord product teardown by Lakshay.pdf ===
+=======================================================
+Total Pages: 11
+
+--- Page 1 ---
+
+
+--- Page 2 ---
+
+
+--- Page 3 ---
+
+
+--- Page 4 ---
+Harshit Aggarwal
+Casual Gamer & Student
+Age: 19
+
+--- Page 5 ---
+
+
+--- Page 6 ---
+
+
+--- Page 7 ---
+Quick Win
+Major Projects
+Time Wasters
+Fill-ins
+
+--- Page 8 ---
+
+
+--- Page 9 ---
+
+
+--- Page 10 ---
+
+
+--- Page 11 ---
+Discord Teardown
+Thank You!
+For reading this product teardown on improving Discord for new  users!
+✓ Restart Presentation
+
+=======================================================
+=== PDF: Domino_s product teardown by Lakshay.pdf ===
+=======================================================
+Total Pages: 9
+
+--- Page 1 ---
+
+
+--- Page 2 ---
+
+
+--- Page 3 ---
+PACKAGING RATIONALE Slide 3/10
+STRATEGIC RATIONALE: WHY THE CHANGE?
+Deconstructing the strategic pivot to eco-friendly, stackable packaging designed for the modern
+delivery ecosystem. Our new initiative is driven by four key business objectives aimed at long-
+term growth.
+-30% PLASTIC
+SUSTAINABILITY FIRST
+Shifting to 100% recycled materials to
+reduce carbon footprint significantly.
+CARBON FOOTPRINT
+-12.5%
+-2% YoY
+Projected reduction FY 2023-2025
+PREMIUM
++15% HEAT
+PREVIOUS
+NEXT SLIDE
+PROJECTED ROI
++24%
+FY 2025-2026
+2X EFFICIENCY
+BRAND MODERNIZATION
+Elevating the brand perception from
+'fast food' to a 'premium dining
+experience'.
+HEAT RETENTION
+New corrugated structure retains heat
+15% longer during last-mile delivery.
+STACKABILITY
+Optimized box geometry fits perfectly
+in standard courier bags, doubling
+capacity.
+CUSTOMER SATISFACTION (NPS)
++8 Pts
++15% YoY
+Pre vs Post Launch Analysis
+Q1
+Q2
+Q3
+04
+OLD BOX
+NEW BOX
+
+--- Page 4 ---
+
+
+--- Page 5 ---
+USER PERSONA 01
+THE CONSCIOUS CRAVER
+Analyzing the typical interaction with sustainable packaging
+DEMOGRAPHICS
+• Location
+Seattle (Urban)
+TECH SAVVY
+HIGH FREQUENCY
+ORDERING HABITS
+FREQUENCY (3X/WEEK)
+LATE NIGHT
+Tech Savvy
+Early Adopter
+BASKET SIZE
+Aman Kapoor
+JUNIOR DEVELOPER, 26
+Income
+Middle-High
+Aman is a junior developer living in a metro
+area. He orders late-night food roughly 3x a
+week to fuel coding sessions. He values speed
+and hot food but is increasingly aware of his
+carbon footprint.
+KEY EXPECTATIONS
+Temperature: Food must be piping hot.
+ECO-CONCERNS
+Recyclability Importance
+High
+Very Often
+$35.00
+
+--- Page 6 ---
+
+
+--- Page 7 ---
+
+
+--- Page 8 ---
+
+
+--- Page 9 ---
+
+
+=======================================================
+=== PDF: Insta product teardown by Lakshay.pdf ===
+=======================================================
+Total Pages: 11
+
+--- Page 1 ---
+
+
+--- Page 2 ---
+
+
+--- Page 3 ---
+
+
+--- Page 4 ---
+
+
+--- Page 5 ---
+
+
+--- Page 6 ---
+
+
+--- Page 7 ---
+
+
+--- Page 8 ---
+
+
+--- Page 9 ---
+
+
+--- Page 10 ---
+
+
+--- Page 11 ---
+CONCLUSION
+We aimed to understand and improve the Instagram Reels experience to drive higher
+engagement and user retention, focusing on content creation and discovery. After a
+thorough product teardown, we identified critical areas for growth.
+Problems Identified:
+1. High friction for new creators to produce high-quality short-form video content.
+2. Limited discovery of original, niche content outside of viral trends.
+3. Lack of clear monetization pathways for emerging Reels creators.
+Solutions:
+1. Enhanced Reels Creation Suite with Al-powered editing tools and templates.
+2. Integrated 'Creators Fund' and better algorithmic matching for niche content discovery.

@@ -1,0 +1,19 @@
+{
+  "name": "lakshay-jain-portfolio",
+  "version": "1.0.0",
+  "description": "Product & UI/UX Design Portfolio of Lakshay Jain featuring teardowns and case studies.",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "product-design",
+    "ui-ux",
+    "portfolio",
+    "case-studies",
+    "product-teardown"
+  ],
+  "author": "Lakshay Jain",
+  "license": "MIT"
+}
