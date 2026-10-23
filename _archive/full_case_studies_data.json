@@ -1,0 +1,72 @@
+{
+  "show-me-the-money": {
+    "projectType": "Project Type",
+    "targetAudience": "Target Audience",
+    "timeframe": "Timeframe",
+    "problem": "Businesses often face challenges in understanding evolving salary trends and hiring patterns, which can hinder their ability to make informed, data-driven decisions.  Existing customers need fresh, insightful data to stay competitive, while new customers seek robust research tools to understand market dynamics. Without comprehensive analysis, companies may struggle to align their strategies with current corporate landscape trends.",
+    "images": [
+      "https://framerusercontent.com/images/g5KVRjBRFsmT99uhTbSd0YG9w.png",
+      "https://framerusercontent.com/images/RjddwP5s8UYE5YocYcjbPOzBzYg.png",
+      "https://framerusercontent.com/images/qjqcrU49O6gdzjURI715eVapRNY.png",
+      "https://framerusercontent.com/images/ytdMP227GFhEbbJptlLQ5geRw.png",
+      "https://framerusercontent.com/images/GMtqXqf2YwiddfUk2FqyrWWO9IU.png",
+      "https://framerusercontent.com/images/da0mzBZmSXNYxIi7zTNFyFKNcs0.png"
+    ]
+  },
+  "enterprise-readiness": {
+    "projectType": "Project Type",
+    "targetAudience": "Target Audience",
+    "timeframe": "Timeframe",
+    "problem": "As companies grow and evolve into large enterprises, their payroll systems often struggle to keep up with increased demands, leading to issues such as payroll errors, compliance challenges, and inefficient processes.Many enterprises in India are seeking advanced payroll solutions that can offer accuracy, scalability, and seamless integration with existing HR systems.",
+    "images": [
+      "https://framerusercontent.com/images/6vb2fedKjZ30OuOF0d7pKyKP8.svg",
+      "https://framerusercontent.com/images/9FjW17qE7Kkfk5Jyl0LBeEKdA.svg",
+      "https://framerusercontent.com/images/XytG8JmwkXGxemOLdVPup3WpGt0.png",
+      "https://framerusercontent.com/images/xGC69A1DxUHyR2xVkE1NUOJq8C8.png",
+      "https://framerusercontent.com/images/yKFJYHVJL99wosMCKdU1tHIBQo.png",
+      "https://framerusercontent.com/images/WzAL5W8WbHhxuf47HIAeHEYpqs.png"
+    ]
+  },
+  "ca-founder-collab": {
+    "projectType": "Project Type",
+    "targetAudience": "Target Audience",
+    "timeframe": "Timeframe",
+    "problem": "Many Founders and Chartered Accountants are unaware of the inefficiencies and challenges in their current collaboration process (If they are aware, they believe there is no better method available). Traditional practices often lead to miscommunication, incomplete data sharing, and administrative bottlenecks.",
+    "images": [
+      "https://framerusercontent.com/images/cvqQSjDSnDnnuUHr7246xSUYfN0.png",
+      "https://framerusercontent.com/images/i4MG0UAmoHGUFgqT3tBjzGfKPJM.png",
+      "https://framerusercontent.com/images/oXIdNsLxSbC9lRhm7weqiJZOctc.png",
+      "https://framerusercontent.com/images/BDGiUBxTsJjks5pZVMchO3c4OQ.png",
+      "https://framerusercontent.com/images/OUHHQ9VWngLuuP6kpuwwOCbow.png",
+      "https://framerusercontent.com/images/3FOR4CLF2I6h03xjfUXkKGn816U.png"
+    ]
+  },
+  "custom-access-controls": {
+    "projectType": "Project Type",
+    "targetAudience": "Target Audience",
+    "timeframe": "Timeframe",
+    "problem": "Startups often struggle with managing and delegating financial tasks effectively due to concerns about privacy, control, and security.The lack of customisable access and approval workflows can lead to inefficiencies and potential risks, making it challenging to ensure that only the right people have access to sensitive financial information and that approvals are in place.",
+    "images": [
+      "https://framerusercontent.com/images/l893r9pwCZ0bbZBreLVc7Sz76ZU.png",
+      "https://framerusercontent.com/images/HLNXJ9xZe6TqHL0FbSiZy13GvE.svg",
+      "https://framerusercontent.com/images/yfb4KMewFtLxqnmeNHHFZMong.png",
+      "https://framerusercontent.com/images/W1eHgCXCoDG9o1EdQIpymcRw6U.png",
+      "https://framerusercontent.com/images/H08TH8bPdrvF2DzFL1RDeVLmAMM.png",
+      "https://framerusercontent.com/images/DRdzztXnVo51NLTTC1BHCjdKHG8.png"
+    ]
+  },
+  "you-are-okay": {
+    "projectType": "Project Type",
+    "targetAudience": "Target Audience",
+    "timeframe": "Timeframe",
+    "problem": "Anxiety, worry, and stress are prevalent mental health issues among teenagers, impacting their daily lives and overall well-being. Despite the availability of various psychological treatments, many teens struggle to find accessible and effective self-help tools that allow them to manage their anxiety independently.",
+    "images": [
+      "https://framerusercontent.com/images/SHeO9oDajrofd5foo4IFT4ZEEVA.png",
+      "https://framerusercontent.com/images/O62O8h2jOzC4ofjrjLL1kQ3MN98.png",
+      "https://framerusercontent.com/images/0Cncw0QLK5peyPmchGXk09XtgE.png",
+      "https://framerusercontent.com/images/iiYizBml6OFyx7M8SvF80VUKKaQ.png",
+      "https://framerusercontent.com/images/vFZ9FxKTMHBDarcvPES4fdjM.png",
+      "https://framerusercontent.com/images/ZKQwfT6wpD5ByBGBed85hS2VmE.png"
+    ]
+  }
+}
