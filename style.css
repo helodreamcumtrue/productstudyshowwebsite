@@ -1166,23 +1166,6 @@ button {
   color: var(--theme-primary-light);
 }
 
-.framer-badge-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 0.2s ease;
-}
-
-.framer-badge-pill:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-}
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
