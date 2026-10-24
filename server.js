@@ -25,12 +25,18 @@ const MIME_TYPES = {
 const ROUTE_MAP = {
   '/': 'index.html',
   '/about': 'framer_pages_transformed/about.html',
-  '/enterprise-readiness': 'framer_pages_transformed/enterprise-readiness.html',
-  '/show-me-the-money': 'framer_pages_transformed/show-me-the-money.html',
-  '/you-are-okay': 'framer_pages_transformed/you-are-okay.html',
-  '/ca-founder-collab': 'framer_pages_transformed/ca-founder-collab.html',
+  // Canonical semantic routes
+  '/pnb-website-redesign': 'framer_pages_transformed/8club-onboarding-video.html',
+  '/improving-discord-new-users': 'framer_pages_transformed/show-me-the-money.html',
+  '/dominos-packaging-redesign': 'framer_pages_transformed/enterprise-readiness.html',
+  '/instagram-reels-experience': 'framer_pages_transformed/ca-founder-collab.html',
+  // Framer template legacy aliases
   '/8club-onboarding-video': 'framer_pages_transformed/8club-onboarding-video.html',
-  '/custom-access-controls': 'framer_pages_transformed/custom-access-controls.html'
+  '/show-me-the-money': 'framer_pages_transformed/show-me-the-money.html',
+  '/enterprise-readiness': 'framer_pages_transformed/enterprise-readiness.html',
+  '/ca-founder-collab': 'framer_pages_transformed/ca-founder-collab.html',
+  '/custom-access-controls': 'framer_pages_transformed/ca-founder-collab.html',
+  '/you-are-okay': 'framer_pages_transformed/show-me-the-money.html'
 };
 
 const server = http.createServer((req, res) => {

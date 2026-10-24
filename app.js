@@ -5,24 +5,97 @@
 
 const PROJECTS_DATA = [
   {
-    id: "8club-onboarding-video",
-    title: "New Better PNB - UI/UX Case Study",
-    tags: ["UI/UX Design", "Design System", "Accessibility"],
+    id: "dominos-packaging-redesign",
+    legacyId: "enterprise-readiness",
+    title: "Domino's New Packaging: A Strategic Redesign",
+    tags: ["Product Teardown", "Sustainability", "Systems Design"],
+    thumbnail: "/assets/case_dominos_thumb.png",
+    pdfUrl: "/Domino_s product teardown by Lakshay.pdf",
+    shortDesc: "A strategic redesign deconstructing thermal thermodynamics, eco-accountability, and supply-chain stackability across 1,500+ franchise locations.",
+    projectType: "Product Teardown, Systems UX & Packaging Strategy",
+    targetAudience: "Eco-Conscious Cravers & Last-Mile Delivery Fleets",
+    timeframe: "3 Weeks",
+    client: "Product Strategy Teardown",
+    problem: "Why the legacy box failed: 1) Thermodynamics - 40% heat loss within 15 minutes due to standard uninsulated corrugated cardboard; 2) Sustainability - 30% of legacy boxes rendered unrecyclable due to oil and grease saturation; 3) Structural Integrity - weak sidewalls caused crushing beyond 3 stacked boxes during rush delivery periods.",
+    approach: "Strategic pivot across 4 core business pillars: 1) Sustainability First (-30% plastic, shifting to 100% recycled materials); 2) Heat Retention (+15% longer thermal holding with corrugated air pockets); 3) Stackability (doubled courier bag density); 4) Brand Modernization (bi-color minimalist aesthetic inspired by tech-first unboxing). Designed phased rollout across 1,500+ franchise locations.",
+    responsibilities: "Thermodynamic heat loss deconstruction, material recyclability analysis, user persona modeling (Aman Kapoor, Junior Developer), operational ROI analysis, sustainability metrics, and unboxing UX.",
+    details: [
+      "Operational Results: 22% waste reduction in cardboard usage and 15% material cost savings.",
+      "Customer Sentiment: 4.8★ delivery rating (75% 5-star share, +14% vs old packaging).",
+      "Thermal Performance: +15 minutes longer optimal eating temperature after 20m delivery.",
+      "Sustainability Target: On track for 100% plastic-free packaging by 2025."
+    ],
+    images: [
+      "/assets/case_dominos_thumb.png",
+      "/assets/case_dominos_preview.png",
+      "/assets/slides/dominos/page_1.png",
+      "/assets/slides/dominos/page_2.png",
+      "/assets/slides/dominos/page_3.png",
+      "/assets/slides/dominos/page_4.png",
+      "/assets/slides/dominos/page_5.png",
+      "/assets/slides/dominos/page_6.png",
+      "/assets/slides/dominos/page_7.png",
+      "/assets/slides/dominos/page_8.png",
+      "/assets/slides/dominos/page_9.png"
+    ]
+  },
+  {
+    id: "instagram-reels-experience",
+    legacyId: "ca-founder-collab",
+    title: "Improving the Reels Experience on Instagram",
+    tags: ["Product Teardown", "Growth Strategy", "Mobile UX", "Creator Economy"],
+    thumbnail: "/assets/case_insta_thumb.png",
+    pdfUrl: "/Insta product teardown by Lakshay.pdf",
+    shortDesc: "Analyzing creator fatigue and algorithmic discovery on Instagram Reels, proposing collaborative co-creation flows and in-camera editing suites.",
+    projectType: "Product Teardown, Feature Design & Creator Strategy",
+    targetAudience: "Content Creators, Viewers & Emerging Influencers",
+    timeframe: "3 Weeks",
+    client: "Product Teardown (Instagram)",
+    problem: "Instagram Reels drives 200B+ daily plays, yet creators face high friction: 1) Content discovery fatigue from repetitive algorithm suggestions; 2) Intense pressure to perform with unpredictable reach; 3) Clunky built-in editing tools compared to dedicated tools, forcing creators to edit off-platform.",
+    approach: "Mapped the full Reels user journey from consumption to creation. Used RICE scoring to prioritize solutions: 1) Enhanced In-Camera Editing Suite with timeline trimming, multi-track audio mixing, and AI effect overlays; 2) Collaborative Reels enabling multiple co-creators to stitch clips into a single shared post with dual-attribution.",
+    responsibilities: "Product analytics teardown, user journey mapping, persona synthesis (Maya Singh, 22), RICE feature scoring, and high-fidelity mobile prototype design.",
+    details: [
+      "Key Equation: Engagement = Watch Time x Creator Follows x No. of Sessions.",
+      "Solution 1: In-Camera Editing Studio with multi-track audio, precise timeline trimming, and effect overlays.",
+      "Solution 2: Collaborative Reels with dual profile posting and shared attribution.",
+      "Scale: Serves 2B+ MAU, 200B+ daily plays across 140+ countries."
+    ],
+    images: [
+      "/assets/case_insta_thumb.png",
+      "/assets/case_insta_preview.png",
+      "/assets/slides/insta/page_1.png",
+      "/assets/slides/insta/page_2.png",
+      "/assets/slides/insta/page_3.png",
+      "/assets/slides/insta/page_4.png",
+      "/assets/slides/insta/page_5.png",
+      "/assets/slides/insta/page_6.png",
+      "/assets/slides/insta/page_7.png",
+      "/assets/slides/insta/page_8.png",
+      "/assets/slides/insta/page_9.png",
+      "/assets/slides/insta/page_10.png",
+      "/assets/slides/insta/page_11.png"
+    ]
+  },
+  {
+    id: "pnb-website-redesign",
+    legacyId: "8club-onboarding-video",
+    title: "UI/UX Case Study: PNB Website Redesign",
+    tags: ["UI/UX Design", "Design System", "Accessibility", "Fintech"],
     thumbnail: "/assets/case_pnb_thumb.png",
     pdfUrl: "/PNB Redesign by Lakshay.pdf",
     shortDesc: "A complete usability redesign of Punjab National Bank’s digital experience, resolving navigation clutter and reducing transaction friction by 40%.",
-    projectType: "UI/UX Case Study, Banking Redesign",
+    projectType: "UI/UX Case Study, Banking Redesign (2025)",
     targetAudience: "50M+ Retail Banking Customers, Senior Citizens & Youth",
     timeframe: "4 Weeks",
-    client: "Punjab National Bank (Redesign)",
+    client: "Punjab National Bank (Redesign by Himani & Lakshay)",
     problem: "PNB's banking website is difficult to navigate, with complex menus and a cluttered homepage that frustrate users trying to complete tasks like fund transfers, bill payments, and account management. The lack of personalization and outdated design further complicates the user experience, especially for mobile users. These issues lead to inefficiency, user frustration, and a negative impact on customer retention.",
-    approach: "Discovery: Primary & secondary user interviews uncovering key friction points for elder demographics (Ramesh Verma, 56) and mobile-first students (Aditi Mehra, 20). Ideation: Formulated How-Might-We (HMW) frameworks, simplified 2-step UPI transfers, and designed a softer, accessible high-contrast palette (HEX #AF2A30, #FFF1D3, #C00000, #FDBD30). Implementation: Built a complete design system with Outfit variable typography and interactive prototypes.",
+    approach: "Followed a 3-step design process: 1) DISCOVERY: Conducted primary & secondary research via user surveys and interviews uncovering acute friction for elders and mobile youth; 2) IDEATION: Formulated How-Might-We (HMW) frameworks, simplified 2-step UPI transfers, and designed a softer, accessible high-contrast palette; 3) IMPLEMENTATION: Built an Outfit-based design system and interactive high-fidelity prototypes.",
     responsibilities: "User research, persona development, information architecture, wireframing, high-contrast design tokens, interactive prototyping, and usability benchmarking.",
     details: [
       "Key Result: Task completion time reduced by 40% in user testing.",
       "Error Reduction: 65% drop in transaction drop-offs and input errors.",
-      "Typography & Colors: Outfit modern geometric typeface with accessible bank-heritage tones.",
-      "Personas Addressed: Ramesh Verma (simplified non-glitchy transfers) & Aditi Mehra (2-3 tap quick UPI)."
+      "Typography & Colors: Outfit modern geometric typeface with bank-heritage tones (#AF2A30, #FFF1D3, #C00000).",
+      "User Journey: Optimized Homepage -> Login -> Using Services -> Completing a Task."
     ],
     images: [
       "/assets/case_pnb_thumb.png",
@@ -31,7 +104,8 @@ const PROJECTS_DATA = [
     ]
   },
   {
-    id: "show-me-the-money",
+    id: "improving-discord-new-users",
+    legacyId: "show-me-the-money",
     title: "Improving Discord for New Users",
     tags: ["Product Strategy", "UX Research", "FTUX & Retention"],
     thumbnail: "/assets/case_discord_thumb.png",
@@ -48,117 +122,22 @@ const PROJECTS_DATA = [
       "Projected Impact: +20% Day-1 Retention and +35% increase in first-week engagement.",
       "Solution 1: Interactive Guided Tours replacing empty states with role-based setup (+15% retention, 2.5x speed).",
       "Solution 2: Guided Discovery 'Curating the Chaos' helping users find top communities in under 3 clicks.",
-      "Persona: Harshit Aggarwal (19, Casual Gamer & Student) - Overwhelmed by server hierarchy."
+      "Scale: 150M+ Monthly Active Users, 19M+ Active Servers, 4B min/day conversation volume."
     ],
     images: [
       "/assets/case_discord_thumb.png",
       "/assets/case_discord_preview.png",
       "/assets/slides/discord/page_1.png",
+      "/assets/slides/discord/page_2.png",
+      "/assets/slides/discord/page_3.png",
       "/assets/slides/discord/page_4.png",
+      "/assets/slides/discord/page_5.png",
+      "/assets/slides/discord/page_6.png",
       "/assets/slides/discord/page_7.png",
+      "/assets/slides/discord/page_8.png",
+      "/assets/slides/discord/page_9.png",
+      "/assets/slides/discord/page_10.png",
       "/assets/slides/discord/page_11.png"
-    ]
-  },
-  {
-    id: "enterprise-readiness",
-    title: "Domino's New Packaging Redesign",
-    tags: ["Product Teardown", "Sustainability", "Systems Design"],
-    thumbnail: "/assets/case_dominos_thumb.png",
-    pdfUrl: "/Domino_s product teardown by Lakshay.pdf",
-    shortDesc: "A strategic redesign deconstructing thermal thermodynamics, eco-accountability, and supply-chain stackability across 1,500+ franchise locations.",
-    projectType: "Product & Packaging Strategy, Operations UX",
-    targetAudience: "Eco-Conscious Cravers & Last-Mile Delivery Fleets",
-    timeframe: "3 Weeks",
-    client: "Product Strategy Teardown",
-    problem: "Why the old pizza box failed: 1) Thermodynamics - 40% heat loss within 15 minutes due to standard uninsulated corrugated cardboard; 2) Sustainability - 30% of legacy boxes rendered unrecyclable due to oil grease saturation; 3) Structural Integrity - weak sidewalls caused crushing beyond 3 stacked boxes during rush deliveries.",
-    approach: "Strategic pivot across 4 core business pillars: 1) Sustainability First (-30% plastic, -12.5% carbon footprint); 2) Heat Retention (+15% longer thermal holding with corrugated air pockets); 3) Stackability (doubled courier bag density); 4) Brand Modernization (bi-color minimalist aesthetic inspired by tech-first unboxing). Designed phased rollout across 1,500+ franchise locations.",
-    responsibilities: "Strategic rationale decomposition, user persona modeling (Aman Kapoor, Junior Developer), operational ROI analysis, sustainability metrics, and unboxing UX.",
-    details: [
-      "Operational Results: 22% waste reduction in cardboard usage and 15% material cost savings.",
-      "Customer Sentiment: +8 Pts NPS post-launch customer satisfaction rating.",
-      "Rollout Plan: Phased transition from Tier-1 pilots (98% positive) to nationwide supply chain deployment.",
-      "Persona: Aman Kapoor (Junior Developer) - Demands piping hot food with zero wasteful plastic."
-    ],
-    images: [
-      "/assets/case_dominos_thumb.png",
-      "/assets/case_dominos_preview.png",
-      "/assets/slides/dominos/page_1.png",
-      "/assets/slides/dominos/page_3.png",
-      "/assets/slides/dominos/page_5.png",
-      "/assets/slides/dominos/page_9.png"
-    ]
-  },
-  {
-    id: "ca-founder-collab",
-    title: "Improving the Reels Experience on Instagram",
-    tags: ["Growth Strategy", "Mobile UX", "Creator Economy"],
-    thumbnail: "/assets/case_insta_thumb.png",
-    pdfUrl: "/Insta product teardown by Lakshay.pdf",
-    shortDesc: "Analyzing creator fatigue and algorithmic discovery on Instagram Reels, proposing collaborative co-creation flows and in-camera editing suites.",
-    projectType: "Product Teardown, Feature Design & Creator Strategy",
-    targetAudience: "Content Creators, Viewers & Emerging Influencers",
-    timeframe: "3 Weeks",
-    client: "Product Teardown (Instagram)",
-    problem: "Instagram Reels drives 200B+ daily plays, yet creators face high friction: 1) Content discovery fatigue from repetitive algorithm suggestions; 2) Intense pressure to perform with unpredictable reach; 3) Clunky built-in editing tools compared to dedicated tools, forcing creators to edit off-platform.",
-    approach: "Mapped the full Reels user journey from consumption to creation. Used RICE scoring to prioritize solutions: 1) Enhanced In-Camera Editing Suite with timeline trimming, multi-track audio mixing, and AI effect overlays; 2) Collaborative Reels enabling multiple co-creators to stitch clips into a single shared post with dual-attribution.",
-    responsibilities: "Product analytics teardown, user journey mapping, persona synthesis (Maya Singh, 22), RICE feature scoring, and high-fidelity mobile prototype design.",
-    details: [
-      "Strategic Solutions: Integrated In-Camera Studio & Collaborative Co-Creation posting.",
-      "Success Metrics: Tracked creation attempts, session duration, daily active users, and share frequency.",
-      "Outcome: Solved creator friction while elevating niche creator discovery beyond viral trends.",
-      "Persona: Maya Singh (22, Tech & Lifestyle Creator) - 45% faster publishing workflow."
-    ],
-    images: [
-      "/assets/case_insta_thumb.png",
-      "/assets/case_insta_preview.png",
-      "/assets/slides/insta/page_1.png",
-      "/assets/slides/insta/page_4.png",
-      "/assets/slides/insta/page_7.png",
-      "/assets/slides/insta/page_11.png"
-    ]
-  },
-  {
-    id: "custom-access-controls",
-    title: "ArtiApply - AI Cold Outreach SaaS",
-    tags: ["SaaS Product", "AI Workflow", "Full-Stack Design"],
-    thumbnail: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=921",
-    shortDesc: "An automated outreach engine featuring BullMQ queue rate-limiting, Gmail API integration, and real-time deliverability analytics.",
-    projectType: "SaaS Product Design, AI Prompt Pipelines, Frontend Architecture",
-    targetAudience: "Founders, Freelancers & Sales Development Reps",
-    timeframe: "4 Weeks",
-    client: "ArtiApply SaaS (Founder)",
-    problem: "Manual cold outreach is slow, generic email templates generate dismal open rates, and conventional tools lack transparent deliverability monitoring, resulting in burned domain reputations and lost business opportunities.",
-    approach: "Designed and engineered an automated campaign cockpit featuring multi-step AI personalization pipelines, Gmail API rate-limiting via BullMQ worker queues, and live Supabase Realtime deliverability dashboards.",
-    responsibilities: "Product vision, system architecture, UX flow design, analytics dashboards, and frontend UI design.",
-    details: [
-      "Key Architecture: BullMQ queue management, Gmail API integration, Supabase Realtime, and Tailwind design system.",
-      "Key Result: Achieved 3x higher response rates compared to generic template campaigns.",
-      "Domain Safety: 100% domain reputation safety preserved across 50,000+ outreach messages."
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=1200"
-    ]
-  },
-  {
-    id: "you-are-okay",
-    title: "Laundify - Campus Service App",
-    tags: ["Product Design", "Mobile App", "IoT Companion"],
-    thumbnail: "https://images.unsplash.com/photo-1545173153-5dd736fb688a?auto=format&fit=crop&q=80&w=921",
-    shortDesc: "An on-demand laundry reservation system for student residences featuring live machine telemetry, push notifications, and frictionless digital payments.",
-    projectType: "Product Design, Mobile UI/UX, IoT Companion",
-    targetAudience: "University Students & Hostel Residents",
-    timeframe: "3 Weeks",
-    client: "Campus Product Initiative",
-    problem: "Hostel students experience extreme scheduling friction with zero visibility into washer availability, resulting in long queues, wasted study time, and lost garments.",
-    approach: "Designed an IoT-synced mobile companion that provides live machine status countdowns, automated push alerts when cycles complete, and unified in-app QR payments.",
-    responsibilities: "Product conceptualization, mobile UI workflows, service blueprinting, prototype animation, and user testing with 100+ campus students.",
-    details: [
-      "Objective: Eliminate physical queues and provide transparent machine availability.",
-      "Key Features: Real-time telemetry, automated slot reservations, and campus wallet integration.",
-      "Student Adoption: 85% voluntary adoption rate among surveyed student residents in pilot dormitories."
-    ],
-    images: [
-      "https://images.unsplash.com/photo-1545173153-5dd736fb688a?auto=format&fit=crop&q=80&w=1200"
     ]
   }
 ];
@@ -258,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <span>Open / Download Full PDF Presentation</span>
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
             </a>
-            <a href="/${proj.id}" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 13px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px;">
+            <a href="/${proj.legacyId || proj.id}" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); color: #fff; padding: 13px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 14px;">
               <span>View Full Interactive Page ↗</span>
             </a>
           </div>
