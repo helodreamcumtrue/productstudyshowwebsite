@@ -1,18 +1,39 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Improving Discord for New Users | Lakshay Jain</title>
-  <meta name="description" content="Product teardown on improving Discord for new users using RICE prioritization to solve Day-1 drop-off, cognitive overload, and empty-state anxiety by Lakshay Jain.">
+  <meta name="description"
+    content="Product teardown on improving Discord for new users using RICE prioritization to solve Day-1 drop-off, cognitive overload, and empty-state anxiety by Lakshay Jain.">
   <link rel="icon" href="/assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&display=swap"
+    rel="stylesheet">
   <style>
-    @font-face { font-family: "Nohemi Regular"; src: url("https://framerusercontent.com/assets/gUKaBPeGXCgSGh6WIpIZw.woff2") format("woff2"); font-display: swap; font-weight: 400; }
-    @font-face { font-family: "Nohemi Medium"; src: url("https://framerusercontent.com/assets/FXAwv2Ajdmiki57RVQMf7f0.woff2") format("woff2"); font-display: swap; font-weight: 500; }
-    @font-face { font-family: "Nohemi Semi Bold"; src: url("https://framerusercontent.com/assets/zMyxuKSUFfznuy40AriVArKgy8.woff2") format("woff2"); font-display: swap; font-weight: 600; }
+    @font-face {
+      font-family: "Nohemi Regular";
+      src: url("https://framerusercontent.com/assets/gUKaBPeGXCgSGh6WIpIZw.woff2") format("woff2");
+      font-display: swap;
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: "Nohemi Medium";
+      src: url("https://framerusercontent.com/assets/FXAwv2Ajdmiki57RVQMf7f0.woff2") format("woff2");
+      font-display: swap;
+      font-weight: 500;
+    }
+
+    @font-face {
+      font-family: "Nohemi Semi Bold";
+      src: url("https://framerusercontent.com/assets/zMyxuKSUFfznuy40AriVArKgy8.woff2") format("woff2");
+      font-display: swap;
+      font-weight: 600;
+    }
 
     :root {
       --accent-color: #7c3aed;
@@ -29,8 +50,16 @@
       --dark-bg: #13110d;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--surface);
@@ -40,8 +69,15 @@
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    img { display: block; max-width: 100%; }
-    a { color: inherit; }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
 
     /* TOP NAVBAR */
     .top-nav {
@@ -53,6 +89,7 @@
       gap: 28px;
       background: #fff;
     }
+
     .nav-link {
       position: relative;
       display: inline-flex;
@@ -67,7 +104,11 @@
       padding: 4px 2px;
       transition: color 0.2s ease;
     }
-    .nav-link:hover { color: var(--accent-color); }
+
+    .nav-link:hover {
+      color: var(--accent-color);
+    }
+
     .nav-squiggle {
       width: 100%;
       max-width: 72px;
@@ -76,8 +117,17 @@
       transform: translateY(2px);
       transition: opacity 0.2s ease, transform 0.2s ease;
     }
-    .nav-link:hover .nav-squiggle { opacity: 1; transform: translateY(0); }
-    .nav-spiral { width: 24px; height: 28px; flex-shrink: 0; }
+
+    .nav-link:hover .nav-squiggle {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .nav-spiral {
+      width: 24px;
+      height: 28px;
+      flex-shrink: 0;
+    }
 
     /* HERO SCRAPBOOK CARD */
     .hero-wrap {
@@ -85,12 +135,14 @@
       margin: 0 auto;
       padding: 12px 32px 0;
     }
+
     .hero-card {
       border-radius: 20px;
       overflow: hidden;
       box-shadow: 0 24px 60px rgba(20, 18, 14, 0.10);
       background: #141312;
     }
+
     .hero-stage {
       position: relative;
       min-height: 540px;
@@ -106,6 +158,7 @@
       color: #fffef9;
       overflow: hidden;
     }
+
     .hero-stage::before {
       content: "";
       position: absolute;
@@ -114,6 +167,7 @@
       pointer-events: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
     }
+
     .hero-sparkle {
       position: absolute;
       color: #fff8ea;
@@ -121,11 +175,32 @@
       opacity: 0.85;
       z-index: 1;
     }
-    .hero-sparkle.s1 { top: 22px; left: 45%; width: 32px; }
-    .hero-sparkle.s2 { bottom: 28px; left: 10%; width: 22px; opacity: 0.65; }
-    .hero-sparkle.s3 { bottom: 38px; right: 4%; width: 28px; opacity: 0.75; }
 
-    .hero-left { position: relative; z-index: 2; }
+    .hero-sparkle.s1 {
+      top: 22px;
+      left: 45%;
+      width: 32px;
+    }
+
+    .hero-sparkle.s2 {
+      bottom: 28px;
+      left: 10%;
+      width: 22px;
+      opacity: 0.65;
+    }
+
+    .hero-sparkle.s3 {
+      bottom: 38px;
+      right: 4%;
+      width: 28px;
+      opacity: 0.75;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+    }
+
     .hero-kicker {
       display: inline-block;
       font-family: "Inter", sans-serif;
@@ -136,6 +211,7 @@
       color: rgba(255, 254, 249, 0.78);
       margin-bottom: 14px;
     }
+
     .hero-title {
       margin: 0 0 18px;
       font-family: "Nohemi Medium", "Nohemi Semi Bold", sans-serif;
@@ -145,6 +221,7 @@
       letter-spacing: -0.02em;
       color: #ffffff;
     }
+
     .hero-sub {
       margin: 0 0 26px;
       font-size: 16.5px;
@@ -152,6 +229,7 @@
       max-width: 500px;
       line-height: 1.6;
     }
+
     .hero-handnote {
       display: inline-flex;
       align-items: center;
@@ -171,6 +249,7 @@
       align-items: center;
       justify-content: center;
     }
+
     .collage-card {
       position: absolute;
       background: #fff;
@@ -179,7 +258,11 @@
       box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
       transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .collage-card:hover { z-index: 10; }
+
+    .collage-card:hover {
+      z-index: 10;
+    }
+
     .collage-tape {
       position: absolute;
       top: -13px;
@@ -193,6 +276,7 @@
       border-right: 1px dashed rgba(255, 255, 255, 0.5);
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
     }
+
     .collage-main {
       width: 315px;
       top: 12px;
@@ -200,7 +284,11 @@
       transform: rotate(3.2deg);
       z-index: 2;
     }
-    .collage-main:hover { transform: rotate(1deg) scale(1.03); }
+
+    .collage-main:hover {
+      transform: rotate(1deg) scale(1.03);
+    }
+
     .collage-main img {
       width: 100%;
       height: 230px;
@@ -208,6 +296,7 @@
       border-radius: 3px;
       background: #141326;
     }
+
     .collage-caption {
       margin-top: 8px;
       font-family: "Indie Flower", cursive;
@@ -215,6 +304,7 @@
       color: #222;
       text-align: center;
     }
+
     .collage-tour {
       width: 245px;
       bottom: 12px;
@@ -223,7 +313,11 @@
       z-index: 3;
       padding: 8px 8px 10px;
     }
-    .collage-tour:hover { transform: rotate(-1.5deg) scale(1.03); }
+
+    .collage-tour:hover {
+      transform: rotate(-1.5deg) scale(1.03);
+    }
+
     .collage-tour img {
       width: 100%;
       height: 155px;
@@ -231,6 +325,7 @@
       border-radius: 3px;
       background: #141326;
     }
+
     .collage-harshit {
       width: 112px;
       top: 14px;
@@ -239,7 +334,11 @@
       z-index: 4;
       padding: 7px 7px 10px;
     }
-    .collage-harshit:hover { transform: rotate(-2deg) scale(1.06); }
+
+    .collage-harshit:hover {
+      transform: rotate(-2deg) scale(1.06);
+    }
+
     .collage-harshit img {
       width: 100%;
       height: 98px;
@@ -247,6 +346,7 @@
       object-position: center 15%;
       border-radius: 3px;
     }
+
     .collage-ticket {
       position: absolute;
       top: 148px;
@@ -262,12 +362,14 @@
       text-align: center;
       font-family: "Nohemi Semi Bold", sans-serif;
     }
+
     .collage-ticket b {
       display: block;
       font-size: 19px;
       color: #b42318;
       line-height: 1.08;
     }
+
     .collage-ticket small {
       display: block;
       font-family: "Inter", sans-serif;
@@ -277,6 +379,7 @@
       text-transform: uppercase;
       margin-top: 2px;
     }
+
     .collage-sticker {
       position: absolute;
       bottom: 18px;
@@ -302,6 +405,7 @@
       color: var(--ink);
       transition: background 0.25s ease;
     }
+
     .hero-meta span {
       display: block;
       font-size: 12.5px;
@@ -311,6 +415,7 @@
       color: var(--mute);
       margin-bottom: 4px;
     }
+
     .hero-meta b {
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 16px;
@@ -324,6 +429,7 @@
       margin: 0 auto;
       padding: 84px 32px 0;
     }
+
     .section-kicker {
       font-family: "Inter", sans-serif;
       font-size: 12px;
@@ -334,6 +440,7 @@
       margin-bottom: 10px;
       display: block;
     }
+
     h2.editorial-h2 {
       margin: 0 0 20px;
       font-family: "Nohemi Medium", "Inter", sans-serif;
@@ -343,6 +450,7 @@
       letter-spacing: -0.02em;
       color: var(--ink);
     }
+
     h3.editorial-h3 {
       margin: 0 0 8px;
       font-family: "Nohemi Medium", "Inter", sans-serif;
@@ -350,6 +458,7 @@
       font-weight: 500;
       color: var(--ink);
     }
+
     .lead {
       font-size: 17.5px;
       line-height: 1.7;
@@ -359,10 +468,34 @@
     }
 
     /* Cards & Grids */
-    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 28px 0; }
-    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 26px 0; }
-    .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 26px 0; }
-    .stats5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin: 26px 0; }
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 28px 0;
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin: 26px 0;
+    }
+
+    .grid4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 26px 0;
+    }
+
+    .stats5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      margin: 26px 0;
+    }
+
     .funky-tile {
       background: #fff;
       border: 1.5px solid var(--line);
@@ -373,14 +506,35 @@
       flex-direction: column;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .funky-tile:hover {
       transform: translateY(-3px);
       box-shadow: 10px 10px 0 var(--accent-soft);
     }
-    .funky-tile p { margin: 0 0 14px; font-size: 14.5px; color: var(--mute); line-height: 1.58; }
-    .funky-tile ul { margin: 0; padding-left: 18px; font-size: 14.5px; color: var(--mute); }
-    .funky-tile li { margin: 8px 0; line-height: 1.55; }
-    .funky-tile li b { color: var(--ink); }
+
+    .funky-tile p {
+      margin: 0 0 14px;
+      font-size: 14.5px;
+      color: var(--mute);
+      line-height: 1.58;
+    }
+
+    .funky-tile ul {
+      margin: 0;
+      padding-left: 18px;
+      font-size: 14.5px;
+      color: var(--mute);
+    }
+
+    .funky-tile li {
+      margin: 8px 0;
+      line-height: 1.55;
+    }
+
+    .funky-tile li b {
+      color: var(--ink);
+    }
+
     .tile-tag {
       display: inline-block;
       align-self: flex-start;
@@ -394,8 +548,17 @@
       color: var(--accent-dark);
       margin-bottom: 10px;
     }
-    .tile-tag.warn { background: rgba(227, 24, 55, 0.12); color: #9a1028; }
-    .tile-tag.ok { background: rgba(5, 150, 105, 0.14); color: #065f46; }
+
+    .tile-tag.warn {
+      background: rgba(227, 24, 55, 0.12);
+      color: #9a1028;
+    }
+
+    .tile-tag.ok {
+      background: rgba(5, 150, 105, 0.14);
+      color: #065f46;
+    }
+
     .big-num {
       margin-top: auto;
       font-family: "Nohemi Semi Bold", sans-serif;
@@ -403,6 +566,7 @@
       color: var(--accent-color);
       line-height: 1.05;
     }
+
     .big-num small {
       display: block;
       font-family: "Inter", sans-serif;
@@ -422,6 +586,7 @@
       margin: 28px 0;
       box-shadow: 10px 10px 0 var(--accent-soft);
     }
+
     .insight-banner small {
       display: block;
       font-size: 11.5px;
@@ -431,6 +596,7 @@
       color: var(--accent-light);
       margin-bottom: 6px;
     }
+
     .insight-banner p {
       margin: 0;
       font-family: "Playfair Display", Georgia, serif;
@@ -441,7 +607,12 @@
     }
 
     /* Playfair Quotes */
-    .quote-block { position: relative; margin: 52px 0 32px; padding: 12px 0; }
+    .quote-block {
+      position: relative;
+      margin: 52px 0 32px;
+      padding: 12px 0;
+    }
+
     .playfair-quote {
       font-family: "Playfair Display", Georgia, serif;
       font-style: italic;
@@ -451,7 +622,14 @@
       margin: 0;
       max-width: 840px;
     }
-    .hl-circle { position: relative; display: inline-block; padding: 0 0.25em; font-style: italic; }
+
+    .hl-circle {
+      position: relative;
+      display: inline-block;
+      padding: 0 0.25em;
+      font-style: italic;
+    }
+
     .hl-circle::after {
       content: "";
       position: absolute;
@@ -461,9 +639,29 @@
       transform: rotate(-1.5deg);
       pointer-events: none;
     }
-    .hl-underline { position: relative; display: inline-block; padding-bottom: 0.14em; }
-    .hl-underline svg { position: absolute; left: 0; bottom: -4px; width: 100%; height: 10px; pointer-events: none; }
-    .quote-sparkle { position: absolute; right: 10px; top: -10px; width: 48px; color: var(--accent-color); }
+
+    .hl-underline {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.14em;
+    }
+
+    .hl-underline svg {
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 10px;
+      pointer-events: none;
+    }
+
+    .quote-sparkle {
+      position: absolute;
+      right: 10px;
+      top: -10px;
+      width: 48px;
+      color: var(--accent-color);
+    }
 
     /* Persona */
     .persona-shell {
@@ -473,6 +671,7 @@
       padding: 34px;
       margin-top: 22px;
     }
+
     .persona-top {
       display: grid;
       grid-template-columns: 150px 1fr;
@@ -482,6 +681,7 @@
       padding-bottom: 20px;
       border-bottom: 1.5px dashed rgba(0, 0, 0, 0.14);
     }
+
     .persona-polaroid {
       background: #fff;
       padding: 8px 8px 12px;
@@ -489,6 +689,7 @@
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
       transform: rotate(-2.5deg);
     }
+
     .persona-polaroid img {
       width: 134px;
       height: 154px;
@@ -496,8 +697,21 @@
       object-fit: cover;
       object-position: center 15%;
     }
-    .persona-meta h3 { margin: 0 0 4px; font-family: "Nohemi Semi Bold", sans-serif; font-size: 1.65rem; color: var(--ink); }
-    .persona-sub { font-size: 14.5px; color: var(--mute); margin-bottom: 12px; font-weight: 500; }
+
+    .persona-meta h3 {
+      margin: 0 0 4px;
+      font-family: "Nohemi Semi Bold", sans-serif;
+      font-size: 1.65rem;
+      color: var(--ink);
+    }
+
+    .persona-sub {
+      font-size: 14.5px;
+      color: var(--mute);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
     .persona-quote {
       margin: 0 0 14px;
       padding: 12px 18px;
@@ -509,7 +723,14 @@
       font-size: 1.08rem;
       color: var(--ink);
     }
-    .pill-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0;
+    }
+
     .funky-pill {
       display: inline-flex;
       align-items: center;
@@ -522,11 +743,13 @@
       font-weight: 600;
       color: var(--ink);
     }
+
     .funky-pill::before {
       content: "✦";
       font-size: 11px;
       color: var(--accent-color);
     }
+
     .motiv-bars {
       margin-top: 22px;
       background: rgba(255, 255, 255, 0.85);
@@ -534,6 +757,7 @@
       border-radius: 16px;
       padding: 20px 24px;
     }
+
     .motiv-row {
       display: grid;
       grid-template-columns: 115px 1fr 48px;
@@ -543,6 +767,7 @@
       font-weight: 600;
       margin: 10px 0;
     }
+
     .motiv-track {
       height: 11px;
       border-radius: 999px;
@@ -550,6 +775,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .motiv-track i {
       display: block;
       height: 100%;
@@ -565,6 +791,7 @@
       gap: 16px;
       margin: 26px 0;
     }
+
     .journey-card {
       background: #fff;
       border: 1.5px solid var(--line);
@@ -575,6 +802,7 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .journey-head {
       display: flex;
       align-items: center;
@@ -583,12 +811,17 @@
       padding-bottom: 10px;
       border-bottom: 1.5px dashed var(--line);
     }
+
     .journey-head strong {
       font-family: "Nohemi Semi Bold", sans-serif;
       font-size: 1.1rem;
       color: var(--ink);
     }
-    .journey-emo { font-size: 1.35rem; }
+
+    .journey-emo {
+      font-size: 1.35rem;
+    }
+
     .j-row small {
       display: block;
       font-size: 11px;
@@ -598,9 +831,21 @@
       color: var(--accent-dark);
       margin-bottom: 2px;
     }
-    .j-row.pain small { color: #9a1028; }
-    .j-row.opp small { color: #065f46; }
-    .j-row p { margin: 0; font-size: 13.5px; color: var(--mute); line-height: 1.48; }
+
+    .j-row.pain small {
+      color: #9a1028;
+    }
+
+    .j-row.opp small {
+      color: #065f46;
+    }
+
+    .j-row p {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--mute);
+      line-height: 1.48;
+    }
 
     /* RICE Table */
     .rice-wrap {
@@ -611,12 +856,14 @@
       box-shadow: 8px 8px 0 var(--accent-pale);
       margin-top: 22px;
     }
+
     .rice-table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14.5px;
       min-width: 620px;
     }
+
     .rice-table th {
       text-align: left;
       padding: 15px 18px;
@@ -627,13 +874,22 @@
       background: var(--accent-pale);
       border-bottom: 1.5px solid var(--line);
     }
+
     .rice-table td {
       padding: 15px 18px;
       border-bottom: 1px solid var(--line);
       color: var(--ink);
     }
-    .rice-table tr:last-child td { border-bottom: none; }
-    .rice-table tr.winner td { background: rgba(124, 58, 237, 0.05); font-weight: 600; }
+
+    .rice-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .rice-table tr.winner td {
+      background: rgba(124, 58, 237, 0.05);
+      font-weight: 600;
+    }
+
     .score-num {
       font-family: "Nohemi Semi Bold", sans-serif;
       font-size: 1.2rem;
@@ -649,19 +905,36 @@
       position: relative;
       overflow: hidden;
     }
+
     .dark-band::before {
       content: "";
       position: absolute;
       inset: 0;
       background: radial-gradient(circle at 20% 20%, var(--accent-glow), transparent 45%),
-                  radial-gradient(circle at 80% 75%, var(--accent-glow), transparent 45%);
+        radial-gradient(circle at 80% 75%, var(--accent-glow), transparent 45%);
       opacity: 0.55;
       pointer-events: none;
     }
-    .dark-inner { max-width: 1060px; margin: 0 auto; position: relative; z-index: 2; }
-    .dark-band h2.editorial-h2 { color: #ffffff; }
-    .dark-band .lead { color: rgba(255, 254, 249, 0.78); }
-    .dark-band .section-kicker { color: var(--accent-light); }
+
+    .dark-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .dark-band h2.editorial-h2 {
+      color: #ffffff;
+    }
+
+    .dark-band .lead {
+      color: rgba(255, 254, 249, 0.78);
+    }
+
+    .dark-band .section-kicker {
+      color: var(--accent-light);
+    }
+
     .split-box {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -669,19 +942,34 @@
       align-items: center;
       margin-top: 26px;
     }
+
     .dark-rule {
       border-top: 1.5px solid rgba(255, 255, 255, 0.22);
       padding-top: 14px;
       margin-bottom: 22px;
     }
-    .dark-rule h3 { color: #fff; font-family: "Nohemi Medium", sans-serif; margin: 0 0 8px; font-size: 1.15rem; }
-    .dark-rule p { color: rgba(255, 254, 249, 0.78); margin: 0; font-size: 15px; line-height: 1.6; }
+
+    .dark-rule h3 {
+      color: #fff;
+      font-family: "Nohemi Medium", sans-serif;
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+    }
+
+    .dark-rule p {
+      color: rgba(255, 254, 249, 0.78);
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
     .dark-card {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: 16px;
       padding: 20px 22px;
     }
+
     .dark-card small {
       display: block;
       font-size: 11px;
@@ -691,8 +979,21 @@
       color: var(--accent-light);
       margin-bottom: 6px;
     }
-    .dark-card h3 { color: #fff; font-family: "Nohemi Medium", sans-serif; margin: 0 0 6px; font-size: 1.1rem; }
-    .dark-card p { color: rgba(255, 254, 249, 0.78); margin: 0; font-size: 14.5px; line-height: 1.55; }
+
+    .dark-card h3 {
+      color: #fff;
+      font-family: "Nohemi Medium", sans-serif;
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+    }
+
+    .dark-card p {
+      color: rgba(255, 254, 249, 0.78);
+      margin: 0;
+      font-size: 14.5px;
+      line-height: 1.55;
+    }
+
     .showcase-frame {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.14);
@@ -700,20 +1001,32 @@
       padding: 18px;
       box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
     }
-    .showcase-frame img { width: 100%; border-radius: 12px; }
-    .showcase-cap { margin-top: 12px; font-size: 14px; color: rgba(255, 254, 249, 0.72); }
+
+    .showcase-frame img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .showcase-cap {
+      margin-top: 12px;
+      font-size: 14px;
+      color: rgba(255, 254, 249, 0.72);
+    }
+
     .dark-stats {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
       margin-top: 12px;
     }
+
     .dark-stat {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 14px;
       padding: 18px 20px;
     }
+
     .dark-stat b {
       display: block;
       font-family: "Nohemi Semi Bold", sans-serif;
@@ -721,14 +1034,22 @@
       color: var(--accent-light);
       line-height: 1.05;
     }
-    .dark-stat span { font-size: 13.5px; color: rgba(255, 254, 249, 0.76); }
+
+    .dark-stat span {
+      font-size: 13.5px;
+      color: rgba(255, 254, 249, 0.76);
+    }
+
     .dark-quote {
       margin: 54px 0;
       padding: 34px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
       border-bottom: 1px solid rgba(255, 255, 255, 0.14);
     }
-    .dark-quote .playfair-quote { color: #fffef9; }
+
+    .dark-quote .playfair-quote {
+      color: #fffef9;
+    }
 
     /* THANK YOU + FOOTER */
     .thanks-section {
@@ -737,6 +1058,7 @@
       padding: 84px 32px 24px;
       text-align: center;
     }
+
     .thanks-word {
       font-family: "Nohemi Semi Bold", sans-serif;
       font-size: clamp(2.8rem, 7vw, 4.6rem);
@@ -745,6 +1067,7 @@
       color: var(--ink);
       margin: 0 0 12px;
     }
+
     .case-footer {
       max-width: 1060px;
       margin: 48px auto 0;
@@ -756,6 +1079,7 @@
       flex-wrap: wrap;
       gap: 20px;
     }
+
     .pager-link {
       text-decoration: none;
       display: flex;
@@ -763,7 +1087,12 @@
       gap: 4px;
       transition: transform 0.2s ease, color 0.2s ease;
     }
-    .pager-link:hover { color: var(--accent-color); transform: translateY(-2px); }
+
+    .pager-link:hover {
+      color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
     .pager-link small {
       font-size: 12px;
       text-transform: uppercase;
@@ -771,12 +1100,16 @@
       color: var(--mute);
       font-weight: 600;
     }
+
     .pager-link strong {
       font-family: "Nohemi Medium", sans-serif;
       font-size: 1.25rem;
       font-weight: 500;
     }
-    .pager-link.right { text-align: right; }
+
+    .pager-link.right {
+      text-align: right;
+    }
 
     /* FLOATING COLOR SWITCHER */
     .theme-switcher-pill {
@@ -797,7 +1130,12 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       transition: all 0.25s ease;
     }
-    .theme-switcher-pill:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.25); }
+
+    .theme-switcher-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
     .theme-switcher-label {
       font-size: 11px;
       font-weight: 600;
@@ -806,6 +1144,7 @@
       color: rgba(255, 255, 255, 0.7);
       margin-right: 4px;
     }
+
     .theme-btn {
       width: 20px;
       height: 20px;
@@ -815,7 +1154,11 @@
       transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease;
       padding: 0;
     }
-    .theme-btn:hover { transform: scale(1.25); }
+
+    .theme-btn:hover {
+      transform: scale(1.25);
+    }
+
     .theme-btn.active {
       border-color: #ffffff;
       box-shadow: 0 0 8px currentColor;
@@ -823,47 +1166,117 @@
     }
 
     @media (max-width: 980px) {
-      .hero-stage { grid-template-columns: 1fr; padding: 48px 32px; }
-      .hero-collage { height: 360px; }
-      .hero-meta { grid-template-columns: 1fr 1fr; padding: 24px 32px; }
-      .stats5 { grid-template-columns: repeat(2, 1fr); }
-      .journey-grid { grid-template-columns: 1fr 1fr; }
-      .split-box { grid-template-columns: 1fr; }
+      .hero-stage {
+        grid-template-columns: 1fr;
+        padding: 48px 32px;
+      }
+
+      .hero-collage {
+        height: 360px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr 1fr;
+        padding: 24px 32px;
+      }
+
+      .stats5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .journey-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .split-box {
+        grid-template-columns: 1fr;
+      }
     }
+
     @media (max-width: 720px) {
-      .hero-wrap { padding: 8px 16px 0; }
-      .hero-stage { padding: 36px 22px; }
-      .hero-collage { height: 320px; transform: scale(0.86); transform-origin: center; }
-      .hero-meta { grid-template-columns: 1fr 1fr; padding: 20px 22px; }
-      .section { padding: 60px 20px 0; }
-      .grid2, .grid3, .grid4, .stats5, .journey-grid, .persona-top, .dark-stats { grid-template-columns: 1fr; }
-      .motiv-row { grid-template-columns: 95px 1fr 42px; }
-      .dark-band { padding: 64px 20px; }
-      .case-footer { padding: 28px 20px 96px; }
+      .hero-wrap {
+        padding: 8px 16px 0;
+      }
+
+      .hero-stage {
+        padding: 36px 22px;
+      }
+
+      .hero-collage {
+        height: 320px;
+        transform: scale(0.86);
+        transform-origin: center;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr 1fr;
+        padding: 20px 22px;
+      }
+
+      .section {
+        padding: 60px 20px 0;
+      }
+
+      .grid2,
+      .grid3,
+      .grid4,
+      .stats5,
+      .journey-grid,
+      .persona-top,
+      .dark-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .motiv-row {
+        grid-template-columns: 95px 1fr 42px;
+      }
+
+      .dark-band {
+        padding: 64px 20px;
+      }
+
+      .case-footer {
+        padding: 28px 20px 96px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- TOP NAVIGATION -->
   <nav class="top-nav" aria-label="Primary Navigation">
     <a class="nav-link" href="/">
       <span>HOME</span>
-      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none"><path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round"/></svg>
+      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none">
+        <path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#c4b5fd" stroke-width="3"
+          stroke-linecap="round" />
+      </svg>
     </a>
     <svg class="nav-spiral" viewBox="-1 -1 31 37" fill="none" aria-hidden="true">
-      <path d="M26.38 29.34C26.38 19.51 19.05 8.64 7.56 11.06C4.53 11.7 1.22 18.58 4.28 20.69C8.41 23.54 16.79 25.65 21.97 24.29C30.46 22.06 30.08 15.12 22.88 11.01C18.67 8.6 6.94 5.5 2.4 8.7C-3.6 12.92 3.88 19.24 6.91 21.6C10.46 24.36 13.5 28.25 17.67 30.1C23.9 32.87 28.38 13.77 20.03 12.89C13.73 12.23 7.65 12.08 5.57 18.75C4.05 23.62 6.01 28.08 10.89 29.83C13.7 30.83 17.63 30.49 20.57 30.31C25.56 30.02 17.72 21.52 17.18 21.06C11.29 16.07 8.95 18.01 4.12 23.11C0.2 27.24 7.14 28.66 9.71 30.31C12.31 31.98 15.59 35.65 19.12 34.08C23.14 32.29 24.44 25.45 24.44 21.6C24.44 9.82 20.32 5.02 10.89 0.31" stroke="#c4b5fd" stroke-width="1.72" stroke-linecap="round"/>
+      <path
+        d="M26.38 29.34C26.38 19.51 19.05 8.64 7.56 11.06C4.53 11.7 1.22 18.58 4.28 20.69C8.41 23.54 16.79 25.65 21.97 24.29C30.46 22.06 30.08 15.12 22.88 11.01C18.67 8.6 6.94 5.5 2.4 8.7C-3.6 12.92 3.88 19.24 6.91 21.6C10.46 24.36 13.5 28.25 17.67 30.1C23.9 32.87 28.38 13.77 20.03 12.89C13.73 12.23 7.65 12.08 5.57 18.75C4.05 23.62 6.01 28.08 10.89 29.83C13.7 30.83 17.63 30.49 20.57 30.31C25.56 30.02 17.72 21.52 17.18 21.06C11.29 16.07 8.95 18.01 4.12 23.11C0.2 27.24 7.14 28.66 9.71 30.31C12.31 31.98 15.59 35.65 19.12 34.08C23.14 32.29 24.44 25.45 24.44 21.6C24.44 9.82 20.32 5.02 10.89 0.31"
+        stroke="#c4b5fd" stroke-width="1.72" stroke-linecap="round" />
     </svg>
     <a class="nav-link" href="/about">
       <span>ABOUT</span>
-      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none"><path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round"/></svg>
+      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none">
+        <path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#c4b5fd" stroke-width="3"
+          stroke-linecap="round" />
+      </svg>
     </a>
     <svg class="nav-spiral" viewBox="-1 -1 31 37" fill="none" aria-hidden="true">
-      <path d="M26.38 29.34C26.38 19.51 19.05 8.64 7.56 11.06C4.53 11.7 1.22 18.58 4.28 20.69C8.41 23.54 16.79 25.65 21.97 24.29C30.46 22.06 30.08 15.12 22.88 11.01C18.67 8.6 6.94 5.5 2.4 8.7C-3.6 12.92 3.88 19.24 6.91 21.6C10.46 24.36 13.5 28.25 17.67 30.1C23.9 32.87 28.38 13.77 20.03 12.89C13.73 12.23 7.65 12.08 5.57 18.75C4.05 23.62 6.01 28.08 10.89 29.83C13.7 30.83 17.63 30.49 20.57 30.31C25.56 30.02 17.72 21.52 17.18 21.06C11.29 16.07 8.95 18.01 4.12 23.11C0.2 27.24 7.14 28.66 9.71 30.31C12.31 31.98 15.59 35.65 19.12 34.08C23.14 32.29 24.44 25.45 24.44 21.6C24.44 9.82 20.32 5.02 10.89 0.31" stroke="#c4b5fd" stroke-width="1.72" stroke-linecap="round"/>
+      <path
+        d="M26.38 29.34C26.38 19.51 19.05 8.64 7.56 11.06C4.53 11.7 1.22 18.58 4.28 20.69C8.41 23.54 16.79 25.65 21.97 24.29C30.46 22.06 30.08 15.12 22.88 11.01C18.67 8.6 6.94 5.5 2.4 8.7C-3.6 12.92 3.88 19.24 6.91 21.6C10.46 24.36 13.5 28.25 17.67 30.1C23.9 32.87 28.38 13.77 20.03 12.89C13.73 12.23 7.65 12.08 5.57 18.75C4.05 23.62 6.01 28.08 10.89 29.83C13.7 30.83 17.63 30.49 20.57 30.31C25.56 30.02 17.72 21.52 17.18 21.06C11.29 16.07 8.95 18.01 4.12 23.11C0.2 27.24 7.14 28.66 9.71 30.31C12.31 31.98 15.59 35.65 19.12 34.08C23.14 32.29 24.44 25.45 24.44 21.6C24.44 9.82 20.32 5.02 10.89 0.31"
+        stroke="#c4b5fd" stroke-width="1.72" stroke-linecap="round" />
     </svg>
-    <a class="nav-link" href="https://drive.google.com/file/d/1Yy1NBUm2XdStpkeBKhOiFF-4nQd8cn5j/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+    <a class="nav-link" href="https://drive.google.com/file/d/1Yy1NBUm2XdStpkeBKhOiFF-4nQd8cn5j/view?usp=sharing"
+      target="_blank" rel="noopener noreferrer">
       <span>RESUME</span>
-      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none"><path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round"/></svg>
+      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none">
+        <path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#c4b5fd" stroke-width="3"
+          stroke-linecap="round" />
+      </svg>
     </a>
   </nav>
 
@@ -871,19 +1284,30 @@
   <header class="hero-wrap">
     <div class="hero-card">
       <div class="hero-stage">
-        <svg class="hero-sparkle s1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 4c1.5 14 5.5 18 19 20-13.5 2-17.5 6-19 20-1.5-14-5.5-18-19-20 13.5-2 17.5-6 19-20z"/></svg>
-        <svg class="hero-sparkle s2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 6c1.5 12 5 15.5 17 17-12 1.5-15.5 5-17 17-1.5-12-5-15.5-17-17 12-1.5 15.5-5 17-17z"/></svg>
-        <svg class="hero-sparkle s3" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 6c1.5 12 5 15.5 17 17-12 1.5-15.5 5-17 17-1.5-12-5-15.5-17-17 12-1.5 15.5-5 17-17z"/></svg>
+        <svg class="hero-sparkle s1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" aria-hidden="true">
+          <path d="M24 4c1.5 14 5.5 18 19 20-13.5 2-17.5 6-19 20-1.5-14-5.5-18-19-20 13.5-2 17.5-6 19-20z" />
+        </svg>
+        <svg class="hero-sparkle s2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" aria-hidden="true">
+          <path d="M24 6c1.5 12 5 15.5 17 17-12 1.5-15.5 5-17 17-1.5-12-5-15.5-17-17 12-1.5 15.5-5 17-17z" />
+        </svg>
+        <svg class="hero-sparkle s3" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" aria-hidden="true">
+          <path d="M24 6c1.5 12 5 15.5 17 17-12 1.5-15.5 5-17 17-1.5-12-5-15.5-17-17 12-1.5 15.5-5 17-17z" />
+        </svg>
 
         <div class="hero-left">
           <span class="hero-kicker">Product Teardown • Discord • Onboarding</span>
           <h1 class="hero-title">Improving Discord for New Users</h1>
-          <p class="hero-sub">Applying RICE prioritization to diagnose Day-1 churn, turn the "cockpit" UI into a guided welcome, and lift early community retention.</p>
+          <p class="hero-sub">Applying RICE prioritization to diagnose Day-1 churn, turn the "cockpit" UI into a guided
+            welcome, and lift early community retention.</p>
           <div class="hero-handnote">
             <span>Fix the first 10 minutes!</span>
             <svg width="56" height="22" viewBox="0 0 60 24" fill="none" aria-hidden="true">
-              <path d="M2 14 C 18 20, 38 6, 55 11" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round"/>
-              <path d="M47 5 L56 11 L46 18" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M2 14 C 18 20, 38 6, 55 11" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round" />
+              <path d="M47 5 L56 11 L46 18" stroke="#c4b5fd" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </div>
         </div>
@@ -927,7 +1351,8 @@
   <section class="section">
     <span class="section-kicker">01 — Overview</span>
     <h2 class="editorial-h2">Discord at a glance</h2>
-    <p class="lead">Discord is a VoIP and instant-messaging platform built for creating private and public communities called "servers."</p>
+    <p class="lead">Discord is a VoIP and instant-messaging platform built for creating private and public communities
+      called "servers."</p>
 
     <div class="stats5">
       <div class="funky-tile">
@@ -948,7 +1373,8 @@
       </div>
       <div class="funky-tile">
         <span class="tile-tag">Audience</span>
-        <div class="big-num" style="font-size:1.35rem;">Gen Z &amp; Millennials<small>Primary demographics (gamers, students, creators)</small></div>
+        <div class="big-num" style="font-size:1.35rem;">Gen Z &amp; Millennials<small>Primary demographics (gamers,
+            students, creators)</small></div>
       </div>
     </div>
   </section>
@@ -981,12 +1407,17 @@
     </div>
 
     <div class="quote-block">
-      <svg class="quote-sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 4c1.5 14 5.5 18 19 20-13.5 2-17.5 6-19 20-1.5-14-5.5-18-19-20 13.5-2 17.5-6 19-20z"/></svg>
+      <svg class="quote-sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" aria-hidden="true">
+        <path d="M24 4c1.5 14 5.5 18 19 20-13.5 2-17.5 6-19 20-1.5-14-5.5-18-19-20 13.5-2 17.5-6 19-20z" />
+      </svg>
       <p class="playfair-quote">
         A platform built for
         <span class="hl-underline">
           150 million people
-          <svg viewBox="0 0 280 8" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M1 5 C70 1, 180 7, 279 2" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 280 8" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M1 5 C70 1, 180 7, 279 2" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
+          </svg>
         </span>
         should never feel like
         <span class="hl-circle">an empty hallway on day one.</span>
@@ -1008,7 +1439,8 @@
         <div class="persona-meta">
           <h3>Harshit Aggarwal</h3>
           <div class="persona-sub">Casual gamer &amp; student, 19</div>
-          <blockquote class="persona-quote">"Everyone told me to get Discord for our group project, but I have no idea what a 'server' actually is. I just want to chat, not code."</blockquote>
+          <blockquote class="persona-quote">"Everyone told me to get Discord for our group project, but I have no idea
+            what a 'server' actually is. I just want to chat, not code."</blockquote>
           <div class="pill-row">
             <span class="funky-pill">Age 19</span>
             <span class="funky-pill">Urban</span>
@@ -1070,17 +1502,20 @@
       <div class="funky-tile">
         <span class="tile-tag warn">01 · Empty State</span>
         <h3 class="editorial-h3">The empty hallway</h3>
-        <p style="margin-bottom:0;">Users sign up and immediately hit a blank screen with zero prompts on where to go next.</p>
+        <p style="margin-bottom:0;">Users sign up and immediately hit a blank screen with zero prompts on where to go
+          next.</p>
       </div>
       <div class="funky-tile">
         <span class="tile-tag warn">02 · Jargon</span>
         <h3 class="editorial-h3">Cognitive load</h3>
-        <p style="margin-bottom:0;">Unfamiliar terms like "servers," "channels," "roles" and "bots" scare off non-technical newcomers.</p>
+        <p style="margin-bottom:0;">Unfamiliar terms like "servers," "channels," "roles" and "bots" scare off
+          non-technical newcomers.</p>
       </div>
       <div class="funky-tile">
         <span class="tile-tag warn">03 · One-Size-Fits-All</span>
         <h3 class="editorial-h3">Generic welcome</h3>
-        <p style="margin-bottom:0;">Every user gets the same landing experience whether they joined for gaming, study groups or art.</p>
+        <p style="margin-bottom:0;">Every user gets the same landing experience whether they joined for gaming, study
+          groups or art.</p>
       </div>
     </div>
 
@@ -1094,39 +1529,72 @@
   <section class="section">
     <span class="section-kicker">05 — Experience Map</span>
     <h2 class="editorial-h2">The new user journey</h2>
-    <p class="lead">Emotions dip sharply after sign-up until the user joins their first channel — right where onboarding guidance is missing.</p>
+    <p class="lead">Emotions dip sharply after sign-up until the user joins their first channel — right where onboarding
+      guidance is missing.</p>
 
     <div class="journey-grid">
       <div class="journey-card">
         <div class="journey-head"><strong>1. Discovery</strong><span class="journey-emo">🤔</span></div>
-        <div class="j-row"><small>User goals</small><p>Find out what Discord is and download it.</p></div>
-        <div class="j-row"><small>Touchpoints</small><p>Friend's invite link, YouTube ads, App Store.</p></div>
-        <div class="j-row pain"><small>Pain points</small><p>Unclear value proposition for non-gamers.</p></div>
-        <div class="j-row opp"><small>Opportunities</small><p>Clear messaging showcasing diverse interest groups.</p></div>
+        <div class="j-row"><small>User goals</small>
+          <p>Find out what Discord is and download it.</p>
+        </div>
+        <div class="j-row"><small>Touchpoints</small>
+          <p>Friend's invite link, YouTube ads, App Store.</p>
+        </div>
+        <div class="j-row pain"><small>Pain points</small>
+          <p>Unclear value proposition for non-gamers.</p>
+        </div>
+        <div class="j-row opp"><small>Opportunities</small>
+          <p>Clear messaging showcasing diverse interest groups.</p>
+        </div>
       </div>
 
       <div class="journey-card">
         <div class="journey-head"><strong>2. Sign up</strong><span class="journey-emo">😐</span></div>
-        <div class="j-row"><small>User goals</small><p>Create an account quickly.</p></div>
-        <div class="j-row"><small>Touchpoints</small><p>Sign-up form, email verification, captcha.</p></div>
-        <div class="j-row pain"><small>Pain points</small><p>Friction from strict password and captcha steps.</p></div>
-        <div class="j-row opp"><small>Opportunities</small><p>Simplified phone sign-up and SSO options.</p></div>
+        <div class="j-row"><small>User goals</small>
+          <p>Create an account quickly.</p>
+        </div>
+        <div class="j-row"><small>Touchpoints</small>
+          <p>Sign-up form, email verification, captcha.</p>
+        </div>
+        <div class="j-row pain"><small>Pain points</small>
+          <p>Friction from strict password and captcha steps.</p>
+        </div>
+        <div class="j-row opp"><small>Opportunities</small>
+          <p>Simplified phone sign-up and SSO options.</p>
+        </div>
       </div>
 
       <div class="journey-card">
         <div class="journey-head"><strong>3. First join</strong><span class="journey-emo">😟</span></div>
-        <div class="j-row"><small>User goals</small><p>Understand what to do inside a server.</p></div>
-        <div class="j-row"><small>Touchpoints</small><p>Main dashboard, sidebar channels, welcome bot.</p></div>
-        <div class="j-row pain"><small>Pain points</small><p>Overwhelming UI, too many bots, confusing jargon.</p></div>
-        <div class="j-row opp"><small>Opportunities</small><p>Interactive walkthroughs highlighting basic controls.</p></div>
+        <div class="j-row"><small>User goals</small>
+          <p>Understand what to do inside a server.</p>
+        </div>
+        <div class="j-row"><small>Touchpoints</small>
+          <p>Main dashboard, sidebar channels, welcome bot.</p>
+        </div>
+        <div class="j-row pain"><small>Pain points</small>
+          <p>Overwhelming UI, too many bots, confusing jargon.</p>
+        </div>
+        <div class="j-row opp"><small>Opportunities</small>
+          <p>Interactive walkthroughs highlighting basic controls.</p>
+        </div>
       </div>
 
       <div class="journey-card">
         <div class="journey-head"><strong>4. Engagement</strong><span class="journey-emo">😊</span></div>
-        <div class="j-row"><small>User goals</small><p>Have a first conversation or voice call.</p></div>
-        <div class="j-row"><small>Touchpoints</small><p>Voice chat, reactions, direct messaging.</p></div>
-        <div class="j-row pain"><small>Pain points</small><p>Social anxiety about speaking up in public rooms.</p></div>
-        <div class="j-row opp"><small>Opportunities</small><p>Guided icebreakers and low-pressure intro rooms.</p></div>
+        <div class="j-row"><small>User goals</small>
+          <p>Have a first conversation or voice call.</p>
+        </div>
+        <div class="j-row"><small>Touchpoints</small>
+          <p>Voice chat, reactions, direct messaging.</p>
+        </div>
+        <div class="j-row pain"><small>Pain points</small>
+          <p>Social anxiety about speaking up in public rooms.</p>
+        </div>
+        <div class="j-row opp"><small>Opportunities</small>
+          <p>Guided icebreakers and low-pressure intro rooms.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1135,7 +1603,8 @@
   <section class="section">
     <span class="section-kicker">06 — Feature Triage</span>
     <h2 class="editorial-h2">Prioritization: the RICE framework</h2>
-    <p class="lead">Scored by Reach × Impact × Confidence ÷ Effort to isolate the fastest, highest-leverage onboarding improvements.</p>
+    <p class="lead">Scored by Reach × Impact × Confidence ÷ Effort to isolate the fastest, highest-leverage onboarding
+      improvements.</p>
 
     <div class="rice-wrap">
       <table class="rice-table">
@@ -1207,7 +1676,8 @@
           </div>
           <div class="dark-rule">
             <h3>The fix</h3>
-            <p>An interactive overlay highlights key areas and suppresses notifications until the user completes setup.</p>
+            <p>An interactive overlay highlights key areas and suppresses notifications until the user completes setup.
+            </p>
           </div>
           <div class="dark-stats">
             <div class="dark-stat"><b>+15%</b><span>Projected retention</span></div>
@@ -1215,7 +1685,8 @@
           </div>
         </div>
         <div class="showcase-frame">
-          <img src="/assets/discord/discord-guided-tour.png" alt="Guided tour asking a new user to pick a role" loading="lazy">
+          <img src="/assets/discord/discord-guided-tour.png" alt="Guided tour asking a new user to pick a role"
+            loading="lazy">
           <div class="showcase-cap">"Pick your role" shows only the channels relevant to each person's interests.</div>
         </div>
       </div>
@@ -1227,7 +1698,9 @@
           They need
           <span class="hl-underline">
             a clear first step.
-            <svg viewBox="0 0 280 8" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M1 5 C70 1, 180 7, 279 2" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 280 8" fill="none" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M1 5 C70 1, 180 7, 279 2" stroke="#c4b5fd" stroke-width="3" stroke-linecap="round" />
+            </svg>
           </span>
         </p>
       </div>
@@ -1255,7 +1728,8 @@
       </div>
 
       <div class="showcase-frame">
-        <img src="/assets/discord/discord-guided-discovery.png" alt="Welcome screen asking what are you into, with three steps" loading="lazy">
+        <img src="/assets/discord/discord-guided-discovery.png"
+          alt="Welcome screen asking what are you into, with three steps" loading="lazy">
         <div class="showcase-cap">A three-step flow: pick interests, see a curated feed, join in one click.</div>
       </div>
 
@@ -1283,14 +1757,16 @@
   <section class="section">
     <span class="section-kicker">09 — Summary</span>
     <h2 class="editorial-h2">Conclusion and projected impact</h2>
-    <p class="lead">The friction points, the interventions, and the projected growth for Discord's new-user experience.</p>
+    <p class="lead">The friction points, the interventions, and the projected growth for Discord's new-user experience.
+    </p>
 
     <div class="grid3">
       <div class="funky-tile">
         <span class="tile-tag warn">Root Causes</span>
         <h3 class="editorial-h3">Key problems</h3>
         <ul>
-          <li><b>Analysis paralysis:</b> new users abandon the app when faced with 50+ server categories right after sign-up</li>
+          <li><b>Analysis paralysis:</b> new users abandon the app when faced with 50+ server categories right after
+            sign-up</li>
           <li><b>Empty state confusion:</b> landing in empty servers with no guidance feels like a dead end</li>
         </ul>
       </div>
@@ -1298,7 +1774,8 @@
         <span class="tile-tag">Interventions</span>
         <h3 class="editorial-h3">Proposed solutions</h3>
         <ul>
-          <li><b>Gamified onboarding:</b> an interactive tutorial that rewards users with badges for completing profile setup</li>
+          <li><b>Gamified onboarding:</b> an interactive tutorial that rewards users with badges for completing profile
+            setup</li>
           <li><b>Starter servers:</b> pre-populated, bot-guided servers that make the first "safe" interaction easy</li>
         </ul>
       </div>
@@ -1311,14 +1788,19 @@
     </div>
 
     <div class="quote-block">
-      <svg class="quote-sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 4c1.5 14 5.5 18 19 20-13.5 2-17.5 6-19 20-1.5-14-5.5-18-19-20 13.5-2 17.5-6 19-20z"/></svg>
+      <svg class="quote-sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" aria-hidden="true">
+        <path d="M24 4c1.5 14 5.5 18 19 20-13.5 2-17.5 6-19 20-1.5-14-5.5-18-19-20 13.5-2 17.5-6 19-20z" />
+      </svg>
       <p class="playfair-quote">
         If a new user's first ten minutes feel
         <span class="hl-circle">welcoming,</span>
         they are far more likely to
         <span class="hl-underline">
           stay and join in.
-          <svg viewBox="0 0 320 8" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M1 5 C80 1, 210 7, 319 2" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/></svg>
+          <svg viewBox="0 0 320 8" fill="none" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M1 5 C80 1, 210 7, 319 2" stroke="#7c3aed" stroke-width="3" stroke-linecap="round" />
+          </svg>
         </span>
       </p>
     </div>
@@ -1347,25 +1829,26 @@
     <span class="theme-switcher-label">Color</span>
     <button class="theme-btn" data-color="blue" style="background:#2563eb;color:#2563eb" title="Blue"></button>
     <button class="theme-btn" data-color="emerald" style="background:#059669;color:#059669" title="Emerald"></button>
-    <button class="theme-btn active" data-color="violet" style="background:#7c3aed;color:#7c3aed" title="Violet"></button>
+    <button class="theme-btn active" data-color="violet" style="background:#7c3aed;color:#7c3aed"
+      title="Violet"></button>
     <button class="theme-btn" data-color="amber" style="background:#ea580c;color:#ea580c" title="Amber"></button>
     <button class="theme-btn" data-color="cyan" style="background:#0891b2;color:#0891b2" title="Cyan"></button>
     <button class="theme-btn" data-color="pink" style="background:#d5546d;color:#d5546d" title="Pink"></button>
   </div>
 
   <script>
-    (function() {
+    (function () {
       const THEMES = {
-        blue:    { primary: '#2563eb', light: '#93c5fd', mid: '#60a5fa', dark: '#1d4ed8', glow: 'rgba(37, 99, 235, 0.30)', soft: 'rgba(37, 99, 235, 0.14)', pale: 'rgba(37, 99, 235, 0.06)' },
+        blue: { primary: '#2563eb', light: '#93c5fd', mid: '#60a5fa', dark: '#1d4ed8', glow: 'rgba(37, 99, 235, 0.30)', soft: 'rgba(37, 99, 235, 0.14)', pale: 'rgba(37, 99, 235, 0.06)' },
         emerald: { primary: '#059669', light: '#6ee7b7', mid: '#34d399', dark: '#047857', glow: 'rgba(5, 150, 105, 0.30)', soft: 'rgba(5, 150, 105, 0.14)', pale: 'rgba(5, 150, 105, 0.06)' },
-        violet:  { primary: '#7c3aed', light: '#c4b5fd', mid: '#a78bfa', dark: '#6d28d9', glow: 'rgba(124, 58, 237, 0.30)', soft: 'rgba(124, 58, 237, 0.14)', pale: 'rgba(124, 58, 237, 0.06)' },
-        amber:   { primary: '#ea580c', light: '#fdba74', mid: '#fb923c', dark: '#c2410c', glow: 'rgba(234, 88, 12, 0.30)', soft: 'rgba(234, 88, 12, 0.14)', pale: 'rgba(234, 88, 12, 0.06)' },
-        cyan:    { primary: '#0891b2', light: '#67e8f9', mid: '#22d3ee', dark: '#0e7490', glow: 'rgba(8, 145, 178, 0.30)', soft: 'rgba(8, 145, 178, 0.14)', pale: 'rgba(8, 145, 178, 0.06)' },
-        pink:    { primary: '#d5546d', light: '#ffa8b9', mid: '#e28799', dark: '#b7495e', glow: 'rgba(213, 84, 109, 0.30)', soft: 'rgba(213, 84, 109, 0.16)', pale: 'rgba(213, 84, 109, 0.06)' }
+        violet: { primary: '#7c3aed', light: '#c4b5fd', mid: '#a78bfa', dark: '#6d28d9', glow: 'rgba(124, 58, 237, 0.30)', soft: 'rgba(124, 58, 237, 0.14)', pale: 'rgba(124, 58, 237, 0.06)' },
+        amber: { primary: '#ea580c', light: '#fdba74', mid: '#fb923c', dark: '#c2410c', glow: 'rgba(234, 88, 12, 0.30)', soft: 'rgba(234, 88, 12, 0.14)', pale: 'rgba(234, 88, 12, 0.06)' },
+        cyan: { primary: '#0891b2', light: '#67e8f9', mid: '#22d3ee', dark: '#0e7490', glow: 'rgba(8, 145, 178, 0.30)', soft: 'rgba(8, 145, 178, 0.14)', pale: 'rgba(8, 145, 178, 0.06)' },
+        pink: { primary: '#d5546d', light: '#ffa8b9', mid: '#e28799', dark: '#b7495e', glow: 'rgba(213, 84, 109, 0.30)', soft: 'rgba(213, 84, 109, 0.16)', pale: 'rgba(213, 84, 109, 0.06)' }
       };
 
       const PRIMARY_SET = new Set(['#2563eb', '#059669', '#7c3aed', '#ea580c', '#0891b2', '#d5546d']);
-      const LIGHT_SET   = new Set(['#93c5fd', '#6ee7b7', '#c4b5fd', '#fdba74', '#67e8f9', '#ffa8b9']);
+      const LIGHT_SET = new Set(['#93c5fd', '#6ee7b7', '#c4b5fd', '#fdba74', '#67e8f9', '#ffa8b9']);
 
       function applyTheme(name) {
         const t = THEMES[name] || THEMES.violet;
@@ -1391,7 +1874,7 @@
           }
         });
 
-        try { localStorage.setItem('user_theme', name); } catch (e) {}
+        try { localStorage.setItem('user_theme', name); } catch (e) { }
       }
 
       document.querySelectorAll('.theme-btn').forEach(btn => {
@@ -1399,9 +1882,10 @@
       });
 
       let saved = 'violet';
-      try { saved = localStorage.getItem('user_theme') || 'violet'; } catch (e) {}
+      try { saved = localStorage.getItem('user_theme') || 'violet'; } catch (e) { }
       applyTheme(saved);
     })();
   </script>
 </body>
+
 </html>

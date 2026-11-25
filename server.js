@@ -24,19 +24,19 @@ const MIME_TYPES = {
 
 const ROUTE_MAP = {
   '/': 'index.html',
-  '/about': 'framer_pages_transformed/about.html',
-  // Canonical semantic routes
-  '/pnb-website-redesign': 'framer_pages_transformed/8club-onboarding-video.html',
-  '/improving-discord-new-users': 'framer_pages_transformed/show-me-the-money.html',
-  '/dominos-packaging-redesign': 'framer_pages_transformed/enterprise-readiness.html',
-  '/instagram-reels-experience': 'framer_pages_transformed/ca-founder-collab.html',
+  '/about': 'index.html',
+  // Canonical semantic routes (served by unified single-file index.html)
+  '/pnb-website-redesign': 'index.html',
+  '/improving-discord-new-users': 'index.html',
+  '/dominos-packaging-redesign': 'index.html',
+  '/instagram-reels-experience': 'index.html',
   // Framer template legacy aliases
-  '/8club-onboarding-video': 'framer_pages_transformed/8club-onboarding-video.html',
-  '/show-me-the-money': 'framer_pages_transformed/show-me-the-money.html',
-  '/enterprise-readiness': 'framer_pages_transformed/enterprise-readiness.html',
-  '/ca-founder-collab': 'framer_pages_transformed/ca-founder-collab.html',
-  '/custom-access-controls': 'framer_pages_transformed/ca-founder-collab.html',
-  '/you-are-okay': 'framer_pages_transformed/show-me-the-money.html'
+  '/8club-onboarding-video': 'index.html',
+  '/show-me-the-money': 'index.html',
+  '/enterprise-readiness': 'index.html',
+  '/ca-founder-collab': 'index.html',
+  '/custom-access-controls': 'index.html',
+  '/you-are-okay': 'index.html'
 };
 
 const server = http.createServer((req, res) => {
