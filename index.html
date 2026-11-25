@@ -895,7 +895,7 @@
     @font-face { font-family: "Nohemi Medium"; src: url("https://framerusercontent.com/assets/FXAwv2Ajdmiki57RVQMf7f0.woff2") format("woff2"); font-display: swap; font-weight: 500; }
     @font-face { font-family: "Nohemi Semi Bold"; src: url("https://framerusercontent.com/assets/zMyxuKSUFfznuy40AriVArKgy8.woff2") format("woff2"); font-display: swap; font-weight: 600; }
 
-    :root {
+    :host, :root {
       --accent-color: #2563eb;
       --accent-light: #93c5fd;
       --accent-mid: #60a5fa;
@@ -914,8 +914,8 @@
     html { scroll-behavior: smooth; }
     :host {
       margin: 0;
-      background: var(--surface);
-      color: var(--ink);
+      background: var(--surface, #ffffff);
+      color: var(--ink, #1b1a18);
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -945,7 +945,7 @@
       font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.04em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       padding: 4px 2px;
       transition: color 0.2s ease;
     }
@@ -1172,12 +1172,12 @@
     }
 
     .hero-meta {
-      background: var(--accent-soft);
+      background: linear-gradient(var(--accent-soft), var(--accent-soft)), #ffffff;
       padding: 28px 56px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       transition: background 0.25s ease;
     }
     .hero-meta span {
@@ -1193,7 +1193,7 @@
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 16px;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     /* EDITORIAL SECTIONS */
@@ -1219,14 +1219,14 @@
       font-weight: 500;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     h3.editorial-h3 {
       margin: 0 0 8px;
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 1.2rem;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .lead {
       font-size: 17.5px;
@@ -1304,7 +1304,7 @@
       font-style: italic;
       font-size: clamp(1.65rem, 3.2vw, 2.35rem);
       line-height: 1.42;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0;
       max-width: 820px;
     }
@@ -1373,7 +1373,7 @@
     .q-card p {
       margin: 0;
       font-size: 15px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       line-height: 1.55;
     }
 
@@ -1412,7 +1412,7 @@
       margin: 0 0 4px;
       font-family: "Nohemi Semi Bold", sans-serif;
       font-size: 1.65rem;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .persona-sub {
       font-size: 14.5px;
@@ -1426,7 +1426,7 @@
       font-style: italic;
       font-size: 1.12rem;
       line-height: 1.5;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .persona-cols {
       display: grid;
@@ -1484,7 +1484,7 @@
     .journey-stage {
       font-family: "Nohemi Medium", sans-serif;
       font-size: 1.05rem;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0;
     }
     .journey-meta {
@@ -1497,7 +1497,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin-bottom: 2px;
     }
     .journey-pain {
@@ -1533,8 +1533,8 @@
       box-shadow: 10px 10px 0 var(--accent-pale);
       font-family: "Outfit", sans-serif;
     }
-    .type-name { font-size: 2.4rem; font-weight: 600; line-height: 1.1; color: var(--ink); }
-    .type-abc { letter-spacing: 0.14em; font-size: 0.95rem; margin-top: 12px; color: var(--ink); font-weight: 500; }
+    .type-name { font-size: 2.4rem; font-weight: 600; line-height: 1.1; color: var(--ink, #1b1a18); }
+    .type-abc { letter-spacing: 0.14em; font-size: 0.95rem; margin-top: 12px; color: var(--ink, #1b1a18); font-weight: 500; }
     .type-big {
       font-size: 6.5rem;
       font-weight: 600;
@@ -1562,13 +1562,13 @@
       font-family: "Outfit", sans-serif;
       font-size: 13.5px;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     /* DARK UI SHOWCASE BAND */
     .dark-band {
       margin-top: 92px;
-      background: var(--dark-bg);
+      background: var(--dark-bg, #13110d);
       color: #fffef9;
       padding: 92px 32px;
       position: relative;
@@ -1631,7 +1631,7 @@
       font-size: clamp(2.8rem, 7vw, 4.8rem);
       font-weight: 600;
       letter-spacing: -0.03em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0;
     }
 
@@ -2133,7 +2133,7 @@
       font-weight: 600;
     }
 
-    :root {
+    :host, :root {
       --accent-color: #7c3aed;
       --accent-light: #c4b5fd;
       --accent-mid: #a78bfa;
@@ -2160,8 +2160,8 @@
 
     :host {
       margin: 0;
-      background: var(--surface);
-      color: var(--ink);
+      background: var(--surface, #ffffff);
+      color: var(--ink, #1b1a18);
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -2198,7 +2198,7 @@
       font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.04em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       padding: 4px 2px;
       transition: color 0.2s ease;
     }
@@ -2495,12 +2495,12 @@
     }
 
     .hero-meta {
-      background: var(--accent-soft);
+      background: linear-gradient(var(--accent-soft), var(--accent-soft)), #ffffff;
       padding: 28px 56px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       transition: background 0.25s ease;
     }
 
@@ -2518,7 +2518,7 @@
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 16px;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     /* EDITORIAL SECTIONS */
@@ -2546,7 +2546,7 @@
       font-weight: 500;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     h3.editorial-h3 {
@@ -2554,7 +2554,7 @@
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 1.18rem;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     .lead {
@@ -2630,7 +2630,7 @@
     }
 
     .funky-tile li b {
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     .tile-tag {
@@ -2716,7 +2716,7 @@
       font-style: italic;
       font-size: clamp(1.65rem, 3.2vw, 2.35rem);
       line-height: 1.42;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0;
       max-width: 840px;
     }
@@ -2800,7 +2800,7 @@
       margin: 0 0 4px;
       font-family: "Nohemi Semi Bold", sans-serif;
       font-size: 1.65rem;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     .persona-sub {
@@ -2819,7 +2819,7 @@
       font-family: "Playfair Display", Georgia, serif;
       font-style: italic;
       font-size: 1.08rem;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     .pill-row {
@@ -2839,7 +2839,7 @@
       border: 1.5px solid var(--accent-soft);
       font-size: 13px;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     .funky-pill::before {
@@ -2913,7 +2913,7 @@
     .journey-head strong {
       font-family: "Nohemi Semi Bold", sans-serif;
       font-size: 1.1rem;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     .journey-emo {
@@ -2976,7 +2976,7 @@
     .rice-table td {
       padding: 15px 18px;
       border-bottom: 1px solid var(--line);
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     .rice-table tr:last-child td {
@@ -2997,7 +2997,7 @@
     /* DARK BAND */
     .dark-band {
       margin-top: 92px;
-      background: var(--dark-bg);
+      background: var(--dark-bg, #13110d);
       color: #fffef9;
       padding: 92px 32px;
       position: relative;
@@ -3162,7 +3162,7 @@
       font-size: clamp(2.8rem, 7vw, 4.6rem);
       font-weight: 600;
       letter-spacing: -0.03em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0 0 12px;
     }
 
@@ -3939,7 +3939,7 @@
     @font-face { font-family: "Nohemi Medium"; src: url("https://framerusercontent.com/assets/FXAwv2Ajdmiki57RVQMf7f0.woff2") format("woff2"); font-display: swap; font-weight: 500; }
     @font-face { font-family: "Nohemi Semi Bold"; src: url("https://framerusercontent.com/assets/zMyxuKSUFfznuy40AriVArKgy8.woff2") format("woff2"); font-display: swap; font-weight: 600; }
 
-    :root {
+    :host, :root {
       --accent-color: #2563eb;
       --accent-light: #93c5fd;
       --accent-mid: #60a5fa;
@@ -3958,8 +3958,8 @@
     html { scroll-behavior: smooth; }
     :host {
       margin: 0;
-      background: var(--surface);
-      color: var(--ink);
+      background: var(--surface, #ffffff);
+      color: var(--ink, #1b1a18);
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -3988,7 +3988,7 @@
       font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.04em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       padding: 4px 2px;
       transition: color 0.2s ease;
     }
@@ -4216,12 +4216,12 @@
     }
 
     .hero-meta {
-      background: var(--accent-soft);
+      background: linear-gradient(var(--accent-soft), var(--accent-soft)), #ffffff;
       padding: 28px 56px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       transition: background 0.25s ease;
     }
     .hero-meta span {
@@ -4237,7 +4237,7 @@
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 16px;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     /* EDITORIAL SECTIONS */
@@ -4263,14 +4263,14 @@
       font-weight: 500;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     h3.editorial-h3 {
       margin: 0 0 8px;
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 1.18rem;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .lead {
       font-size: 17.5px;
@@ -4369,7 +4369,7 @@
       font-style: italic;
       font-size: clamp(1.65rem, 3.2vw, 2.35rem);
       line-height: 1.42;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0;
       max-width: 840px;
     }
@@ -4414,7 +4414,7 @@
       border: 1.5px solid var(--accent-soft);
       font-size: 13.5px;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .funky-pill::before {
       content: "✦";
@@ -4452,7 +4452,7 @@
       border-radius: 5px;
       object-fit: cover;
     }
-    .persona-meta h3 { margin: 0 0 4px; font-family: "Nohemi Semi Bold", sans-serif; font-size: 1.65rem; color: var(--ink); }
+    .persona-meta h3 { margin: 0 0 4px; font-family: "Nohemi Semi Bold", sans-serif; font-size: 1.65rem; color: var(--ink, #1b1a18); }
     .persona-sub { font-size: 14.5px; color: var(--mute); margin-bottom: 10px; font-weight: 500; }
     .facts-grid {
       display: grid;
@@ -4466,7 +4466,7 @@
       padding: 12px 14px;
     }
     .fact-card span { display: block; font-size: 11.5px; color: var(--mute); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-    .fact-card b { font-size: 14.5px; color: var(--ink); }
+    .fact-card b { font-size: 14.5px; color: var(--ink, #1b1a18); }
 
     /* Rollout Timeline */
     .road-list {
@@ -4553,7 +4553,7 @@
     /* DARK BAND */
     .dark-band {
       margin-top: 92px;
-      background: var(--dark-bg);
+      background: var(--dark-bg, #13110d);
       color: #fffef9;
       padding: 92px 32px;
       position: relative;
@@ -4627,7 +4627,7 @@
       font-size: clamp(2.8rem, 7vw, 4.6rem);
       font-weight: 600;
       letter-spacing: -0.03em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0 0 12px;
     }
     .case-footer {
@@ -5096,7 +5096,7 @@
     @font-face { font-family: "Nohemi Medium"; src: url("https://framerusercontent.com/assets/FXAwv2Ajdmiki57RVQMf7f0.woff2") format("woff2"); font-display: swap; font-weight: 500; }
     @font-face { font-family: "Nohemi Semi Bold"; src: url("https://framerusercontent.com/assets/zMyxuKSUFfznuy40AriVArKgy8.woff2") format("woff2"); font-display: swap; font-weight: 600; }
 
-    :root {
+    :host, :root {
       --accent-color: #2563eb;
       --accent-light: #93c5fd;
       --accent-mid: #60a5fa;
@@ -5115,8 +5115,8 @@
     html { scroll-behavior: smooth; }
     :host {
       margin: 0;
-      background: var(--surface);
-      color: var(--ink);
+      background: var(--surface, #ffffff);
+      color: var(--ink, #1b1a18);
       font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
@@ -5148,7 +5148,7 @@
       font-size: 16px;
       font-weight: 500;
       letter-spacing: 0.04em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       padding: 4px 2px;
       transition: color 0.2s ease;
     }
@@ -5391,12 +5391,12 @@
 
     /* Meta strip attached to hero bottom */
     .hero-meta {
-      background: var(--accent-soft);
+      background: linear-gradient(var(--accent-soft), var(--accent-soft)), #ffffff;
       padding: 28px 56px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       transition: background 0.25s ease;
     }
     .hero-meta span {
@@ -5412,7 +5412,7 @@
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 16px;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
 
     /* ================================================================
@@ -5440,14 +5440,14 @@
       font-weight: 500;
       line-height: 1.15;
       letter-spacing: -0.02em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     h3.editorial-h3 {
       margin: 0 0 10px;
       font-family: "Nohemi Medium", "Inter", sans-serif;
       font-size: 1.2rem;
       font-weight: 500;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .lead {
       font-size: 17.5px;
@@ -5521,7 +5521,7 @@
       border: 1.5px solid var(--accent-soft);
       font-size: 14px;
       font-weight: 600;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .funky-pill::before {
       content: "";
@@ -5602,7 +5602,7 @@
       margin: 0 0 4px;
       font-family: "Nohemi Semi Bold", sans-serif;
       font-size: 1.75rem;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .persona-meta p {
       margin: 0 0 8px;
@@ -5642,7 +5642,7 @@
     .persona-point b {
       display: block;
       font-size: 15px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin-bottom: 4px;
     }
     .persona-point p {
@@ -5665,7 +5665,7 @@
       font-style: italic;
       font-size: clamp(1.65rem, 3.2vw, 2.35rem);
       line-height: 1.42;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0;
       max-width: 820px;
     }
@@ -5798,7 +5798,7 @@
     .journey-stage {
       font-family: "Nohemi Medium", sans-serif;
       font-size: 1.08rem;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin: 0;
     }
     .journey-meta {
@@ -5811,7 +5811,7 @@
       font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin-bottom: 2px;
     }
     .journey-pain {
@@ -5867,7 +5867,7 @@
     .rice-title {
       font-family: "Nohemi Medium", sans-serif;
       font-size: 16.5px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .rice-badge {
       font-size: 11px;
@@ -5911,7 +5911,7 @@
       color: var(--accent-color);
     }
     .rice-item:not(.top-pick) .rice-score b {
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
     }
     .rice-score span {
       font-size: 11px;
@@ -5926,7 +5926,7 @@
        ================================================================ */
     .dark-band {
       margin-top: 92px;
-      background: var(--dark-bg);
+      background: var(--dark-bg, #13110d);
       color: #fffef9;
       padding: 92px 32px;
       position: relative;
@@ -6036,7 +6036,7 @@
       align-items: center;
       gap: 8px;
       font-size: 15.5px;
-      color: var(--ink);
+      color: var(--ink, #1b1a18);
       margin-bottom: 3px;
     }
     .metric-up {
