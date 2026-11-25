@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Improving Discord for New Users | Product Teardown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* Scoped to .dsc so it can be merged into your main site without clashing */
+.dsc{--bg:#fffcf7;--ink:#1c1a18;--mute:#5d5953;--ac:#5b4fe0;--ac-soft:#e6e3fc;--peach:#fdeedd;--line:#e7e0d6;--card:#fff;--red:#d1344a;--green:#17803d;--amber:#b7791f;
+ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden}
+.dsc *{box-sizing:border-box}
+.dsc img{max-width:100%;display:block}
+.dsc a{color:inherit}
+.dsc .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+.dsc h1,.dsc h2,.dsc h3{line-height:1.2;margin:0}
+.dsc h2{font-size:2rem;font-weight:700;margin-bottom:18px;letter-spacing:-.02em}
+.dsc h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.dsc p{margin:0 0 14px;color:var(--mute)}
+.dsc section{padding:56px 0 8px}
+.dsc .serif{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.4rem,3.2vw,1.9rem);line-height:1.45;color:var(--ink);margin:40px 0}
+.dsc .ul{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C20 1 40 7 62 3 S100 6 119 2' fill='none' stroke='%235b4fe0' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") 0 100%/100% .35em no-repeat;padding-bottom:.18em}
+.dsc .circ{position:relative;display:inline-block;padding:0 .3em}
+.dsc .circ::after{content:"";position:absolute;inset:-.12em -.1em;border:2px solid var(--ac);border-radius:50%;transform:rotate(-1.5deg)}
+
+/* hero */
+.dsc .hero{padding:48px 0 0}
+.dsc .hero-card{display:grid;grid-template-columns:1fr 1.05fr;background:var(--card);border-radius:22px;box-shadow:0 12px 40px rgba(60,40,20,.09);overflow:hidden;position:relative}
+.dsc .hero-text{padding:40px 36px;align-self:center}
+.dsc .tags{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--ac);margin-bottom:14px;font-weight:600}
+.dsc .tags span+span::before{content:"/";margin-right:14px;color:#b9b3f3}
+.dsc .hero h1{font-size:clamp(1.8rem,4.5vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:14px}
+.dsc .btn{display:inline-block;background:var(--ac-soft);color:#3a30a8;padding:10px 18px;border-radius:4px;font-size:.88rem;font-weight:700;text-decoration:none;margin-top:8px;transition:background .2s}
+.dsc .btn:hover{background:#d4cffa}
+.dsc .btn:focus-visible,.dsc a:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.dsc .hero-img{background:#1a1a22;display:flex;align-items:center}
+.dsc .hero-img img{width:100%;height:100%;object-fit:cover}
+.dsc .pin{position:absolute;top:-6px;right:12px;font-size:2rem;transform:rotate(25deg);z-index:2}
+.dsc .meta{background:var(--peach);border-radius:0 0 18px 18px;margin:0 20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-size:.84rem}
+.dsc .meta span{display:block;color:var(--mute);margin-bottom:2px}
+.dsc .meta b{font-weight:600}
+
+/* blocks */
+.dsc .grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px 44px;margin:24px 0}
+.dsc .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:24px 0}
+.dsc .rule{border-top:1.5px solid var(--ink);padding-top:12px}
+.dsc .rule p{font-size:.9rem;margin:0 0 10px}
+.dsc .tag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--ac);background:var(--ac-soft);border-radius:99px;padding:1px 10px;margin-bottom:8px}
+.dsc .tag.red{color:#a3162c;background:#fde0e5}.dsc .tag.amb{color:#8a5a0c;background:#fcefcf}.dsc .tag.grn{color:var(--green);background:#e1f5e8}
+.dsc .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.dsc .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.dsc .stat b{display:block;font-size:1.7rem;color:var(--ac);line-height:1.1;font-weight:800}
+.dsc .stat span{font-size:.8rem;color:var(--mute)}
+.dsc .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
+.dsc .chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px;font-size:.85rem;font-weight:600}
+.dsc ul{padding-left:20px;margin:0 0 14px;color:var(--mute)}
+.dsc li{margin-bottom:6px}
+.dsc .sparkle{position:absolute;right:-6px;top:0;width:42px;color:var(--ac)}
+.dsc .rel{position:relative}
+.dsc .insight{background:var(--ac);color:#fff;border-radius:16px;padding:24px 28px;margin:28px 0}
+.dsc .insight small{display:block;font-size:.78rem;font-weight:600;opacity:.85;margin-bottom:6px}
+.dsc .insight p{color:#fff;font-size:1.15rem;line-height:1.55;margin:0}
+.dsc .insight b{background:rgba(255,255,255,.2);border-radius:4px;padding:0 4px}
+
+/* features */
+.dsc .feat{list-style:none;padding:0}
+.dsc .feat li{padding:14px 0;border-bottom:1px solid var(--line);margin:0}
+.dsc .feat p{margin:0;font-size:.9rem}
+
+/* persona */
+.dsc .persona{display:grid;grid-template-columns:180px 1fr;gap:26px;background:var(--peach);border-radius:16px;padding:24px;align-items:start}
+.dsc .persona img{width:150px;height:150px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px #fff}
+.dsc .persona h3{font-size:1.3rem;margin:12px 0 0}
+.dsc .persona .sub{font-size:.88rem;color:var(--mute)}
+.dsc .persona blockquote{margin:0 0 18px;font-family:'Playfair Display',Georgia,serif;font-size:1.15rem;line-height:1.5;color:var(--ink)}
+.dsc .persona .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dsc .persona ul{font-size:.88rem}
+.dsc .bars div{display:grid;grid-template-columns:90px 1fr 40px;gap:10px;align-items:center;font-size:.85rem;margin:6px 0}
+.dsc .bars i{display:block;height:9px;border-radius:9px;background:#fff;position:relative;overflow:hidden}
+.dsc .bars i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--ac);border-radius:9px}
+
+/* table */
+.dsc .scroll{overflow-x:auto;margin:20px 0;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.dsc table{border-collapse:collapse;width:100%;min-width:720px;font-size:.88rem}
+.dsc th,.dsc td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.dsc th{font-weight:700;background:#faf5ee}
+.dsc td:first-child{font-weight:700;white-space:nowrap}
+.dsc tr:last-child td{border-bottom:0}
+.dsc .journey td:first-child{min-width:110px}
+.dsc td .mini{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:0 9px;font-size:.76rem;margin:0 4px 4px 0;background:#fff}
+.dsc .rice .n{text-align:center}
+.dsc .win td{background:#f4f2ff}
+.dsc .win td:nth-child(6){color:var(--ac);font-weight:800}
+
+/* figures */
+.dsc figure{margin:26px 0}
+.dsc figure img{border-radius:14px;box-shadow:0 8px 30px rgba(60,40,20,.14);width:100%}
+.dsc figcaption{font-size:.84rem;color:var(--mute);margin-top:10px}
+.dsc .split{display:grid;grid-template-columns:1fr 1.15fr;gap:34px;align-items:center;margin:22px 0}
+.dsc .split figure{margin:0}
+.dsc .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:22px 0}
+.dsc .steps b{display:block;color:var(--ac);font-size:.85rem}
+
+.dsc .thanks{text-align:center;margin:80px 0 10px}
+.dsc .thanks h2{font-size:clamp(2.4rem,8vw,4.5rem);font-weight:800;margin-bottom:8px}
+.dsc .pager{display:flex;justify-content:space-between;margin-top:40px;padding:24px 0 48px;font-weight:700;border-top:1px solid var(--line)}
+.dsc .pager a{text-decoration:none}
+
+@media(max-width:720px){
+ .dsc .hero-card,.dsc .grid2,.dsc .grid3,.dsc .split,.dsc .persona,.dsc .persona .two,.dsc .steps{grid-template-columns:1fr}
+ .dsc .stats{grid-template-columns:1fr}
+ .dsc .meta{grid-template-columns:1fr 1fr;margin:0 8px}
+ .dsc h2{font-size:1.6rem}
+}
+@media(prefers-reduced-motion:reduce){.dsc *{transition:none!important}}
+</style>
+</head>
+<body style="margin:0">
+<main class="dsc">
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-card">
+    <span class="pin" aria-hidden="true">📌</span>
+    <div class="hero-text">
+      <div class="tags"><span>Product Teardown</span><span>Discord</span><span>Onboarding</span></div>
+      <h1>Improving Discord for new users</h1>
+      <p>A deep dive into onboarding friction points, server discovery, and the first-time user experience design patterns.</p>
+      <a class="btn" href="#problem">Read case study &rarr;</a>
+    </div>
+    <div class="hero-img"><img src="assets/discord/discord-guided-tour.png" alt="Proposed Discord role-picker onboarding screen"></div>
+  </div>
+  <div class="meta">
+    <div><span>Project type</span><b>Product Teardown, Product Strategy</b></div>
+    <div><span>Created by</span><b>Lakshay Jain</b></div>
+    <div><span>Focus</span><b>Day-1 retention for new users</b></div>
+    <div><span>Framework</span><b>RICE prioritization</b></div>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Product overview</h2>
+  <p>Discord is a VoIP and instant-messaging social platform. People talk through voice calls, video calls, text, media and files, in private chats or in communities called "servers". It sits across VoIP, social, streaming and gaming.</p>
+  <div class="stats">
+    <div class="stat"><b>150M+</b><span>Monthly active users, steady growth YoY</span></div>
+    <div class="stat"><b>19M+</b><span>Active servers, communities of all sizes</span></div>
+    <div class="stat"><b>4 billion</b><span>Minutes of conversation a day</span></div>
+    <div class="stat"><b>~$15B</b><span>Estimated valuation, last funding round</span></div>
+    <div class="stat"><b>Gen Z &amp; Millennials</b><span>Core demographic</span></div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem">
+  <h2>The ecosystem: value and utility</h2>
+  <p>Discord earns revenue from optional enhancements while keeping a free, feature-rich core experience for communities. The model is freemium.</p>
+  <div class="grid2">
+    <div>
+      <h3>Business model</h3>
+      <div class="rule" style="margin-bottom:18px"><h3>Discord Nitro <span class="tag" style="margin:0 0 0 6px">$9.99 / month</span></h3><p>The primary monetization engine. Users pay for self-expression perks, higher upload limits (500MB) and HD video streaming.</p></div>
+      <div class="rule" style="margin-bottom:18px"><h3>Server Boosting</h3><p>Crowdfunded perks for better audio and vanity URLs.</p></div>
+      <div class="rule"><h3>Dev ecosystem</h3><p>An app directory and server subscriptions.</p></div>
+    </div>
+    <div>
+      <h3>Core features (free)</h3>
+      <ul class="feat">
+        <li><h3>Voice &amp; video</h3><p>Low-latency, "drop-in" voice channels. Screen sharing up to 720p/30fps for free users.</p></li>
+        <li><h3>Topic-based channels</h3><p>Structured text chat organized by category, with markdown, threads and file sharing.</p></li>
+        <li><h3>Roles &amp; permissions</h3><p>Granular access control so communities can self-moderate and create hierarchies.</p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA -->
+<section id="persona">
+  <h2>User persona: the social explorer</h2>
+  <p>Improving onboarding for novice users.</p>
+  <div class="persona">
+    <div>
+      <img src="assets/discord/discord-harshit.jpg" alt="Portrait of Harshit Aggarwal">
+      <h3>Harshit Aggarwal</h3>
+      <div class="sub">Casual gamer &amp; student, 19</div>
+    </div>
+    <div>
+      <blockquote>"Everyone told me to get Discord for our group project, but I have no idea what a 'server' actually is. I just want to chat, not code."</blockquote>
+      <div class="chips" style="margin-top:0"><span class="chip">Age 19</span><span class="chip">Urban</span><span class="chip">Tech: medium</span><span class="chip">Mobile first</span></div>
+      <div class="two">
+        <div><h3>Core goals</h3><ul><li>Connect quickly with existing friends without setup hassle</li><li>Find a specific community topic without getting overwhelmed</li><li>Share screens easily during study sessions</li></ul></div>
+        <div><h3>Pain points</h3><ul><li>"The interface feels like a cockpit": too many icons</li><li>Overwhelmed by bot notifications and role permissions</li><li>Fear of accidentally unmuting or joining the wrong voice channel</li></ul></div>
+      </div>
+      <h3 style="margin-top:6px">Key motivations</h3>
+      <div class="bars"><div>Social need<i style="--w:85%"></i><b>85%</b></div><div>Simplicity<i style="--w:95%"></i><b>95%</b></div><div>Privacy<i style="--w:60%"></i><b>60%</b></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <h2>Problem: the new user experience</h2>
+  <div class="rel">
+    <p>Retention drops sharply in the first seven days after an account is created. Day-1 drop-off is the biggest hit, at about 60%.</p>
+    <svg class="sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 6c1 9 4 12 12 13-8 1-11 4-12 13-1-9-4-12-12-13 8-1 11-4 12-13z"/><path d="M36 28c.6 5 2 6.5 7 7-5 .5-6.4 2-7 7-.6-5-2-6.5-7-7 5-.5 6.4-2 7-7z"/></svg>
+  </div>
+  <div class="grid3">
+    <div class="rule"><span class="tag red">High friction</span><h3>1. The empty hallway</h3><p>Users join but don't know where to go. The server discovery list is overwhelming and finding relevant communities isn't intuitive.</p></div>
+    <div class="rule"><span class="tag amb">Medium complexity</span><h3>2. Cognitive load</h3><p>Too many channels, permissions and bots cause paralysis. The UI assumes gaming knowledge that many new users lack.</p></div>
+    <div class="rule"><span class="tag red">Critical failure</span><h3>3. Generic welcome</h3><p>Onboarding is one-size-fits-all and doesn't personalize the first landing to a user's intent.</p></div>
+  </div>
+  <div class="insight"><small>Key insight</small><p>The data suggests that <b>4 out of 5 new users</b> leave a server within 10 minutes of joining without posting a single message. The main driver is choice paralysis from the unguided "empty hallway".</p></div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <h2>New user journey</h2>
+  <p>Optimizing day-1 retention. Emotion starts high at discovery, dips at sign-up (the drop-off risk), recovers slowly after the first join, and reaches success once a user engages.</p>
+  <div class="scroll">
+  <table class="journey">
+    <thead><tr><th></th><th>Discovery</th><th>Sign up</th><th>First join</th><th>Engagement</th></tr></thead>
+    <tbody>
+      <tr><td>User goals</td><td>Find a specific community or topic quickly</td><td>Create a unique identity and verify the account</td><td>Understand the server context, rules and navigation</td><td>Send a first message, join voice, or react to content</td></tr>
+      <tr><td>Touchpoints</td><td><span class="mini">Web landing</span><span class="mini">App Store</span><span class="mini">Invite link</span></td><td><span class="mini">Reg form</span><span class="mini">Email</span><span class="mini">Captcha</span></td><td><span class="mini">Welcome screen</span><span class="mini">Rules modal</span><span class="mini">Onboarding</span></td><td><span class="mini">Chat input</span><span class="mini">Channel list</span><span class="mini">Reaction menu</span></td></tr>
+      <tr><td>Emotion</td><td>High intent</td><td>Drop-off risk</td><td>Cautious</td><td>Success</td></tr>
+      <tr><td>Pain points</td><td>Confusion over servers vs groups vs DMs</td><td>Complex captcha; email verification delay over 2 minutes</td><td>Immediate notification overload; empty states in channels</td><td>Strict permissions block the first message; social anxiety and "lurker" mode</td></tr>
+      <tr><td>Opportunities</td><td><span class="tag">Quick win</span><br>Interactive "What is a server?" tooltip tour</td><td><span class="tag">High impact</span><br>Social login to bypass captcha</td><td><span class="tag">UX fix</span><br>Smart mute defaults based on server size</td><td><span class="tag">Engagement</span><br>Suggested "icebreaker" messages</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- PRIORITIZATION -->
+<section id="prioritization">
+  <h2>What should we build first?</h2>
+  <p>I scored four ideas with RICE (Reach, Impact, Confidence, Effort) to find the highest-leverage opportunities for new-user activation.</p>
+  <div class="scroll">
+  <table class="rice">
+    <thead><tr><th>Solution idea</th><th class="n">Reach</th><th class="n">Impact</th><th class="n">Confidence</th><th class="n">Effort</th><th class="n">RICE score</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr class="win"><td>Contextual tooltips<br><small style="font-weight:400;color:#777">Guide users through server setup</small></td><td class="n">5M</td><td class="n">2.0</td><td class="n">90%</td><td class="n">1.0</td><td class="n">900</td><td><span class="tag grn">Winner</span></td></tr>
+      <tr><td>Interactive onboarding<br><small style="font-weight:400;color:#777">"Game-style" tutorial for newbies</small></td><td class="n">10M</td><td class="n">3.0</td><td class="n">80%</td><td class="n">4.0</td><td class="n">600</td><td><span class="tag amb">Priority</span></td></tr>
+      <tr><td>Friend finder sync<br><small style="font-weight:400;color:#777">Improved contact syncing</small></td><td class="n">8M</td><td class="n">2.0</td><td class="n">70%</td><td class="n">3.0</td><td class="n">373</td><td><span class="tag">Backlog</span></td></tr>
+      <tr><td>AI chat summary<br><small style="font-weight:400;color:#777">Summarize missed conversations</small></td><td class="n">2M</td><td class="n">5.0</td><td class="n">50%</td><td class="n">5.0</td><td class="n">100</td><td><span class="tag">Backlog</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>Contextual tooltips win with 900 points, 50% ahead of the next best idea, because they reach many people at very low effort.</p>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions">
+  <h2>Solution 1: interactive guided tours</h2>
+  <p>Replace "empty state" confusion with a structured, role-based setup wizard.</p>
+  <div class="split">
+    <div>
+      <div class="rule" style="margin-bottom:18px"><span class="tag red">The friction</span><p>New users face cognitive overload from endless channels and unread badges the moment they join.</p></div>
+      <div class="rule" style="margin-bottom:18px"><span class="tag">The fix</span><p>An interactive overlay highlights key areas and suppresses notifications until the user completes setup.</p></div>
+      <div class="stats" style="grid-template-columns:1fr 1fr;margin:0"><div class="stat"><b>+15%</b><span>Retention</span></div><div class="stat"><b>2.5x</b><span>Speed</span></div></div>
+    </div>
+    <figure><img src="assets/discord/discord-guided-tour.png" alt="Guided tour asking a new user to pick a role" loading="lazy"><figcaption>"Pick your role" shows only the channels relevant to each person's interests.</figcaption></figure>
+  </div>
+
+  <p class="serif" style="margin-top:56px">New users don't need <span class="circ">more options.</span> They need <span class="ul">a clear first step.</span></p>
+
+  <h2 style="margin-top:44px">Solution 2: guided discovery, curating the chaos</h2>
+  <p>Help users find their tribe in three clicks or fewer, reducing empty-state anxiety.</p>
+  <div class="grid3">
+    <div class="rule"><span class="tag">Goal</span><p>Reduce new-user churn by giving immediate value and connection points at sign-up.</p></div>
+    <div class="rule"><span class="tag red">The problem</span><p>"Empty state anxiety" and choice overload from thousands of unorganized servers.</p></div>
+    <div class="rule"><span class="tag grn">The fix</span><p>A guided flow that curates server suggestions based on user interests.</p></div>
+  </div>
+  <figure><img src="assets/discord/discord-guided-discovery.png" alt="Welcome screen asking what are you into, with three steps" loading="lazy"><figcaption>A three-step flow: pick interests, see a curated feed, join in one click.</figcaption></figure>
+  <div class="steps">
+    <div class="rule"><b>Step 1</b><h3>Interest selection</h3><p>Users select tags such as gaming, music and tech.</p></div>
+    <div class="rule"><b>Step 2</b><h3>Curated feed</h3><p>An algorithm suggests the top three communities.</p></div>
+    <div class="rule"><b>Step 3</b><h3>Instant join</h3><p>One-click entry into active channels.</p></div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <h2>Conclusion and impact</h2>
+  <p>The friction points, the interventions, and the projected growth for Discord's new-user experience.</p>
+  <div class="grid3">
+    <div class="rule"><h3>Key problems</h3><ul><li><b>Analysis paralysis:</b> new users abandon the app when faced with 50+ server categories right after sign-up</li><li><b>Empty state confusion:</b> landing in empty servers with no guidance feels like a dead end</li></ul></div>
+    <div class="rule"><h3>Proposed solutions</h3><ul><li><b>Gamified onboarding:</b> an interactive tutorial that rewards users with badges for completing profile setup</li><li><b>Starter servers:</b> pre-populated, bot-guided servers that make the first "safe" interaction easy</li></ul></div>
+    <div class="rule"><h3>Projected impact</h3><div class="stat"><b>+20%</b><span>Day-1 retention</span></div></div>
+  </div>
+  <p class="serif">If a new user's first ten minutes feel <span class="circ">welcoming,</span> they are far more likely to <span class="ul">stay and join in.</span></p>
+</section>
+
+<div class="thanks">
+  <h2>Thank you!</h2>
+  <p>For reading this product teardown on improving Discord for new users.</p>
+</div>
+
+<nav class="pager" aria-label="Case study navigation">
+  <a href="/pnb-website-redesign">&larr; Previous project</a>
+  <a href="/">Home &rarr;</a>
+</nav>
+
+</div>
+</main>
+</body>
+</html>

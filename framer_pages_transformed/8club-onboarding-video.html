@@ -3,549 +3,1280 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UI/UX Case Study: PNB Website Redesign | Lakshay Jain</title>
-  <meta name="description" content="UI/UX Case Study: PNB Website Redesign presentation deliverable by Lakshay Jain.">
+  <title>A Better PNB: Redesigning a Banking Website | Lakshay Jain</title>
+  <meta name="description" content="UI/UX Case Study on redesigning Punjab National Bank's net banking website by Himani and Lakshay Jain.">
   <link rel="icon" href="/assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    @font-face { font-family: "Nohemi Regular"; src: url("https://framerusercontent.com/assets/gUKaBPeGXCgSGh6WIpIZw.woff2") format("woff2"); font-display: swap; font-weight: 400; }
+    @font-face { font-family: "Nohemi Medium"; src: url("https://framerusercontent.com/assets/FXAwv2Ajdmiki57RVQMf7f0.woff2") format("woff2"); font-display: swap; font-weight: 500; }
+    @font-face { font-family: "Nohemi Semi Bold"; src: url("https://framerusercontent.com/assets/zMyxuKSUFfznuy40AriVArKgy8.woff2") format("woff2"); font-display: swap; font-weight: 600; }
+
+    :root {
+      --accent-color: #2563eb;
+      --accent-light: #93c5fd;
+      --accent-mid: #60a5fa;
+      --accent-dark: #1d4ed8;
+      --accent-glow: rgba(37, 99, 235, 0.30);
+      --accent-soft: rgba(37, 99, 235, 0.14);
+      --accent-pale: rgba(37, 99, 235, 0.06);
+      --ink: #1b1a18;
+      --mute: #57534e;
+      --line: #e7e3da;
+      --surface: #ffffff;
+      --dark-bg: #13110d;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
       margin: 0;
-      padding: 0;
-    }
-    
-    html, body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background-color: #0d0f12;
-      color: #f1f5f9;
-      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: var(--surface);
+      color: var(--ink);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    /* Top Navigation Header */
-    .viewer-header {
-      height: 64px;
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* TOP NAVBAR */
+    .top-nav {
       width: 100%;
-      background: rgba(13, 15, 18, 0.92);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 26px 24px 10px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
+      justify-content: center;
+      gap: 28px;
+      background: #fff;
+    }
+    .nav-link {
       position: relative;
-      z-index: 1000;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .back-btn {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #e2e8f0;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 8px 16px;
-      border-radius: 999px;
-      transition: all 0.2s ease;
-    }
-
-    .back-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      transform: translateX(-2px);
-    }
-
-    .header-center {
-      display: flex;
       flex-direction: column;
       align-items: center;
-      text-align: center;
+      text-decoration: none;
+      font-family: "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      padding: 4px 2px;
+      transition: color 0.2s ease;
+    }
+    .nav-link:hover { color: var(--accent-color); }
+    .nav-squiggle {
+      width: 100%;
+      max-width: 72px;
+      height: 8px;
+      opacity: 0;
+      transform: translateY(2px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .nav-link:hover .nav-squiggle { opacity: 1; transform: translateY(0); }
+    .nav-spiral { width: 24px; height: 28px; flex-shrink: 0; }
+
+    /* HERO SCRAPBOOK CARD */
+    .hero-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 12px 32px 0;
+    }
+    .hero-card {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(20, 18, 14, 0.10);
+      background: #141312;
+    }
+    .hero-stage {
+      position: relative;
+      min-height: 540px;
+      padding: 64px 56px 56px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 40px;
+      background:
+        radial-gradient(circle at 82% 24%, var(--accent-glow), transparent 45%),
+        radial-gradient(circle at 18% 85%, rgba(255, 255, 255, 0.05), transparent 45%),
+        #161513;
+      color: #fffef9;
+      overflow: hidden;
+    }
+    .hero-stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0.22;
+      pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.45'/%3E%3C/svg%3E");
+    }
+    .hero-sparkle {
+      position: absolute;
+      color: #fff8ea;
+      pointer-events: none;
+      opacity: 0.85;
+      z-index: 1;
+    }
+    .hero-sparkle.s1 { top: 22px; left: 45%; width: 32px; }
+    .hero-sparkle.s2 { bottom: 28px; left: 10%; width: 22px; opacity: 0.65; }
+    .hero-sparkle.s3 { bottom: 38px; right: 4%; width: 28px; opacity: 0.75; }
+
+    .hero-left { position: relative; z-index: 2; }
+    .hero-kicker {
+      display: inline-block;
+      font-family: "Inter", sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 254, 249, 0.78);
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      margin: 0 0 18px;
+      font-family: "Nohemi Medium", "Nohemi Semi Bold", sans-serif;
+      font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+    .hero-sub {
+      margin: 0 0 26px;
+      font-size: 16.5px;
+      color: rgba(255, 254, 249, 0.76);
+      max-width: 500px;
+      line-height: 1.6;
+    }
+    .hero-handnote {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Indie Flower", cursive;
+      font-size: 20px;
+      color: var(--accent-light);
+      transform: rotate(-1.5deg);
     }
 
-    .project-badge {
+    /* Right Scrapbook Collage */
+    .hero-collage {
+      position: relative;
+      z-index: 2;
+      height: 410px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .collage-card {
+      position: absolute;
+      background: #fff;
+      padding: 10px 10px 14px;
+      border-radius: 6px;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .collage-card:hover { z-index: 10; }
+    .collage-tape {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 78px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.42);
+      backdrop-filter: blur(2px);
+      border-left: 1px dashed rgba(255, 255, 255, 0.5);
+      border-right: 1px dashed rgba(255, 255, 255, 0.5);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+    }
+    .collage-main {
+      width: 330px;
+      top: 16px;
+      right: 10px;
+      transform: rotate(3.2deg);
+      z-index: 2;
+    }
+    .collage-main:hover { transform: rotate(1deg) scale(1.03); }
+    .collage-main img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+    .collage-caption {
+      margin-top: 8px;
+      font-family: "Indie Flower", cursive;
+      font-size: 15px;
+      color: #222;
+      text-align: center;
+    }
+    .collage-screen {
+      width: 255px;
+      bottom: 12px;
+      left: 10px;
+      transform: rotate(-4.5deg);
+      z-index: 3;
+      padding: 7px;
+    }
+    .collage-screen:hover { transform: rotate(-1.5deg) scale(1.03); }
+    .collage-screen img {
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+    }
+    .collage-persona-mini {
+      width: 112px;
+      top: 14px;
+      left: 16px;
+      transform: rotate(-7deg);
+      z-index: 4;
+      padding: 7px 7px 10px;
+    }
+    .collage-persona-mini:hover { transform: rotate(-2deg) scale(1.06); }
+    .collage-persona-mini img {
+      width: 100%;
+      height: 98px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+    .collage-ticket {
+      position: absolute;
+      top: 148px;
+      left: 58px;
+      z-index: 5;
+      background: #f1deb5;
+      color: #292218;
+      padding: 11px 16px;
+      border-radius: 6px;
+      border: 1.5px dashed rgba(41, 34, 24, 0.35);
+      box-shadow: 0 12px 26px rgba(0, 0, 0, 0.38);
+      transform: rotate(-2.5deg);
+      text-align: center;
+      font-family: "Nohemi Semi Bold", sans-serif;
+    }
+    .collage-ticket b {
+      display: block;
+      font-size: 17px;
+      color: #af2a30;
+      line-height: 1.1;
+    }
+    .collage-ticket small {
+      display: block;
+      font-family: "Inter", sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+    .collage-sticker {
+      position: absolute;
+      bottom: 18px;
+      right: 12px;
+      z-index: 6;
+      background: var(--accent-color);
+      color: #fff;
+      font-family: "Indie Flower", cursive;
+      font-size: 17px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+      transform: rotate(6deg);
+      border: 2px solid #fff;
+    }
+
+    .hero-meta {
+      background: var(--accent-soft);
+      padding: 28px 56px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      color: var(--ink);
+      transition: background 0.25s ease;
+    }
+    .hero-meta span {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--mute);
+      margin-bottom: 4px;
+    }
+    .hero-meta b {
+      font-family: "Nohemi Medium", "Inter", sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* EDITORIAL SECTIONS */
+    .section {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 84px 32px 0;
+    }
+    .section-kicker {
+      font-family: "Inter", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 10px;
+      display: block;
+    }
+    h2.editorial-h2 {
+      margin: 0 0 20px;
+      font-family: "Nohemi Medium", "Inter", sans-serif;
+      font-size: clamp(1.9rem, 3.3vw, 2.75rem);
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+    h3.editorial-h3 {
+      margin: 0 0 8px;
+      font-family: "Nohemi Medium", "Inter", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--ink);
+    }
+    .lead {
+      font-size: 17.5px;
+      line-height: 1.7;
+      color: var(--mute);
+      margin: 0 0 18px;
+      max-width: 820px;
+    }
+    .hand-note {
+      font-family: "Indie Flower", cursive;
+      font-size: 20px;
+      color: var(--accent-color);
+      line-height: 1.3;
+    }
+
+    /* Problem & Process Grids */
+    .grid2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 28px 0;
+    }
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 26px 0;
+    }
+    .funky-tile {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 8px 8px 0 var(--accent-pale);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .funky-tile:hover {
+      transform: translateY(-3px);
+      box-shadow: 10px 10px 0 var(--accent-soft);
+    }
+    .funky-tile p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--mute);
+      line-height: 1.6;
+    }
+    .step-badge {
+      display: inline-block;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #AF2A30;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+    }
+    .step-sub {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+    }
+
+    /* Playfair Pull Quotes */
+    .quote-block {
+      position: relative;
+      margin: 56px 0 32px;
+      padding: 12px 0;
+    }
+    .playfair-quote {
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: clamp(1.65rem, 3.2vw, 2.35rem);
+      line-height: 1.42;
+      color: var(--ink);
+      margin: 0;
+      max-width: 820px;
+    }
+    .hl-circle {
+      position: relative;
+      display: inline-block;
+      padding: 0 0.25em;
+      font-style: italic;
+    }
+    .hl-circle::after {
+      content: "";
+      position: absolute;
+      inset: -0.08em -0.12em;
+      border: 2.5px solid var(--accent-color);
+      border-radius: 52% 48% 55% 45%;
+      transform: rotate(-1.5deg);
+      pointer-events: none;
+    }
+    .hl-underline {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.14em;
+    }
+    .hl-underline svg {
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 10px;
+      pointer-events: none;
+    }
+    .quote-sparkle {
+      position: absolute;
+      right: 10px;
+      top: -10px;
+      width: 48px;
+      color: var(--accent-color);
+    }
+
+    /* Interview Questions */
+    .q-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .q-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .q-num {
+      flex-shrink: 0;
+      font-family: "Nohemi Semi Bold", sans-serif;
+      font-size: 14px;
+      color: #fff;
+      background: var(--accent-color);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-top: 2px;
+    }
+    .q-card p {
+      margin: 0;
+      font-size: 15px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    /* Personas */
+    .persona-shell {
+      background: linear-gradient(135deg, var(--accent-pale), rgba(255, 241, 211, 0.58));
+      border: 1.5px solid var(--line);
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+    .persona-top {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 20px;
+      border-bottom: 1.5px dashed rgba(0, 0, 0, 0.14);
+    }
+    .persona-polaroid {
+      background: #fff;
+      padding: 8px 8px 12px;
+      border-radius: 8px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      transform: rotate(-2.5deg);
+    }
+    .persona-polaroid img {
+      width: 134px;
+      height: 134px;
+      border-radius: 5px;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .persona-meta h3 {
+      margin: 0 0 4px;
+      font-family: "Nohemi Semi Bold", sans-serif;
+      font-size: 1.65rem;
+      color: var(--ink);
+    }
+    .persona-sub {
+      font-size: 14.5px;
+      color: var(--mute);
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .persona-quote {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-style: italic;
+      font-size: 1.12rem;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+    .persona-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .persona-box {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+    }
+    .persona-pill {
+      display: inline-block;
+      font-family: "Nohemi Medium", sans-serif;
+      font-size: 13px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+    .persona-pill.goals { background: rgba(5, 150, 105, 0.13); color: #065f46; }
+    .persona-pill.challenges { background: rgba(175, 42, 48, 0.13); color: #881337; }
+    .persona-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--mute);
+      font-size: 14.5px;
+    }
+    .persona-box li { margin-bottom: 6px; }
+
+    /* Journey Map */
+    .journey-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 26px;
+    }
+    .journey-card {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 16px;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 6px 6px 0 var(--accent-pale);
+    }
+    .journey-step-num {
+      font-family: "Nohemi Semi Bold", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      color: var(--accent-color);
+      text-transform: uppercase;
+    }
+    .journey-stage {
+      font-family: "Nohemi Medium", sans-serif;
+      font-size: 1.05rem;
+      color: var(--ink);
+      margin: 0;
+    }
+    .journey-meta {
+      font-size: 13px;
+      color: var(--mute);
+      line-height: 1.45;
+    }
+    .journey-meta strong {
+      display: block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .journey-pain {
+      margin-top: auto;
+      background: rgba(175, 42, 48, 0.08);
+      border: 1px solid rgba(175, 42, 48, 0.22);
+      color: #881337;
+      border-radius: 10px;
+      padding: 9px 11px;
+      font-size: 12.5px;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+    .journey-pain strong {
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 2px;
     }
 
-    .project-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: #ffffff;
-      letter-spacing: -0.01em;
-    }
-
-    .header-right {
-      display: flex;
+    /* Typography & Colour System */
+    .type-card {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
       align-items: center;
-      gap: 10px;
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 20px;
+      padding: 34px;
+      margin: 24px 0 42px;
+      box-shadow: 10px 10px 0 var(--accent-pale);
+      font-family: "Outfit", sans-serif;
     }
-
-    /* View Switcher Toggle */
-    .view-toggle {
-      display: inline-flex;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 999px;
-      padding: 3px;
-      gap: 2px;
-    }
-
-    .toggle-btn {
-      background: transparent;
-      border: none;
-      color: #94a3b8;
-      font-size: 12px;
+    .type-name { font-size: 2.4rem; font-weight: 600; line-height: 1.1; color: var(--ink); }
+    .type-abc { letter-spacing: 0.14em; font-size: 0.95rem; margin-top: 12px; color: var(--ink); font-weight: 500; }
+    .type-big {
+      font-size: 6.5rem;
       font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 999px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      font-family: inherit;
+      line-height: 1;
+      text-align: center;
+      color: var(--accent-color);
     }
 
-    .toggle-btn.active {
-      background: rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    .swatches {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 22px;
     }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #AF2A30;
-      color: #ffffff;
-      font-size: 13px;
+    .swatch {
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 6px 6px 0 var(--accent-pale);
+    }
+    .swatch-fill { height: 88px; }
+    .swatch-label {
+      padding: 10px 12px;
+      font-family: "Outfit", sans-serif;
+      font-size: 13.5px;
       font-weight: 600;
-      padding: 8px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-      transition: all 0.2s ease;
+      color: var(--ink);
     }
 
-    .cta-btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.15);
-    }
-
-    .icon-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: #cbd5e1;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
-
-    .icon-btn:hover {
-      background: rgba(255, 255, 255, 0.14);
-      color: #ffffff;
-      transform: scale(1.05);
-    }
-
-    /* Main Content Viewport */
-    .viewer-viewport {
-      width: 100%;
-      height: calc(100% - 64px);
+    /* DARK UI SHOWCASE BAND */
+    .dark-band {
+      margin-top: 92px;
+      background: var(--dark-bg);
+      color: #fffef9;
+      padding: 92px 32px;
       position: relative;
-      background: #090a0d;
-    }
-
-    /* PDF Embed Frame */
-    .pdf-container {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: block;
-      background: #090a0d;
-    }
-
-    .pdf-container.hidden {
-      display: none;
-    }
-
-    .pdf-frame {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-      background: #111317;
-    }
-
-    /* Slide Deck Presentation Mode */
-    .slides-container {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #0a0b0e;
       overflow: hidden;
     }
-
-    .slides-container.hidden {
-      display: none;
+    .dark-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 20%, var(--accent-glow), transparent 45%),
+                  radial-gradient(circle at 80% 75%, var(--accent-glow), transparent 45%);
+      opacity: 0.55;
+      pointer-events: none;
     }
-
-    .slide-stage {
-      flex: 1;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      position: relative;
-      overflow: auto;
-    }
-
-    .slide-img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 12px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-      background: #000000;
-    }
-
-    /* Long-form infographic mode (e.g. for PNB single tall page) */
-    .slide-stage.scrollable {
-      overflow-y: auto;
-      display: block;
-      text-align: center;
-      padding: 24px 0;
-    }
-
-    .slide-stage.scrollable .slide-img {
-      max-height: none;
-      width: 90%;
-      max-width: 1200px;
+    .dark-inner {
+      max-width: 1060px;
       margin: 0 auto;
+      position: relative;
+      z-index: 2;
     }
+    .dark-band h2.editorial-h2 { color: #ffffff; }
+    .dark-band .lead { color: rgba(255, 254, 249, 0.78); }
+    .dark-band .section-kicker { color: var(--accent-light); }
 
-    /* Slide Navigation Controls */
-    .slides-controls {
-      height: 60px;
-      width: 100%;
-      background: rgba(13, 15, 18, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      z-index: 10;
+    .showcase-frame {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 28px 70px rgba(0, 0, 0, 0.55);
     }
-
-    .nav-arrow-btn {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      color: #ffffff;
-      padding: 8px 18px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-      font-family: inherit;
+    .showcase-frame img { width: 100%; border-radius: 12px; }
+    .showcase-cap {
+      margin-top: 14px;
+      font-size: 14px;
+      color: rgba(255, 254, 249, 0.72);
     }
-
-    .nav-arrow-btn:hover:not(:disabled) {
-      background: rgba(255, 255, 255, 0.18);
-      transform: translateY(-1px);
+    .shots-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
-
-    .nav-arrow-btn:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
+    .dark-quote {
+      margin: 56px 0 0;
+      padding-top: 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
     }
+    .dark-quote .playfair-quote { color: #fffef9; }
 
-    .slide-counter {
-      font-size: 13px;
-      font-weight: 600;
-      color: #94a3b8;
-      min-width: 90px;
+    /* THANK YOU + FOOTER PAGER */
+    .thanks-section {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 84px 32px 24px;
       text-align: center;
     }
+    .thanks-word {
+      font-family: "Nohemi Semi Bold", "Outfit", sans-serif;
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin: 0;
+    }
 
-    /* Floating Download Pill */
-    .floating-download-pill {
+    .case-footer {
+      max-width: 1060px;
+      margin: 48px auto 0;
+      padding: 36px 32px 100px;
+      border-top: 1.5px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .pager-link {
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+    .pager-link:hover { color: var(--accent-color); transform: translateY(-2px); }
+    .pager-link small {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--mute);
+      font-weight: 600;
+    }
+    .pager-link strong {
+      font-family: "Nohemi Medium", sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+    }
+    .pager-link.right { text-align: right; }
+
+    /* FLOATING COLOR THEME SWITCHER */
+    .theme-switcher-pill {
       position: fixed;
       bottom: 24px;
       right: 24px;
-      z-index: 9999;
+      z-index: 999999;
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(15, 23, 42, 0.94);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(37, 99, 235, 0.2);
-      padding: 10px 20px;
+      background: rgba(18, 18, 18, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px -2px var(--accent-glow);
+      padding: 8px 14px;
       border-radius: 999px;
-      color: #ffffff;
-      font-size: 13px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      transition: all 0.25s ease;
+    }
+    .theme-switcher-pill:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.25); }
+    .theme-switcher-label {
+      font-size: 11px;
       font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.7);
+      margin-right: 4px;
+    }
+    .theme-btn {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), border-color 0.2s ease;
+      padding: 0;
+    }
+    .theme-btn:hover { transform: scale(1.25); }
+    .theme-btn.active {
+      border-color: #ffffff;
+      box-shadow: 0 0 8px currentColor;
+      transform: scale(1.15);
     }
 
-    .floating-download-pill:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.3);
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+    @media (max-width: 980px) {
+      .hero-stage { grid-template-columns: 1fr; padding: 48px 32px; }
+      .hero-collage { height: 360px; }
+      .hero-meta { grid-template-columns: 1fr 1fr; padding: 24px 32px; }
+      .journey-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid3 { grid-template-columns: 1fr; }
     }
-
-    /* Mobile Responsive Adjustments */
-    @media (max-width: 768px) {
-      .viewer-header {
-        padding: 0 14px;
-        height: 56px;
-      }
-      .viewer-viewport {
-        height: calc(100% - 56px);
-      }
-      .header-center {
-        display: none;
-      }
-      .back-btn span {
-        display: none;
-      }
-      .back-btn {
-        padding: 8px 12px;
-      }
-      .toggle-btn span {
-        display: none;
-      }
-      .toggle-btn {
-        padding: 6px 10px;
-      }
-      .cta-btn span {
-        display: none;
-      }
-      .cta-btn {
-        padding: 8px 12px;
-      }
-      .floating-download-pill {
-        bottom: 16px;
-        right: 16px;
-        padding: 8px 16px;
-        font-size: 12px;
-      }
+    @media (max-width: 720px) {
+      .hero-wrap { padding: 8px 16px 0; }
+      .hero-stage { padding: 36px 22px; }
+      .hero-collage { height: 320px; transform: scale(0.86); transform-origin: center; }
+      .hero-meta { grid-template-columns: 1fr 1fr; padding: 20px 22px; }
+      .section { padding: 60px 20px 0; }
+      .grid2, .q-grid, .persona-top, .persona-cols, .type-card, .shots-2 { grid-template-columns: 1fr; }
+      .journey-grid { grid-template-columns: 1fr; }
+      .swatches { grid-template-columns: repeat(2, 1fr); }
+      .dark-band { padding: 64px 20px; }
+      .case-footer { padding: 28px 20px 96px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
-  <header class="viewer-header">
-    <div class="header-left">
-      <a href="/" class="back-btn" title="Return to Portfolio">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-        <span>Back to Portfolio</span>
-      </a>
-    </div>
+  <!-- TOP NAVIGATION -->
+  <nav class="top-nav" aria-label="Primary Navigation">
+    <a class="nav-link" href="/">
+      <span>HOME</span>
+      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none"><path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/></svg>
+    </a>
+    <svg class="nav-spiral" viewBox="-1 -1 31 37" fill="none" aria-hidden="true">
+      <path d="M26.38 29.34C26.38 19.51 19.05 8.64 7.56 11.06C4.53 11.7 1.22 18.58 4.28 20.69C8.41 23.54 16.79 25.65 21.97 24.29C30.46 22.06 30.08 15.12 22.88 11.01C18.67 8.6 6.94 5.5 2.4 8.7C-3.6 12.92 3.88 19.24 6.91 21.6C10.46 24.36 13.5 28.25 17.67 30.1C23.9 32.87 28.38 13.77 20.03 12.89C13.73 12.23 7.65 12.08 5.57 18.75C4.05 23.62 6.01 28.08 10.89 29.83C13.7 30.83 17.63 30.49 20.57 30.31C25.56 30.02 17.72 21.52 17.18 21.06C11.29 16.07 8.95 18.01 4.12 23.11C0.2 27.24 7.14 28.66 9.71 30.31C12.31 31.98 15.59 35.65 19.12 34.08C23.14 32.29 24.44 25.45 24.44 21.6C24.44 9.82 20.32 5.02 10.89 0.31" stroke="#93c5fd" stroke-width="1.72" stroke-linecap="round"/>
+    </svg>
+    <a class="nav-link" href="/about">
+      <span>ABOUT</span>
+      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none"><path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/></svg>
+    </a>
+    <svg class="nav-spiral" viewBox="-1 -1 31 37" fill="none" aria-hidden="true">
+      <path d="M26.38 29.34C26.38 19.51 19.05 8.64 7.56 11.06C4.53 11.7 1.22 18.58 4.28 20.69C8.41 23.54 16.79 25.65 21.97 24.29C30.46 22.06 30.08 15.12 22.88 11.01C18.67 8.6 6.94 5.5 2.4 8.7C-3.6 12.92 3.88 19.24 6.91 21.6C10.46 24.36 13.5 28.25 17.67 30.1C23.9 32.87 28.38 13.77 20.03 12.89C13.73 12.23 7.65 12.08 5.57 18.75C4.05 23.62 6.01 28.08 10.89 29.83C13.7 30.83 17.63 30.49 20.57 30.31C25.56 30.02 17.72 21.52 17.18 21.06C11.29 16.07 8.95 18.01 4.12 23.11C0.2 27.24 7.14 28.66 9.71 30.31C12.31 31.98 15.59 35.65 19.12 34.08C23.14 32.29 24.44 25.45 24.44 21.6C24.44 9.82 20.32 5.02 10.89 0.31" stroke="#93c5fd" stroke-width="1.72" stroke-linecap="round"/>
+    </svg>
+    <a class="nav-link" href="https://drive.google.com/file/d/1Yy1NBUm2XdStpkeBKhOiFF-4nQd8cn5j/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+      <span>RESUME</span>
+      <svg class="nav-squiggle" viewBox="0 0 142 11" fill="none"><path d="M0.24 6.03C33.25 8.79 92.74 -2.21 137.75 2.79" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/></svg>
+    </a>
+  </nav>
 
-    <div class="header-center">
-      <span class="project-badge">UI/UX Case Study</span>
-      <h1 class="project-title">UI/UX Case Study: PNB Website Redesign</h1>
-    </div>
+  <!-- HERO SCRAPBOOK CARD -->
+  <header class="hero-wrap">
+    <div class="hero-card">
+      <div class="hero-stage">
+        <svg class="hero-sparkle s1" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 4c1.5 14 5.5 18 19 20-13.5 2-17.5 6-19 20-1.5-14-5.5-18-19-20 13.5-2 17.5-6 19-20z"/></svg>
+        <svg class="hero-sparkle s2" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 6c1.5 12 5 15.5 17 17-12 1.5-15.5 5-17 17-1.5-12-5-15.5-17-17 12-1.5 15.5-5 17-17z"/></svg>
+        <svg class="hero-sparkle s3" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M24 6c1.5 12 5 15.5 17 17-12 1.5-15.5 5-17 17-1.5-12-5-15.5-17-17 12-1.5 15.5-5 17-17z"/></svg>
 
-    <div class="header-right">
-      <div class="view-toggle">
-        <button id="btn-view-pdf" class="toggle-btn active" title="View Full Document PDF">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-          </svg>
-          <span>PDF View</span>
-        </button>
-        <button id="btn-view-slides" class="toggle-btn" title="View Slide-by-Slide Presentation">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
-          </svg>
-          <span>Slides</span>
-        </button>
+        <div class="hero-left">
+          <span class="hero-kicker">UI/UX Case Study • Punjab National Bank</span>
+          <h1 class="hero-title">A Better PNB: Redesigning a Banking Website</h1>
+          <p class="hero-sub">Making PNB's net banking experience easier to navigate, less cluttered, and softer on the eye—so everyday customers can finish tasks without confusion.</p>
+          <div class="hero-handnote">
+            <span>2025 · Himani &amp; Lakshay</span>
+            <svg width="56" height="22" viewBox="0 0 60 24" fill="none" aria-hidden="true">
+              <path d="M2 14 C 18 20, 38 6, 55 11" stroke="#93c5fd" stroke-width="2" stroke-linecap="round"/>
+              <path d="M47 5 L56 11 L46 18" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="hero-collage" aria-hidden="true">
+          <div class="collage-card collage-main">
+            <div class="collage-tape"></div>
+            <img src="/assets/pnb/pnb-hero.jpg" alt="Redesigned PNB Home Loans page on laptop">
+            <div class="collage-caption">PNB Home Loans · Redesigned</div>
+          </div>
+
+          <div class="collage-card collage-persona-mini">
+            <img src="/assets/pnb/pnb-aditi.jpg" alt="Aditi Mehra persona">
+            <div class="collage-caption" style="font-size:13px; margin-top:4px;">Aditi, 20</div>
+          </div>
+
+          <div class="collage-ticket">
+            <b>PNB 2025</b>
+            <small>Net Banking UX</small>
+          </div>
+
+          <div class="collage-card collage-screen">
+            <img src="/assets/pnb/pnb-browse-topics.jpg" alt="Browse all product topics UI">
+          </div>
+
+          <div class="collage-sticker">Outfit + Cream</div>
+        </div>
       </div>
 
-      <a href="/PNB Redesign by Lakshay.pdf" target="_blank" rel="noopener noreferrer" class="icon-btn" title="Open PDF in Dedicated Tab">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <line x1="10" y1="14" x2="21" y2="3"></line>
-        </svg>
-      </a>
-
-      <button id="btn-fullscreen" class="icon-btn" title="Toggle Fullscreen Mode">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
-        </svg>
-      </button>
-
-      <a href="/PNB Redesign by Lakshay.pdf" download class="cta-btn" title="Download Case Study PDF">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-          <polyline points="7 10 12 15 17 10"></polyline>
-          <line x1="12" y1="15" x2="12" y2="3"></line>
-        </svg>
-        <span>Download PDF</span>
-      </a>
+      <div class="hero-meta">
+        <div><span>Project Type</span><b>UI/UX Redesign, Website</b></div>
+        <div><span>Team</span><b>Himani &amp; Lakshay</b></div>
+        <div><span>Year</span><b>2025</b></div>
+        <div><span>Focus</span><b>Navigation, Personalization, Visual Design</b></div>
+      </div>
     </div>
   </header>
 
-  <!-- Main Viewport -->
-  <main class="viewer-viewport">
-    <!-- View 1: Embedded Native PDF -->
-    <section id="pdf-view-container" class="pdf-container">
-      <iframe class="pdf-frame" src="/PNB Redesign by Lakshay.pdf#toolbar=1&navpanes=0&view=FitH" title="UI/UX Case Study: PNB Website Redesign PDF Presentation"></iframe>
-    </section>
+  <!-- 1. PROBLEM -->
+  <section class="section" id="problem">
+    <span class="section-kicker">01 / Identifying the Friction</span>
+    <h2 class="editorial-h2">Problem</h2>
+    <p class="lead">PNB's banking website is hard to navigate. Complex menus and a cluttered homepage frustrate people trying to transfer funds, pay bills, or manage accounts—and a lack of personalization plus an outdated design make it even harder on mobile.</p>
+    <p class="lead">These issues lead to inefficiency, frustration, and weaker customer retention. This case study improves usability by tackling navigation, information overload, and visual clarity.</p>
 
-    <!-- View 2: High-Resolution Presentation Slide Deck -->
-    <section id="slides-view-container" class="slides-container hidden">
-      <div id="slide-stage" class="slide-stage scrollable">
-        <img id="current-slide-img" class="slide-img" src="/assets/slides/pnb/page_1.png" alt="UI/UX Case Study: PNB Website Redesign Slide 1" loading="eager">
+    <div class="grid2">
+      <div class="funky-tile">
+        <h3 class="editorial-h3">Unclear navigation</h3>
+        <p>Users can't quickly find the services they need.</p>
+      </div>
+      <div class="funky-tile">
+        <h3 class="editorial-h3">No personalization</h3>
+        <p>There's no personalized content or dashboard to reach the most-used services fast.</p>
+      </div>
+      <div class="funky-tile">
+        <h3 class="editorial-h3">Cluttered homepage</h3>
+        <p>Too much information makes it hard to focus on the main goal.</p>
+      </div>
+      <div class="funky-tile">
+        <h3 class="editorial-h3">Dated design</h3>
+        <p>Outdated visuals and typography hurt readability and overall look.</p>
+      </div>
+    </div>
+
+    <div class="quote-block">
+      <svg class="quote-sparkle" viewBox="0 0 48 48" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+        <path d="M16 6c1 9 4 12 12 13-8 1-11 4-12 13-1-9-4-12-12-13 8-1 11-4 12-13z"/>
+        <path d="M36 28c.6 5 2 6.5 7 7-5 .5-6.4 2-7 7-.6-5-2-6.5-7-7 5-.5 6.4-2 7-7z"/>
+      </svg>
+      <p class="playfair-quote">
+        A bank website should feel
+        <span class="hl-circle">calm and obvious,</span>
+        so people can get to what they came for
+        <span class="hl-underline">
+          in a few clicks.
+          <svg viewBox="0 0 646 8" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M1 5 C160 1, 420 7, 645 2" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/></svg>
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- 2. DESIGN PROCESS -->
+  <section class="section" id="process">
+    <span class="section-kicker">02 / Methodology</span>
+    <h2 class="editorial-h2">Design Process</h2>
+    <div class="grid3">
+      <div class="funky-tile">
+        <span class="step-badge">Step 1</span>
+        <h3 class="editorial-h3">Discovery</h3>
+        <span class="step-sub">Primary &amp; secondary research</span>
+        <p>Surveys and interviews to understand how users see PNB's current site, the challenges they face, and which problem statements matter most.</p>
+      </div>
+      <div class="funky-tile">
+        <span class="step-badge">Step 2</span>
+        <h3 class="editorial-h3">Ideation</h3>
+        <span class="step-sub">HMW &amp; solutions</span>
+        <p>Using How Might We questions, we focused on two flows: making important features visible, and redesigning the UI with a consistent, softer colour palette.</p>
+      </div>
+      <div class="funky-tile">
+        <span class="step-badge">Step 3</span>
+        <h3 class="editorial-h3">Implementation</h3>
+        <span class="step-sub">Wireframes &amp; UI</span>
+        <p>We set the visual direction, built wireframes and interfaces from the design system, and finished with a functional prototype.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. INTERVIEW QUESTIONS -->
+  <section class="section" id="research">
+    <span class="section-kicker">03 / User Research</span>
+    <h2 class="editorial-h2">Interview Questions</h2>
+    <div class="q-grid">
+      <div class="q-card"><span class="q-num">Q1</span><p>Was the log in successful during your last visit to the PNB website?</p></div>
+      <div class="q-card"><span class="q-num">Q2</span><p>How user friendly did the navigation feel after going through the site?</p></div>
+      <div class="q-card"><span class="q-num">Q3</span><p>How visually clear and well organized did the page/app appear?</p></div>
+      <div class="q-card"><span class="q-num">Q4</span><p>How did you feel about the website's mobile responsiveness?</p></div>
+      <div class="q-card"><span class="q-num">Q5</span><p>How likely would you be to recommend PNB's website/app based on your experience?</p></div>
+      <div class="q-card"><span class="q-num">Q6</span><p>What was the single most frustrating part of your last visit to PNB's platform?</p></div>
+    </div>
+  </section>
+
+  <!-- 4. USER PERSONAS -->
+  <section class="section" id="personas">
+    <span class="section-kicker">04 / Who Uses PNB</span>
+    <h2 class="editorial-h2">User Personas</h2>
+
+    <article class="persona-shell">
+      <div class="persona-top">
+        <div class="persona-polaroid">
+          <img src="/assets/pnb/pnb-ramesh.jpg" alt="Portrait of Ramesh Verma">
+        </div>
+        <div class="persona-meta">
+          <h3>Ramesh Verma</h3>
+          <div class="persona-sub">56, married · Small business owner, Patiala, Punjab</div>
+          <blockquote class="persona-quote">"As a small business owner who isn't tech savvy, I want to manage my banking quickly and without confusion, so I can focus on my business instead of struggling with the site."</blockquote>
+        </div>
+      </div>
+      <div class="persona-cols">
+        <div class="persona-box">
+          <span class="persona-pill goals">Goals</span>
+          <ul>
+            <li>Easily access balance and transaction history</li>
+            <li>Make fund transfers without external help</li>
+            <li>Understand icons and menu options clearly</li>
+            <li>Navigate without clicking wrong buttons</li>
+            <li>Feel confident using the website on his own</li>
+          </ul>
+        </div>
+        <div class="persona-box">
+          <span class="persona-pill challenges">Challenges</span>
+          <ul>
+            <li>Unclear icons and too many options on the homepage</li>
+            <li>Hard to find frequently used services</li>
+            <li>Small text and cluttered design confuse him</li>
+            <li>Often needs family to help complete tasks</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <article class="persona-shell">
+      <div class="persona-top">
+        <div class="persona-polaroid" style="transform: rotate(2.5deg);">
+          <img src="/assets/pnb/pnb-aditi.jpg" alt="Portrait of Aditi Mehra">
+        </div>
+        <div class="persona-meta">
+          <h3>Aditi Mehra</h3>
+          <div class="persona-sub">20, single · Undergraduate student, Delhi</div>
+          <blockquote class="persona-quote">"As a student who's always on the go, I want to do quick transactions on my mobile without glitches, so I can save time and avoid frustration."</blockquote>
+        </div>
+      </div>
+      <div class="persona-cols">
+        <div class="persona-box">
+          <span class="persona-pill goals">Goals</span>
+          <ul>
+            <li>Perform fast UPI transfers</li>
+            <li>View mini statements and balances quickly</li>
+            <li>Use the mobile site without needing to zoom</li>
+            <li>Complete tasks in 2 to 3 taps</li>
+            <li>Get a modern, efficient digital experience</li>
+          </ul>
+        </div>
+        <div class="persona-box">
+          <span class="persona-pill challenges">Challenges</span>
+          <ul>
+            <li>Website not optimized for mobile screens</li>
+            <li>Touch targets (buttons and icons) too small</li>
+            <li>Slow load times and freezing elements</li>
+            <li>Broken links or redirections</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 5. USER JOURNEY -->
+  <section class="section" id="journey">
+    <span class="section-kicker">05 / End-to-End Flow</span>
+    <h2 class="editorial-h2">User Journey</h2>
+    <div class="journey-grid">
+      <article class="journey-card">
+        <span class="journey-step-num">01 / Entry</span>
+        <h3 class="journey-stage">Homepage</h3>
+        <div class="journey-meta"><strong>Action</strong>User opens PNB's website on a laptop</div>
+        <div class="journey-meta"><strong>Feeling</strong>Neutral, slightly impatient</div>
+        <div class="journey-pain"><strong>Pain Point</strong>Homepage, navigation bar</div>
+      </article>
+      <article class="journey-card">
+        <span class="journey-step-num">02 / Discovery</span>
+        <h3 class="journey-stage">Searching for login</h3>
+        <div class="journey-meta"><strong>Action</strong>Looks around for net banking login area</div>
+        <div class="journey-meta"><strong>Feeling</strong>Annoyed, frustrated</div>
+        <div class="journey-pain"><strong>Pain Point</strong>Login buttons, popups</div>
+      </article>
+      <article class="journey-card">
+        <span class="journey-step-num">03 / Auth</span>
+        <h3 class="journey-stage">Login process</h3>
+        <div class="journey-meta"><strong>Action</strong>Tries logging in (some succeed, others retry)</div>
+        <div class="journey-meta"><strong>Feeling</strong>Tense</div>
+        <div class="journey-pain"><strong>Pain Point</strong>Login form, CAPTCHA, loading speed</div>
+      </article>
+      <article class="journey-card">
+        <span class="journey-step-num">04 / Banking</span>
+        <h3 class="journey-stage">Using services</h3>
+        <div class="journey-meta"><strong>Action</strong>Accesses account summary &amp; statements</div>
+        <div class="journey-meta"><strong>Feeling</strong>Confident, independent</div>
+        <div class="journey-pain"><strong>Pain Point</strong>Account dashboard, quick view</div>
+      </article>
+      <article class="journey-card">
+        <span class="journey-step-num">05 / Outcome</span>
+        <h3 class="journey-stage">Completing a task</h3>
+        <div class="journey-meta"><strong>Action</strong>Makes a payment or downloads a statement</div>
+        <div class="journey-meta"><strong>Feeling</strong>Nervous, then accomplished</div>
+        <div class="journey-pain"><strong>Pain Point</strong>Payment module, statement view</div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 6. TYPOGRAPHY & COLOUR SYSTEM -->
+  <section class="section" id="system">
+    <span class="section-kicker">06 / Visual System</span>
+    <h2 class="editorial-h2">Typography &amp; Colour Palette</h2>
+    <div class="type-card">
+      <div>
+        <div class="type-name">Outfit</div>
+        <p class="lead" style="margin:10px 0 0; font-size:16px;">Classic and geometric. Outfit is a variable font family crafted and designed for computer screens.</p>
+        <div class="type-abc">ABCDEFGHIJKLMNO<br>PQRSTUVWXYZ</div>
+      </div>
+      <div class="type-big" aria-hidden="true">Aa</div>
+    </div>
+
+    <p class="lead">A softer, warmer palette built on PNB's own red and gold, with a cream base so the page feels calmer.</p>
+    <div class="swatches">
+      <div class="swatch"><div class="swatch-fill" style="background:#AF2A30"></div><div class="swatch-label">#AF2A30</div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#FFF1D3"></div><div class="swatch-label">#FFF1D3</div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#C00000"></div><div class="swatch-label">#C00000</div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#FDBD30"></div><div class="swatch-label">#FDBD30</div></div>
+      <div class="swatch"><div class="swatch-fill" style="background:#FFA7A8"></div><div class="swatch-label">#FFA7A8</div></div>
+    </div>
+  </section>
+
+  <!-- 7. DARK SHOWCASE BAND (User Interface) -->
+  <section class="dark-band" id="ui">
+    <div class="dark-inner">
+      <span class="section-kicker">07 / Final Screens</span>
+      <h2 class="editorial-h2">User Interface</h2>
+      <p class="lead">The final designs use the new palette and type, simpler menus, and clearer grouping so the main actions stand out immediately.</p>
+
+      <div class="showcase-frame">
+        <img src="/assets/pnb/pnb-home-loans.jpg" alt="Redesigned Home Loans page with EMI calculator" loading="lazy">
+        <p class="showcase-cap">Home Loans page: a clear hero, key benefits at a glance, and an EMI calculator.</p>
       </div>
 
-      
-        
-          
-          
-        
-        
-        
-        
-        
-          
-          
-        
-      
-    </section>
-  </main>
+      <div class="showcase-frame">
+        <img src="/assets/pnb/pnb-browse-topics.jpg" alt="Browse all products topics page" loading="lazy">
+        <p class="showcase-cap">Browse all product topics: tabs and grouped links so users can find a service in a couple of clicks.</p>
+      </div>
 
-  <!-- Floating Download CTA -->
-  <a href="/PNB Redesign by Lakshay.pdf" target="_blank" rel="noopener noreferrer" class="floating-download-pill">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#AF2A30" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-      <polyline points="14 2 14 8 20 8"></polyline>
-      <line x1="12" y1="18" x2="12" y2="12"></line>
-      <line x1="9" y1="15" x2="15" y2="15"></line>
-    </svg>
-    <span>Open Original PDF Presentation</span>
-  </a>
+      <div class="shots-2">
+        <div class="showcase-frame">
+          <img src="/assets/pnb/pnb-features.jpg" alt="Home loan features and benefits section" loading="lazy">
+          <p class="showcase-cap">Features and benefits in simple cards.</p>
+        </div>
+        <div class="showcase-frame">
+          <img src="/assets/pnb/pnb-reviews-app.jpg" alt="Home loan reviews and mobile app section" loading="lazy">
+          <p class="showcase-cap">Reviews and a mobile banking prompt.</p>
+        </div>
+      </div>
+
+      <div class="showcase-frame">
+        <img src="/assets/pnb/pnb-security-footer.jpg" alt="Security banner and footer" loading="lazy">
+        <p class="showcase-cap">Security reassurance and a tidier, grouped footer.</p>
+      </div>
+
+      <div class="dark-quote">
+        <p class="playfair-quote">
+          Fewer choices on screen, softer colours and
+          <span class="hl-underline">
+            clearer paths
+            <svg viewBox="0 0 646 8" fill="none" preserveAspectRatio="none" aria-hidden="true"><path d="M1 5 C160 1, 420 7, 645 2" stroke="#93c5fd" stroke-width="3" stroke-linecap="round"/></svg>
+          </span>
+          make the site feel
+          <span class="hl-circle">easier to trust.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THANK YOU -->
+  <section class="thanks-section">
+    <p class="thanks-word">Thank you!</p>
+  </section>
+
+  <!-- FOOTER PAGER -->
+  <footer class="case-footer">
+    <a class="pager-link" href="/instagram-reels-experience">
+      <small>&larr; Previous</small>
+      <strong>Improving the Reels Experience</strong>
+    </a>
+    <a class="pager-link right" href="/improving-discord-new-users">
+      <small>Next up &rarr;</small>
+      <strong>Improving Discord for New Users</strong>
+    </a>
+  </footer>
+
+  <!-- FLOATING COLOR THEME SWITCHER -->
+  <div class="theme-switcher-pill" role="group" aria-label="Color theme switcher">
+    <span class="theme-switcher-label">Color</span>
+    <button class="theme-btn active" data-color="blue" style="background:#2563eb;color:#2563eb" title="Blue"></button>
+    <button class="theme-btn" data-color="emerald" style="background:#059669;color:#059669" title="Emerald"></button>
+    <button class="theme-btn" data-color="violet" style="background:#7c3aed;color:#7c3aed" title="Violet"></button>
+    <button class="theme-btn" data-color="amber" style="background:#ea580c;color:#ea580c" title="Amber"></button>
+    <button class="theme-btn" data-color="cyan" style="background:#0891b2;color:#0891b2" title="Cyan"></button>
+    <button class="theme-btn" data-color="pink" style="background:#d5546d;color:#d5546d" title="Pink"></button>
+  </div>
 
   <script>
     (function() {
-      const slides = ["/assets/slides/pnb/page_1.png"];
-      let currentSlideIdx = 0;
+      const THEMES = {
+        blue:    { primary: '#2563eb', light: '#93c5fd', mid: '#60a5fa', dark: '#1d4ed8', glow: 'rgba(37, 99, 235, 0.30)', soft: 'rgba(37, 99, 235, 0.14)', pale: 'rgba(37, 99, 235, 0.06)' },
+        emerald: { primary: '#059669', light: '#6ee7b7', mid: '#34d399', dark: '#047857', glow: 'rgba(5, 150, 105, 0.30)', soft: 'rgba(5, 150, 105, 0.14)', pale: 'rgba(5, 150, 105, 0.06)' },
+        violet:  { primary: '#7c3aed', light: '#c4b5fd', mid: '#a78bfa', dark: '#6d28d9', glow: 'rgba(124, 58, 237, 0.30)', soft: 'rgba(124, 58, 237, 0.14)', pale: 'rgba(124, 58, 237, 0.06)' },
+        amber:   { primary: '#ea580c', light: '#fdba74', mid: '#fb923c', dark: '#c2410c', glow: 'rgba(234, 88, 12, 0.30)', soft: 'rgba(234, 88, 12, 0.14)', pale: 'rgba(234, 88, 12, 0.06)' },
+        cyan:    { primary: '#0891b2', light: '#67e8f9', mid: '#22d3ee', dark: '#0e7490', glow: 'rgba(8, 145, 178, 0.30)', soft: 'rgba(8, 145, 178, 0.14)', pale: 'rgba(8, 145, 178, 0.06)' },
+        pink:    { primary: '#d5546d', light: '#ffa8b9', mid: '#e28799', dark: '#b7495e', glow: 'rgba(213, 84, 109, 0.30)', soft: 'rgba(213, 84, 109, 0.16)', pale: 'rgba(213, 84, 109, 0.06)' }
+      };
 
-      // Elements
-      const btnPdf = document.getElementById("btn-view-pdf");
-      const btnSlides = document.getElementById("btn-view-slides");
-      const pdfContainer = document.getElementById("pdf-view-container");
-      const slidesContainer = document.getElementById("slides-view-container");
-      const currentImg = document.getElementById("current-slide-img");
-      const slideCounter = document.getElementById("slide-counter");
-      const btnPrev = document.getElementById("btn-prev-slide");
-      const btnNext = document.getElementById("btn-next-slide");
-      const btnFullscreen = document.getElementById("btn-fullscreen");
+      const PRIMARY_SET = new Set(['#2563eb', '#059669', '#7c3aed', '#ea580c', '#0891b2', '#d5546d']);
+      const LIGHT_SET   = new Set(['#93c5fd', '#6ee7b7', '#c4b5fd', '#fdba74', '#67e8f9', '#ffa8b9']);
 
-      // Switch View
-      function switchView(mode) {
-        if (mode === "slides") {
-          btnSlides.classList.add("active");
-          btnPdf.classList.remove("active");
-          slidesContainer.classList.remove("hidden");
-          pdfContainer.classList.add("hidden");
-        } else {
-          btnPdf.classList.add("active");
-          btnSlides.classList.remove("active");
-          pdfContainer.classList.remove("hidden");
-          slidesContainer.classList.add("hidden");
-        }
-      }
+      function applyTheme(name) {
+        const t = THEMES[name] || THEMES.blue;
+        const root = document.documentElement.style;
+        root.setProperty('--accent-color', t.primary);
+        root.setProperty('--accent-light', t.light);
+        root.setProperty('--accent-mid', t.mid);
+        root.setProperty('--accent-dark', t.dark);
+        root.setProperty('--accent-glow', t.glow);
+        root.setProperty('--accent-soft', t.soft);
+        root.setProperty('--accent-pale', t.pale);
 
-      if (btnPdf) btnPdf.addEventListener("click", () => switchView("pdf"));
-      if (btnSlides) btnSlides.addEventListener("click", () => switchView("slides"));
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.color === name);
+        });
 
-      // Slide Navigation
-      function updateSlide(idx) {
-        if (idx < 0 || idx >= slides.length) return;
-        currentSlideIdx = idx;
-        if (currentImg) {
-          currentImg.src = slides[currentSlideIdx];
-          currentImg.alt = "UI/UX Case Study: PNB Website Redesign Slide " + (currentSlideIdx + 1);
-        }
-        if (slideCounter) {
-          slideCounter.textContent = "Slide " + (currentSlideIdx + 1) + " of " + slides.length;
-        }
-        if (btnPrev) btnPrev.disabled = (currentSlideIdx === 0);
-        if (btnNext) btnNext.disabled = (currentSlideIdx === slides.length - 1);
-      }
-
-      if (btnPrev) btnPrev.addEventListener("click", () => updateSlide(currentSlideIdx - 1));
-      if (btnNext) btnNext.addEventListener("click", () => updateSlide(currentSlideIdx + 1));
-
-      // Keyboard arrow shortcuts
-      window.addEventListener("keydown", (e) => {
-        if (slidesContainer && !slidesContainer.classList.contains("hidden")) {
-          if (e.key === "ArrowRight" || e.key === " ") {
-            updateSlide(currentSlideIdx + 1);
-          } else if (e.key === "ArrowLeft") {
-            updateSlide(currentSlideIdx - 1);
-          }
-        }
-      });
-
-      // Fullscreen Toggle
-      if (btnFullscreen) {
-        btnFullscreen.addEventListener("click", () => {
-          if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen().catch(() => {});
-          } else {
-            if (document.exitFullscreen) document.exitFullscreen();
+        document.querySelectorAll('svg path, svg line').forEach(el => {
+          const stroke = (el.getAttribute('stroke') || '').toLowerCase();
+          if (PRIMARY_SET.has(stroke)) {
+            el.setAttribute('stroke', t.primary);
+          } else if (LIGHT_SET.has(stroke)) {
+            el.setAttribute('stroke', t.light);
           }
         });
+
+        try { localStorage.setItem('user_theme', name); } catch (e) {}
       }
+
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => applyTheme(btn.dataset.color));
+      });
+
+      let saved = 'blue';
+      try { saved = localStorage.getItem('user_theme') || 'blue'; } catch (e) {}
+      applyTheme(saved);
     })();
   </script>
 </body>

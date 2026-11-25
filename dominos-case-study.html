@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domino's New Packaging: A Strategic Redesign | Product Teardown</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* Scoped to .dmn so it can be merged into your main site without clashing */
+.dmn{--bg:#fffcf7;--ink:#1c1a18;--mute:#5d5953;--red:#e31837;--blue:#006491;--red-soft:#fde0e5;--peach:#fdeedd;--line:#e7e0d6;--card:#fff;
+ font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden}
+.dmn *{box-sizing:border-box}
+.dmn img{max-width:100%;display:block}
+.dmn a{color:inherit}
+.dmn .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.dmn h1,.dmn h2,.dmn h3{line-height:1.2;margin:0}
+.dmn h2{font-size:2rem;font-weight:700;margin-bottom:18px;letter-spacing:-.02em;color:var(--blue)}
+.dmn h3{font-size:1.05rem;font-weight:700;margin-bottom:6px}
+.dmn p{margin:0 0 14px;color:var(--mute)}
+.dmn section{padding:56px 0 8px}
+.dmn .serif{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.4rem,3.2vw,1.9rem);line-height:1.45;color:var(--ink);margin:40px 0}
+.dmn .ul{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C20 1 40 7 62 3 S100 6 119 2' fill='none' stroke='%23e31837' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") 0 100%/100% .35em no-repeat;padding-bottom:.18em}
+.dmn .circ{position:relative;display:inline-block;padding:0 .3em}
+.dmn .circ::after{content:"";position:absolute;inset:-.12em -.1em;border:2px solid var(--red);border-radius:50%;transform:rotate(-1.5deg)}
+
+/* hero */
+.dmn .hero{padding:48px 0 0}
+.dmn .hero-card{display:grid;grid-template-columns:1.05fr .95fr;background:var(--card);border-radius:22px;box-shadow:0 12px 40px rgba(60,40,20,.09);overflow:hidden;position:relative}
+.dmn .hero-text{padding:40px 36px;align-self:center}
+.dmn .tags{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--red);margin-bottom:14px;font-weight:600}
+.dmn .tags span+span::before{content:"/";margin-right:14px;color:#eba0ad}
+.dmn .hero h1{font-size:clamp(1.8rem,4.5vw,2.5rem);font-weight:800;letter-spacing:-.03em;margin-bottom:14px;color:var(--blue)}
+.dmn .btn{display:inline-block;background:var(--red-soft);color:#9a1028;padding:10px 18px;border-radius:4px;font-size:.88rem;font-weight:700;text-decoration:none;margin-top:8px;transition:background .2s}
+.dmn .btn:hover{background:#fbc9d2}
+.dmn .btn:focus-visible,.dmn a:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+.dmn .hero-img{background:#0a74a6;min-height:260px}
+.dmn .hero-img img{width:100%;height:100%;object-fit:cover}
+.dmn .pin{position:absolute;top:-6px;right:12px;font-size:2rem;transform:rotate(25deg);z-index:2}
+.dmn .meta{background:var(--peach);border-radius:0 0 18px 18px;margin:0 20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-size:.84rem}
+.dmn .meta span{display:block;color:var(--mute);margin-bottom:2px}
+.dmn .meta b{font-weight:600}
+
+/* blocks */
+.dmn .grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px 44px;margin:24px 0}
+.dmn .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin:24px 0}
+.dmn .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin:24px 0}
+.dmn .rule{border-top:1.5px solid var(--ink);padding-top:12px}
+.dmn .rule p{font-size:.9rem;margin:0 0 10px}
+.dmn .rule .tag{display:inline-block;font-size:.72rem;font-weight:700;color:var(--red);background:var(--red-soft);border-radius:99px;padding:1px 10px;margin-bottom:8px}
+.dmn .big{font-size:2.1rem;font-weight:800;color:var(--red);line-height:1.1;letter-spacing:-.02em}
+.dmn .big small{display:block;font-size:.75rem;font-weight:600;color:var(--mute);letter-spacing:0;margin-top:2px}
+.dmn .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.dmn .stat b{display:block;font-size:1.7rem;color:var(--red);line-height:1.1;font-weight:800}
+.dmn .stat span{font-size:.8rem;color:var(--mute)}
+.dmn .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:22px 0}
+.dmn .insight{background:var(--blue);color:#fff;border-radius:16px;padding:24px 28px;margin:28px 0}
+.dmn .insight small{display:block;font-size:.78rem;font-weight:600;opacity:.8;margin-bottom:6px}
+.dmn .insight p{color:#fff;font-size:1.2rem;line-height:1.5;margin:0}
+.dmn .insight .ul{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C20 1 40 7 62 3 S100 6 119 2' fill='none' stroke='%23ff9fb0' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E");font-weight:700}
+.dmn .sparkle{position:absolute;right:-6px;top:0;width:42px;color:var(--red)}
+.dmn .rel{position:relative}
+.dmn .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
+.dmn .chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px;font-size:.85rem;font-weight:600}
+.dmn ul{padding-left:20px;margin:0 0 14px;color:var(--mute)}
+
+/* figures */
+.dmn figure{margin:26px 0}
+.dmn figure img{border-radius:14px;box-shadow:0 8px 30px rgba(60,40,20,.12);width:100%}
+.dmn figcaption{font-size:.84rem;color:var(--mute);margin-top:10px}
+.dmn .split{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;margin:22px 0}
+.dmn .split figure{margin:0}
+
+/* persona */
+.dmn .persona{display:grid;grid-template-columns:150px 1fr;gap:24px;background:var(--peach);border-radius:16px;padding:22px;align-items:start}
+.dmn .persona img{width:150px;height:150px;border-radius:50%;object-fit:cover}
+.dmn .persona h3{font-size:1.3rem;margin-bottom:2px}
+.dmn .persona .sub{font-size:.88rem;color:var(--mute);margin-bottom:10px}
+.dmn .facts{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;margin-top:14px;font-size:.88rem}
+.dmn .facts span{display:block;color:var(--mute);font-size:.78rem}
+.dmn .facts b{font-weight:600}
+
+/* roadmap */
+.dmn .road{list-style:none;padding:0;margin:22px 0;position:relative}
+.dmn .road::before{content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.dmn .road li{position:relative;padding:0 0 28px 42px;margin:0;color:var(--mute)}
+.dmn .road li::before{content:"";position:absolute;left:3px;top:6px;width:18px;height:18px;border-radius:50%;background:var(--card);border:3px solid var(--line)}
+.dmn .road li.done::before{background:var(--blue);border-color:var(--blue)}
+.dmn .road li.now::before{border-color:var(--red);background:var(--red-soft)}
+.dmn .road h3{color:var(--ink);display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center}
+.dmn .badge{font-size:.7rem;font-weight:700;border-radius:99px;padding:1px 10px;background:#e7f6ec;color:#17803d}
+.dmn .now .badge{background:var(--red-soft);color:#9a1028}
+.dmn .next .badge{background:#eee;color:#666}
+.dmn .when{font-size:.82rem;font-weight:600;color:var(--blue)}
+.dmn .road p{font-size:.92rem;margin:4px 0 8px}
+
+/* metrics */
+.dmn .bars div{display:grid;grid-template-columns:20px 1fr 44px;gap:10px;align-items:center;font-size:.85rem;margin:6px 0}
+.dmn .bars i{display:block;height:9px;border-radius:9px;background:#eee;position:relative;overflow:hidden}
+.dmn .bars i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w);background:var(--blue);border-radius:9px}
+.dmn .metric{border-top:1.5px solid var(--ink);padding-top:14px}
+.dmn .metric p{font-size:.9rem}
+
+.dmn .thanks{text-align:center;margin:80px 0 10px}
+.dmn .thanks h2{font-size:clamp(2.4rem,8vw,4.5rem);color:var(--red);font-weight:800;margin-bottom:8px}
+.dmn .pager{display:flex;justify-content:space-between;margin-top:40px;padding:24px 0 48px;font-weight:700;border-top:1px solid var(--line)}
+.dmn .pager a{text-decoration:none}
+
+@media(max-width:720px){
+ .dmn .hero-card,.dmn .grid2,.dmn .grid3,.dmn .split,.dmn .persona{grid-template-columns:1fr}
+ .dmn .grid4{grid-template-columns:1fr 1fr}
+ .dmn .stats{grid-template-columns:1fr}
+ .dmn .meta{grid-template-columns:1fr 1fr;margin:0 8px}
+ .dmn h2{font-size:1.6rem}
+ .dmn .persona img{width:110px;height:110px}
+}
+@media(prefers-reduced-motion:reduce){.dmn *{transition:none!important}}
+</style>
+</head>
+<body style="margin:0">
+<main class="dmn">
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-card">
+    <span class="pin" aria-hidden="true">📌</span>
+    <div class="hero-text">
+      <div class="tags"><span>Product Teardown</span><span>Packaging</span><span>Sustainability</span></div>
+      <h1>Domino's New Packaging: a strategic redesign</h1>
+      <p>A teardown of Domino's eco-friendly, stackable pizza box: why the old box failed, what the redesign aims to fix, and how it could be rolled out and measured.</p>
+      <a class="btn" href="#problem">View case study &rarr;</a>
+    </div>
+    <div class="hero-img"><img src="assets/dominos/dominos-hero.png" alt="Domino's redesigned pizza box with illustrated artwork"></div>
+  </div>
+  <div class="meta">
+    <div><span>Project type</span><b>Product Teardown, Packaging Strategy</b></div>
+    <div><span>Created by</span><b>Lakshay Jain</b></div>
+    <div><span>Focus</span><b>Heat retention, sustainability, brand</b></div>
+    <div><span>Scale</span><b>1,500+ franchise locations</b></div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <h2>Problem: why the old box failed</h2>
+  <div class="rel">
+    <p>The standard pizza box created friction in three places: it let pizza go cold, it couldn't be recycled once greasy, and it didn't hold up when stacked.</p>
+    <svg class="sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 6c1 9 4 12 12 13-8 1-11 4-12 13-1-9-4-12-12-13 8-1 11-4 12-13z"/><path d="M36 28c.6 5 2 6.5 7 7-5 .5-6.4 2-7 7-.6-5-2-6.5-7-7 5-.5 6.4-2 7-7z"/></svg>
+  </div>
+  <div class="grid3">
+    <div class="rule"><span class="tag">Critical</span><h3>Thermodynamics</h3><p>Standard corrugated cardboard has no insulation, so pizza loses its ideal serving temperature quickly during delivery.</p><div class="big">40%<small>Heat loss in 15 minutes</small></div></div>
+    <div class="rule"><span class="tag">High waste</span><h3>Sustainability</h3><p>Grease soaks into the fibres, so a large share of legacy boxes can't be recycled in municipal facilities.</p><div class="big">30%<small>Unrecyclable volume</small></div></div>
+    <div class="rule"><span class="tag">Friction</span><h3>Structural integrity</h3><p>Weak sidewalls limit stacking during bulk deliveries, often crushing toppings and hurting presentation.</p><div class="big">3 boxes<small>Safe stack limit</small></div></div>
+  </div>
+  <div class="insight"><small>The core insight</small><p>The market needed a solution that balances <span class="ul">thermal efficiency</span> with <span class="ul">eco-accountability.</span></p></div>
+</section>
+
+<!-- RATIONALE -->
+<section id="rationale">
+  <h2>Strategic rationale: why the change?</h2>
+  <p>The shift to eco-friendly, stackable packaging for the modern delivery ecosystem rests on four business objectives aimed at long-term growth.</p>
+  <div class="grid4">
+    <div class="rule"><span class="tag">-30% plastic</span><h3>Sustainability first</h3><p>Shift to 100% recycled materials to cut the carbon footprint significantly.</p></div>
+    <div class="rule"><span class="tag">Premium</span><h3>Brand modernization</h3><p>Lift brand perception from "fast food" to a "premium dining experience".</p></div>
+    <div class="rule"><span class="tag">+15% heat</span><h3>Heat retention</h3><p>A new corrugated structure keeps heat 15% longer during last-mile delivery.</p></div>
+    <div class="rule"><span class="tag">2x efficiency</span><h3>Stackability</h3><p>Optimized geometry fits standard courier bags and doubles capacity.</p></div>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>+24%</b><span>Projected ROI, FY 2025-2026</span></div>
+    <div class="stat"><b>-12.5%</b><span>Carbon footprint, projected FY 2023-2025 (-2% YoY)</span></div>
+    <div class="stat"><b>+8 pts</b><span>Customer satisfaction (NPS), pre vs post launch (+15% YoY)</span></div>
+  </div>
+  <p class="serif">The box stops being packaging and becomes <span class="circ">part of the meal,</span> so it has to keep pizza hot <span class="ul">and fit the planet.</span></p>
+</section>
+
+<!-- UNBOXING -->
+<section id="unboxing">
+  <h2>The unboxing experience</h2>
+  <div class="split">
+    <figure><img src="assets/dominos/dominos-unboxing.jpg" alt="Domino's blue modular pizza box on a wooden table" loading="lazy"></figure>
+    <div>
+      <h3>Strategic context</h3>
+      <p>A shift from chaotic graphics to a clean, two-colour modular design that fits Domino's tech-first identity. The approach puts visual clarity and brand consistency across markets first.</p>
+      <div class="chips"><span class="chip">Insulation: +15% heat retention</span><span class="chip">Sustainable: 100% recyclable</span><span class="chip">Modular: clean aesthetic</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA -->
+<section id="persona">
+  <h2>User persona: the conscious craver</h2>
+  <p>How a typical customer interacts with sustainable packaging.</p>
+  <div class="persona">
+    <img src="assets/dominos/dominos-aman.jpg" alt="Portrait of Aman Kapoor">
+    <div>
+      <h3>Aman Kapoor</h3>
+      <div class="sub">26, junior developer. Tech savvy, high frequency</div>
+      <p style="margin:0">Aman lives in a metro area and orders late-night food about three times a week to fuel coding sessions. He values speed and hot food, but is increasingly aware of his carbon footprint.</p>
+      <div class="facts">
+        <div><span>Location</span><b>Seattle (urban)</b></div>
+        <div><span>Tech profile</span><b>Early adopter</b></div>
+        <div><span>Income</span><b>Middle to high</b></div>
+        <div><span>Basket size</span><b>$35</b></div>
+        <div><span>Ordering</span><b>~3x a week, late night, very often</b></div>
+        <div><span>Recyclability importance</span><b>High</b></div>
+        <div><span>Key expectation</span><b>Food must be piping hot</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLLOUT -->
+<section id="rollout">
+  <h2>From concept to counter: the rollout</h2>
+  <p>A phased approach to bringing the new packaging to 1,500+ franchise locations. Phase 2 is currently active.</p>
+  <ol class="road">
+    <li class="done"><h3>Phase 1: Pilot program <span class="badge">Completed</span></h3><span class="when">Q1 2024</span><p>Beta tested in 50 select stores across Tier-1 metro cities (Delhi and Mumbai pilots), focused on customer feedback about heat retention.</p><div class="chips"><span class="chip">50 stores</span><span class="chip">98% positive feedback</span></div></li>
+    <li class="now"><h3>Phase 2: Supply chain optimization <span class="badge">In progress</span></h3><span class="when">Q2 2024</span><p>Onboarding sustainable material vendors and retraining kitchen staff on new folding techniques, plus logistics restructuring.</p><div class="chips"><span class="chip">Staff training</span><span class="chip">Vendor onboarding</span></div></li>
+    <li class="next"><h3>Phase 3: Nationwide launch <span class="badge">Upcoming</span></h3><span class="when">Q3 2024</span><p>Full rollout to all 1,500+ locations, targeting Tier-2 cities, with a major "Unboxing" marketing campaign.</p></li>
+  </ol>
+  <h3>Operational key results</h3>
+  <div class="stats">
+    <div class="stat"><b>15%</b><span>Reduction in material costs</span></div>
+    <div class="stat"><b>10M+</b><span>Projected impressions</span></div>
+    <div class="stat"><b>100%</b><span>Plastic-free packaging by 2025 (on track)</span></div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <h2>Packaging success metrics</h2>
+  <p>From the Q3 performance report.</p>
+  <div class="grid2">
+    <div class="metric">
+      <h3>Delivery experience</h3>
+      <div class="big">4.8 / 5<small>+14% vs old packaging</small></div>
+      <div class="bars" style="margin-top:12px"><div>5<i style="--w:75%"></i><b>75%</b></div><div>4<i style="--w:15%"></i><b>15%</b></div><div>3<i style="--w:10%"></i><b>10%</b></div></div>
+    </div>
+    <div class="metric">
+      <h3>Waste reduction</h3>
+      <div class="big">-22%<small>Cardboard usage per unit</small></div>
+      <p style="margin-top:12px">An eco-impact win, with the sharpest improvement in the latest quarter.</p>
+    </div>
+    <div class="metric">
+      <h3>Heat retention</h3>
+      <div class="big">+15 min<small>Hotter for longer, measured after 20 minutes of delivery</small></div>
+    </div>
+    <div class="metric">
+      <h3>Brand sentiment</h3>
+      <p>Customer feedback analysis points to two themes:</p>
+      <div class="chips"><span class="chip">Innovative</span><span class="chip">Eco-friendly</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <h2>The final slice: verdict</h2>
+  <p>A teardown of the new sustainable aesthetic and its measurable impact on brand perception.</p>
+  <div class="split">
+    <div>
+      <div class="rule" style="margin-bottom:22px"><h3>Objectives</h3><p>Reduce material waste by 15% while improving heat retention, and modernize the brand voice without alienating the core customer base.</p></div>
+      <div class="rule"><h3>Design execution</h3><p>A minimalist visual language using two-colour printing to lower ink costs and make recycling easier. A dark-mode aesthetic appeals to digital-native users.</p></div>
+    </div>
+    <figure><img src="assets/dominos/dominos-darkmode.png" alt="Pizza in a box on a dark background" loading="lazy"><figcaption><b>The new standard:</b> a dark-mode look with vibrant accents, made for social sharing.</figcaption></figure>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>-15%</b><span>Waste: material usage</span></div>
+    <div class="stat"><b>+20%</b><span>Engagement: social shares</span></div>
+    <div class="stat"><b>High</b><span>Heat retention: performance</span></div>
+  </div>
+  <p class="serif">A box that keeps pizza <span class="ul">hot, recyclable and worth sharing</span> is <span class="circ">good design and good business.</span></p>
+</section>
+
+<div class="thanks">
+  <h2>Thank you!</h2>
+  <p>Domino's packaging teardown. I hope you enjoyed this deep dive into the design decisions behind the new eco-friendly boxes.</p>
+  <figure style="max-width:460px;margin:24px auto 0"><img src="assets/dominos/dominos-pizza.png" alt="Pepperoni pizza in the new Domino's box" loading="lazy"></figure>
+</div>
+
+<nav class="pager" aria-label="Case study navigation">
+  <a href="/improving-discord-new-users">&larr; Previous: Improving Discord</a>
+  <a href="/">Home &rarr;</a>
+</nav>
+
+</div>
+</main>
+</body>
+</html>

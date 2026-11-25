@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesigning PNB's Banking Website | UI/UX Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* Scoped to .pnb so it can be merged into your main site without clashing */
+.pnb{--bg:#fffcf7;--ink:#1c1a18;--mute:#5d5953;--accent:#af2a30;--accent-soft:#ffd9da;--peach:#fff1d3;--line:#e7e0d6;--card:#fff;
+ font-family:'Outfit',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden}
+.pnb *{box-sizing:border-box}
+.pnb img{max-width:100%;display:block}
+.pnb a{color:inherit}
+.pnb .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+.pnb h1,.pnb h2,.pnb h3{line-height:1.2;margin:0}
+.pnb h2{font-size:2rem;font-weight:600;margin-bottom:18px;letter-spacing:-.01em}
+.pnb h3{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+.pnb p{margin:0 0 14px;color:var(--mute)}
+.pnb section{padding:56px 0 8px}
+.pnb .serif{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.4rem,3.2vw,1.9rem);line-height:1.45;color:var(--ink);margin:40px 0}
+.pnb .ul{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C20 1 40 7 62 3 S100 6 119 2' fill='none' stroke='%23af2a30' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") 0 100%/100% .35em no-repeat;padding-bottom:.18em}
+.pnb .circ{position:relative;display:inline-block;padding:0 .3em}
+.pnb .circ::after{content:"";position:absolute;inset:-.12em -.1em;border:2px solid var(--accent);border-radius:50%;transform:rotate(-1.5deg)}
+
+/* hero */
+.pnb .hero{padding:48px 0 0}
+.pnb .hero-card{display:grid;grid-template-columns:1fr 1.05fr;background:var(--card);border-radius:22px;box-shadow:0 12px 40px rgba(60,40,20,.09);overflow:hidden;position:relative}
+.pnb .hero-text{padding:40px 36px;align-self:center}
+.pnb .tags{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--accent);margin-bottom:14px}
+.pnb .tags span+span::before{content:"/";margin-right:14px;color:#e0a0a3}
+.pnb .hero h1{font-size:clamp(1.8rem,4.5vw,2.5rem);font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.pnb .btn{display:inline-block;background:var(--accent-soft);color:#7d1d22;padding:10px 18px;border-radius:4px;font-size:.88rem;font-weight:600;text-decoration:none;margin-top:8px;transition:background .2s}
+.pnb .btn:hover{background:#ffc3c5}
+.pnb .btn:focus-visible,.pnb a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.pnb .hero-img{background:#d8d6d3;min-height:260px}
+.pnb .hero-img img{width:100%;height:100%;object-fit:cover}
+.pnb .pin{position:absolute;top:-6px;right:12px;font-size:2rem;transform:rotate(25deg);z-index:2}
+.pnb .meta{background:var(--peach);border-radius:0 0 18px 18px;margin:0 20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-size:.84rem}
+.pnb .meta span{display:block;color:var(--mute);margin-bottom:2px}
+.pnb .meta b{font-weight:600}
+
+/* blocks */
+.pnb .grid2{display:grid;grid-template-columns:1fr 1fr;gap:30px 44px;margin:24px 0}
+.pnb .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:30px 30px;margin:24px 0}
+.pnb .rule{border-top:1.5px solid var(--ink);padding-top:12px}
+.pnb .rule p{font-size:.92rem;margin:0}
+.pnb .rule .k{display:block;color:var(--accent);font-size:.8rem;font-weight:600;margin-bottom:4px}
+.pnb ul{padding-left:20px;margin:0 0 14px;color:var(--mute)}
+.pnb li{margin-bottom:6px}
+.pnb .qs{list-style:none;padding:0;margin:20px 0}
+.pnb .qs li{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink)}
+.pnb .qs b{color:var(--accent);min-width:2rem}
+.pnb .sparkle{position:absolute;right:-6px;top:0;width:42px;color:var(--accent)}
+.pnb .rel{position:relative}
+
+/* personas */
+.pnb .persona{display:grid;grid-template-columns:150px 1fr;gap:24px;background:var(--peach);border-radius:16px;padding:22px;margin-bottom:22px;align-items:start}
+.pnb .persona img{width:150px;height:150px;border-radius:14px;object-fit:cover}
+.pnb .persona h3{font-size:1.3rem;margin-bottom:2px}
+.pnb .persona .sub{font-size:.88rem;color:var(--mute);margin-bottom:10px}
+.pnb .persona blockquote{margin:0 0 14px;font-family:'Playfair Display',Georgia,serif;font-size:1.05rem;line-height:1.5;color:var(--ink)}
+.pnb .persona .two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pnb .persona ul{font-size:.88rem}
+
+/* table */
+.pnb .scroll{overflow-x:auto;margin:20px 0;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.pnb table{border-collapse:collapse;width:100%;min-width:680px;font-size:.9rem}
+.pnb th,.pnb td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.pnb th{font-weight:600;background:#faf5ee}
+.pnb td:first-child{font-weight:600;white-space:nowrap}
+.pnb tr:last-child td{border-bottom:0}
+
+/* process */
+.pnb .step b{display:block;color:var(--accent);font-size:.85rem;margin-bottom:2px}
+.pnb .step span{display:block;font-size:.8rem;color:var(--mute);margin-bottom:6px}
+
+/* type + colour */
+.pnb .type{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:28px;margin:22px 0}
+.pnb .type .big{font-size:5.5rem;font-weight:500;line-height:1}
+.pnb .type .name{font-size:2.4rem;font-weight:600;line-height:1.1}
+.pnb .type .abc{letter-spacing:.12em;font-size:.95rem;word-break:break-all;margin-top:10px;color:var(--ink)}
+.pnb .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:20px 0}
+.pnb .sw{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+.pnb .sw i{display:block;height:74px}
+.pnb .sw span{display:block;padding:8px 10px;font-size:.78rem;font-weight:500}
+
+/* UI shots */
+.pnb figure{margin:26px 0}
+.pnb figure img{border-radius:14px;box-shadow:0 8px 30px rgba(60,40,20,.12);width:100%}
+.pnb figcaption{font-size:.84rem;color:var(--mute);margin-top:10px}
+.pnb .shots{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:26px 0}
+.pnb .shots figure{margin:0}
+
+.pnb .thanks{text-align:center;font-size:clamp(2.4rem,8vw,4.5rem);font-weight:600;letter-spacing:-.02em;margin:80px 0 10px}
+.pnb .pager{display:flex;justify-content:space-between;margin-top:40px;padding:24px 0 48px;font-weight:600;border-top:1px solid var(--line)}
+.pnb .pager a{text-decoration:none}
+
+@media(max-width:720px){
+ .pnb .hero-card,.pnb .grid2,.pnb .grid3,.pnb .persona,.pnb .persona .two,.pnb .type,.pnb .shots{grid-template-columns:1fr}
+ .pnb .meta{grid-template-columns:1fr 1fr;margin:0 8px}
+ .pnb .swatches{grid-template-columns:repeat(2,1fr)}
+ .pnb h2{font-size:1.6rem}
+ .pnb .persona img{width:110px;height:110px}
+}
+@media(prefers-reduced-motion:reduce){.pnb *{transition:none!important}}
+</style>
+</head>
+<body style="margin:0">
+<main class="pnb">
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-card">
+    <span class="pin" aria-hidden="true">📌</span>
+    <div class="hero-text">
+      <div class="tags"><span>UI/UX Design</span><span>Banking</span><span>Website Redesign</span></div>
+      <h1>A Better PNB: redesigning a banking website</h1>
+      <p>A UI/UX case study on making PNB's net banking site easier to navigate, less cluttered and softer on the eye, so people can finish everyday tasks without help.</p>
+      <a class="btn" href="#problem">View case study &rarr;</a>
+    </div>
+    <div class="hero-img"><img src="assets/pnb/pnb-hero.jpg" alt="Redesigned PNB home loans page shown on a laptop"></div>
+  </div>
+  <div class="meta">
+    <div><span>Project type</span><b>UI/UX redesign, Website</b></div>
+    <div><span>Team</span><b>Himani &amp; Lakshay</b></div>
+    <div><span>Year</span><b>2025</b></div>
+    <div><span>Focus</span><b>Navigation, personalization, visual design</b></div>
+  </div>
+</header>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <h2>Problem</h2>
+  <div class="rel">
+    <p>PNB's banking website is hard to navigate. Complex menus and a cluttered homepage frustrate people trying to transfer funds, pay bills or manage accounts. A lack of personalization and an outdated design make it worse, especially on mobile.</p>
+    <svg class="sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 6c1 9 4 12 12 13-8 1-11 4-12 13-1-9-4-12-12-13 8-1 11-4 12-13z"/><path d="M36 28c.6 5 2 6.5 7 7-5 .5-6.4 2-7 7-.6-5-2-6.5-7-7 5-.5 6.4-2 7-7z"/></svg>
+  </div>
+  <p>These issues lead to inefficiency, frustration and weaker customer retention. This case study improves usability by tackling navigation, information overload and visual design.</p>
+
+  <div class="grid2">
+    <div class="rule"><h3>Unclear navigation</h3><p>Users can't quickly find the services they need.</p></div>
+    <div class="rule"><h3>No personalization</h3><p>There's no personalized content or dashboard to reach the most-used services fast.</p></div>
+    <div class="rule"><h3>Cluttered homepage</h3><p>Too much information makes it hard to focus on the main goal.</p></div>
+    <div class="rule"><h3>Dated design</h3><p>Outdated visuals and typography hurt readability and overall look.</p></div>
+  </div>
+  <p class="serif">A bank website should feel <span class="circ">calm and obvious,</span> so people can get to what they came for <span class="ul">in a few clicks.</span></p>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <h2>Design process</h2>
+  <div class="grid3">
+    <div class="rule step"><b>Step 1</b><h3>Discovery</h3><span>Primary &amp; secondary research</span><p>Surveys and interviews to understand how users see PNB's current site, the challenges they face, and which problem statements matter most.</p></div>
+    <div class="rule step"><b>Step 2</b><h3>Ideation</h3><span>HMW &amp; solutions</span><p>Using How Might We questions, we focused on two flows: making important features visible, and redesigning the UI with a consistent, softer colour palette.</p></div>
+    <div class="rule step"><b>Step 3</b><h3>Implementation</h3><span>Wireframes &amp; UI</span><p>We set the visual direction, built wireframes and interfaces from the design system, and finished with a functional prototype.</p></div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <h2>Interview questions</h2>
+  <ol class="qs" style="counter-reset:q">
+    <li><b>Q1</b>Was the log in successful during your last visit to the PNB website?</li>
+    <li><b>Q2</b>How user friendly did the navigation feel after going through the site?</li>
+    <li><b>Q3</b>How visually clear and well organized did the page/app appear?</li>
+    <li><b>Q4</b>How did you feel about the website's mobile responsiveness?</li>
+    <li><b>Q5</b>How likely would you be to recommend PNB's website/app based on your experience?</li>
+    <li><b>Q6</b>What was the single most frustrating part of your last visit to PNB's platform?</li>
+  </ol>
+</section>
+
+<!-- PERSONAS -->
+<section id="personas">
+  <h2>User personas</h2>
+
+  <div class="persona">
+    <img src="assets/pnb/pnb-ramesh.jpg" alt="Portrait of Ramesh Verma">
+    <div>
+      <h3>Ramesh Verma</h3>
+      <div class="sub">56, married. Small business owner, Patiala, Punjab</div>
+      <blockquote>As a small business owner who isn't tech savvy, I want to manage my banking quickly and without confusion, so I can focus on my business instead of struggling with the site.</blockquote>
+      <div class="two">
+        <div><h3>Goals</h3><ul><li>Easily access balance and transaction history</li><li>Make fund transfers without external help</li><li>Understand icons and menu options clearly</li><li>Navigate without clicking wrong buttons</li><li>Feel confident using the website on his own</li></ul></div>
+        <div><h3>Challenges</h3><ul><li>Unclear icons and too many options on the homepage</li><li>Hard to find frequently used services</li><li>Small text and cluttered design confuse him</li><li>Often needs family to help complete tasks</li></ul></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="persona">
+    <img src="assets/pnb/pnb-aditi.jpg" alt="Portrait of Aditi Mehra">
+    <div>
+      <h3>Aditi Mehra</h3>
+      <div class="sub">20, single. Undergraduate student, Delhi</div>
+      <blockquote>As a student who's always on the go, I want to do quick transactions on my mobile without glitches, so I can save time and avoid frustration.</blockquote>
+      <div class="two">
+        <div><h3>Goals</h3><ul><li>Perform fast UPI transfers</li><li>View mini statements and balances quickly</li><li>Use the mobile site without needing to zoom</li><li>Complete tasks in 2 to 3 taps</li><li>Get a modern, efficient digital experience</li></ul></div>
+        <div><h3>Challenges</h3><ul><li>Website not optimized for mobile screens</li><li>Touch targets (buttons and icons) too small</li><li>Slow load times and freezing elements</li><li>Broken links or redirections</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <h2>User journey</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Stage</th><th>Action</th><th>Feeling</th><th>Pain point</th></tr></thead>
+    <tbody>
+      <tr><td>Homepage</td><td>User opens PNB's website on a laptop</td><td>Neutral, slightly impatient</td><td>Homepage, navigation bar</td></tr>
+      <tr><td>Searching for login</td><td>They look around for the net banking login area</td><td>Annoyed, frustrated</td><td>Login buttons, popups</td></tr>
+      <tr><td>Login process</td><td>Users try logging in (some succeed smoothly, others retry)</td><td>Tense</td><td>Login form, CAPTCHA, loading speed</td></tr>
+      <tr><td>Using services</td><td>Access account summary, check statements and more</td><td>Confident, independent</td><td>Account dashboard, quick view</td></tr>
+      <tr><td>Completing a task</td><td>Make a payment, download a statement and more</td><td>Nervous, then accomplished</td><td>Payment module, statement view</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- VISUAL SYSTEM -->
+<section id="system">
+  <h2>Typography</h2>
+  <div class="type">
+    <div>
+      <div class="name">Outfit</div>
+      <p style="margin-top:10px">Classic and geometric. Outfit is a variable font family crafted and designed for computer screens.</p>
+      <div class="abc">ABCDEFGHIJKLMNO<br>PQRSTUVWXYZ</div>
+    </div>
+    <div class="big" aria-hidden="true">Aa</div>
+  </div>
+
+  <h2 style="margin-top:48px">Colour palette</h2>
+  <p>A softer, warmer palette built on PNB's own red and gold, with a cream base so the page feels calmer.</p>
+  <div class="swatches">
+    <div class="sw"><i style="background:#AF2A30"></i><span>#AF2A30</span></div>
+    <div class="sw"><i style="background:#FFF1D3"></i><span>#FFF1D3</span></div>
+    <div class="sw"><i style="background:#C00000"></i><span>#C00000</span></div>
+    <div class="sw"><i style="background:#FDBD30"></i><span>#FDBD30</span></div>
+    <div class="sw"><i style="background:#FFA7A8"></i><span>#FFA7A8</span></div>
+  </div>
+</section>
+
+<!-- UI -->
+<section id="ui">
+  <h2>User interface</h2>
+  <p>The final designs use the new palette and type, simpler menus, and clearer grouping so the main actions stand out.</p>
+  <figure>
+    <img src="assets/pnb/pnb-home-loans.jpg" alt="Redesigned Home Loans page with EMI calculator" loading="lazy">
+    <figcaption>Home Loans page: a clear hero, key benefits at a glance, and an EMI calculator.</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/pnb/pnb-browse-topics.jpg" alt="Browse all products topics page" loading="lazy">
+    <figcaption>Browse all product topics: tabs and grouped links so users can find a service in a couple of clicks.</figcaption>
+  </figure>
+  <div class="shots">
+    <figure><img src="assets/pnb/pnb-features.jpg" alt="Home loan features and benefits section" loading="lazy"><figcaption>Features and benefits in simple cards.</figcaption></figure>
+    <figure><img src="assets/pnb/pnb-reviews-app.jpg" alt="Home loan reviews and mobile app section" loading="lazy"><figcaption>Reviews and a mobile banking prompt.</figcaption></figure>
+  </div>
+  <figure>
+    <img src="assets/pnb/pnb-security-footer.jpg" alt="Security banner and footer" loading="lazy">
+    <figcaption>Security reassurance and a tidier, grouped footer.</figcaption>
+  </figure>
+  <p class="serif">Fewer choices on screen, softer colours and <span class="ul">clearer paths</span> make the site feel <span class="circ">easier to trust.</span></p>
+</section>
+
+<div class="thanks">Thank you!</div>
+
+<nav class="pager" aria-label="Case study navigation">
+  <a href="/instagram-reels-experience">&larr; Previous: Instagram Reels</a>
+  <a href="/">Home &rarr;</a>
+</nav>
+
+</div>
+</main>
+</body>
+</html>

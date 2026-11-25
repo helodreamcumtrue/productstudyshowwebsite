@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Improving the Reels Experience on Instagram | Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* Everything is scoped to .cs so it can be dropped into your main site without clashing */
+.cs{--bg:#fffcf7;--ink:#1c1a18;--mute:#5d5953;--pink:#d6457f;--pink-soft:#f6d9e4;--peach:#fdeedd;--line:#e7e0d6;--card:#fff;
+ font-family:'Hanken Grotesk',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.65;font-size:16px;overflow-x:hidden}
+.cs *{box-sizing:border-box}
+.cs img{max-width:100%;display:block}
+.cs a{color:inherit}
+.cs .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+.cs h1,.cs h2,.cs h3{line-height:1.2;margin:0}
+.cs h2{font-size:2rem;font-weight:600;margin-bottom:18px;letter-spacing:-.01em}
+.cs h3{font-size:1.05rem;font-weight:600;margin-bottom:6px}
+.cs p{margin:0 0 14px;color:var(--mute)}
+.cs section{padding:56px 0 8px}
+.cs .serif{font-family:'Playfair Display',Georgia,serif;font-size:clamp(1.4rem,3.2vw,1.9rem);line-height:1.45;color:var(--ink);margin:40px 0}
+
+/* highlights, hand-drawn style */
+.cs .ul{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 8' preserveAspectRatio='none'%3E%3Cpath d='M1 5 C20 1 40 7 62 3 S100 6 119 2' fill='none' stroke='%23d6457f' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E") 0 100%/100% .35em no-repeat;padding-bottom:.18em}
+.cs .circ{position:relative;display:inline-block;padding:0 .3em}
+.cs .circ::after{content:"";position:absolute;inset:-.12em -.1em;border:2px solid var(--pink);border-radius:50%;transform:rotate(-1.5deg)}
+
+/* hero card */
+.cs .hero{padding:48px 0 0}
+.cs .hero-card{display:grid;grid-template-columns:1.1fr .9fr;background:var(--card);border-radius:22px;box-shadow:0 12px 40px rgba(60,40,20,.09);overflow:hidden;position:relative}
+.cs .hero-text{padding:40px 36px}
+.cs .tags{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.78rem;color:var(--pink);margin-bottom:14px}
+.cs .tags span+span::before{content:"/";margin-right:14px;color:#e2a9c0}
+.cs .hero h1{font-size:clamp(1.8rem,4.5vw,2.5rem);font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.cs .btn{display:inline-block;background:var(--pink-soft);color:#8a1f4c;padding:10px 18px;border-radius:4px;font-size:.88rem;font-weight:600;text-decoration:none;margin-top:8px;transition:background .2s}
+.cs .btn:hover{background:#f0c3d5}
+.cs .btn:focus-visible,.cs a:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.cs .hero-stats{background:#efe7dd;display:grid;grid-template-columns:1fr 1fr;gap:1px;align-content:stretch}
+.cs .hero-stats div{background:#f4ede4;padding:22px 18px;display:flex;flex-direction:column;justify-content:center}
+.cs .hero-stats b{font-size:1.7rem;font-weight:700;color:var(--pink);line-height:1.1}
+.cs .hero-stats small{font-size:.75rem;color:var(--mute)}
+.cs .pin{position:absolute;top:-6px;right:12px;font-size:2rem;transform:rotate(25deg)}
+
+/* meta strip */
+.cs .meta{background:var(--peach);border-radius:0 0 18px 18px;margin:0 20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;font-size:.82rem}
+.cs .meta span{display:block;color:var(--mute);margin-bottom:2px}
+.cs .meta b{font-weight:600}
+
+/* grids */
+.cs .grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px 44px;margin:24px 0}
+.cs .rule{border-top:1.5px solid var(--ink);padding-top:12px}
+.cs .rule p{font-size:.9rem;margin:0}
+.cs .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:26px 0}
+.cs .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+.cs .stat b{display:block;font-size:1.6rem;color:var(--pink);line-height:1.1}
+.cs .stat span{font-size:.8rem;color:var(--mute)}
+.cs .chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 22px}
+.cs .chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 14px;font-size:.85rem}
+.cs ul{padding-left:20px;margin:0 0 14px;color:var(--mute)}
+.cs li{margin-bottom:6px}
+.cs .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:20px}
+.cs .cols3 ul{list-style:none;padding:0;font-size:.9rem}
+.cs .cols3 li{padding-left:16px;position:relative}
+.cs .cols3 li::before{content:"";position:absolute;left:0;top:.7em;width:6px;height:6px;border-radius:50%;background:var(--pink)}
+
+/* persona */
+.cs .persona{display:flex;align-items:center;gap:18px;background:var(--peach);border-radius:16px;padding:18px 22px;margin-bottom:26px}
+.cs .persona img{width:76px;height:76px;border-radius:50%;object-fit:cover}
+.cs .persona b{font-size:1.2rem;display:block}
+.cs .persona span{font-size:.9rem;color:var(--mute)}
+
+/* formula + callout */
+.cs .formula{background:var(--card);border:1px dashed #d8c9b8;border-radius:8px;padding:12px 16px;font-size:.9rem;margin:18px 0;font-family:ui-monospace,Menlo,monospace}
+.cs .sparkle{position:absolute;right:-6px;top:6px;width:42px;color:var(--pink)}
+.cs .rel{position:relative}
+
+/* tables */
+.cs .scroll{overflow-x:auto;margin:20px 0;border-radius:12px;border:1px solid var(--line);background:var(--card)}
+.cs table{border-collapse:collapse;width:100%;min-width:640px;font-size:.88rem}
+.cs th,.cs td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+.cs th{font-weight:600;background:#faf5ee;white-space:nowrap}
+.cs tr:last-child td{border-bottom:0}
+.cs td.n,.cs th.n{text-align:center}
+.cs .top td:last-child{color:var(--pink);font-weight:700}
+.cs .journey th:first-child,.cs .journey td:first-child{font-weight:600;white-space:nowrap}
+
+/* figures */
+.cs figure{margin:22px 0}
+.cs figure img{border-radius:14px;box-shadow:0 8px 30px rgba(60,40,20,.12)}
+.cs figcaption{font-size:.82rem;color:var(--mute);margin-top:10px}
+.cs .steps{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 20px;padding:0;list-style:none;counter-reset:s}
+.cs .steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.82rem;margin:0;color:var(--ink)}
+.cs .steps li::before{content:counter(s) ". ";color:var(--pink);font-weight:700}
+
+/* metrics */
+.cs .metrics{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cs .metrics>div{border-top:1.5px solid var(--ink);padding-top:14px}
+.cs .metrics li{font-size:.92rem}
+
+/* footer */
+.cs .pager{display:flex;justify-content:space-between;margin-top:70px;padding:24px 0 48px;font-weight:600;border-top:1px solid var(--line)}
+.cs .pager a{text-decoration:none}
+
+@media(max-width:720px){
+ .cs .hero-card,.cs .grid2,.cs .metrics,.cs .cols3{grid-template-columns:1fr}
+ .cs .hero-stats{grid-template-columns:1fr 1fr}
+ .cs .meta{grid-template-columns:1fr 1fr;margin:0 8px}
+ .cs .stats{grid-template-columns:1fr 1fr}
+ .cs h2{font-size:1.6rem}
+}
+@media(prefers-reduced-motion:reduce){.cs *{transition:none!important}}
+</style>
+</head>
+<body style="margin:0">
+<main class="cs">
+<div class="wrap">
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-card">
+    <span class="pin" aria-hidden="true">📌</span>
+    <div class="hero-text">
+      <div class="tags"><span>Product Teardown</span><span>Instagram</span><span>Reels</span></div>
+      <h1>Improving the Reels Experience on Instagram</h1>
+      <p>A product teardown of Instagram Reels: where discovery breaks down for viewers and creators, which problems to fix first, and two features that could lift watch time and creator follows.</p>
+      <a class="btn" href="#problem">View case study &rarr;</a>
+    </div>
+    <div class="hero-stats" aria-label="Reels at a glance">
+      <div><b>2B+</b><small>Monthly active users</small></div>
+      <div><b>200B+</b><small>Daily plays</small></div>
+      <div><b>50%</b><small>Of total time on Instagram</small></div>
+      <div><b>140+</b><small>Countries</small></div>
+    </div>
+  </div>
+  <div class="meta">
+    <div><span>Project type</span><b>Product Teardown, Product Strategy</b></div>
+    <div><span>Product</span><b>Instagram Reels</b></div>
+    <div><span>Focus</span><b>Content discovery &amp; creation</b></div>
+    <div><span>Framework</span><b>RICE prioritization</b></div>
+  </div>
+</header>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <h2>Product overview</h2>
+  <p>Launched by Instagram in 2020, Reels is a short-form video feature designed to compete with platforms like TikTok. It lets users create and discover entertaining videos up to 90 seconds long.</p>
+  <p>Reels sits directly inside the Instagram app, so it draws on a massive existing user base. It offers audio, AR effects and editing tools, a dedicated discovery feed, and monetization for creators, which makes it central to Instagram's engagement and growth strategy.</p>
+
+  <div class="stats">
+    <div class="stat"><b>45%</b><span>Market share in the US</span></div>
+    <div class="stat"><b>91%</b><span>Of Gen Z watch weekly</span></div>
+    <div class="stat"><b>90 sec</b><span>Maximum Reel length</span></div>
+  </div>
+
+  <h3>Competitors</h3>
+  <div class="chips"><span class="chip">TikTok</span><span class="chip">YouTube Shorts</span><span class="chip">Snapchat Spotlight</span><span class="chip">Triller</span></div>
+
+  <h3>Business model: advertising &amp; the creator economy</h3>
+  <p>Monetization comes mainly from targeted video ads in the Reels feed, plus tools that let creators earn through brand partnerships and direct monetization.</p>
+
+  <div class="cols3">
+    <div><h3>Users of Reels</h3><ul><li>Content creators</li><li>Viewers &amp; followers</li><li>Brands &amp; businesses</li><li>Influencers &amp; marketers</li><li>Artists &amp; musicians</li><li>Educators &amp; niche experts</li></ul></div>
+    <div><h3>Key features</h3><ul><li>Advanced editing tools</li><li>Extensive audio library</li><li>AR effects &amp; filters</li><li>Remix and Duet</li><li>Templates for easy creation</li><li>Sharing to Feed/Stories</li><li>Interactive stickers (polls, Q&amp;A)</li></ul></div>
+    <div><h3>Additional revenue</h3><ul><li>Creator subscriptions</li><li>Shopping tags &amp; e-commerce</li><li>Gifting and tipping</li><li>Branded content &amp; partnerships</li><li>Affiliate marketing links</li><li>Creator marketplace</li></ul></div>
+  </div>
+</section>
+
+<!-- PERSONA -->
+<section id="persona">
+  <h2>User persona</h2>
+  <div class="persona">
+    <img src="assets/insta/maya.png" alt="Illustrated portrait of Maya Singh">
+    <div><b>Maya Singh</b><span>22-year-old female, university student in Mumbai</span></div>
+  </div>
+  <div class="grid2">
+    <div class="rule"><h3>Content discovery fatigue</h3><p>She keeps seeing the same trends and sounds, and wants more variety that truly fits her niche interests.</p></div>
+    <div class="rule"><h3>Pressure to perform</h3><p>She feels she must constantly post high-engagement content, and the unpredictable algorithm is discouraging when work she's proud of underperforms.</p></div>
+    <div class="rule"><h3>Negative social comparison</h3><p>Endless scrolling through curated, successful-looking content leaves her feeling inadequate and questioning her own progress.</p></div>
+    <div class="rule"><h3>Creative expression &amp; community</h3><p>She wants to share her passion for sustainable fashion and connect with a like-minded community.</p></div>
+    <div class="rule"><h3>Skill development</h3><p>She wants to improve her editing and storytelling, and looks for new features, effects and tutorials.</p></div>
+    <div class="rule"><h3>Meaningful engagement</h3><p>Beyond likes, she wants real conversations and feedback in her comments to build a loyal following.</p></div>
+  </div>
+  <p>She also follows other creators for inspiration on studies, hobbies and personal style, treating Reels as a visual discovery engine.</p>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <h2>Problem</h2>
+  <div class="rel">
+    <p>The problem to solve is to <b>improve Reels content discovery</b> so that engagement rises, with a focus on watch time and creator follows. Share frequency is the third anchor.</p>
+    <svg class="sparkle" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M16 6c1 9 4 12 12 13-8 1-11 4-12 13-1-9-4-12-12-13 8-1 11-4 12-13z"/><path d="M36 28c.6 5 2 6.5 7 7-5 .5-6.4 2-7 7-.6-5-2-6.5-7-7 5-.5 6.4-2 7-7z"/></svg>
+  </div>
+  <p>To move any of these metrics, users have to discover more relevant content or connect with more creators.</p>
+  <div class="formula">Engagement = Watch Time × Creator Follows × No. of Sessions</div>
+  <h3>Stakeholders</h3>
+  <div class="chips"><span class="chip">Viewers</span><span class="chip">Creators</span><span class="chip">Advertisers</span><span class="chip">Instagram</span></div>
+  <p class="serif">Better discovery means showing people <span class="circ">more relevant content</span> and helping them find <span class="ul">the creators who fit them.</span></p>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey">
+  <h2>User journey</h2>
+  <div class="scroll">
+  <table class="journey">
+    <thead><tr><th></th><th>Discovery</th><th>Consumption</th><th>Consideration</th><th>Creation</th><th>Sharing</th></tr></thead>
+    <tbody>
+      <tr><td>Stage</td><td>User opens Instagram</td><td>User starts watching Reels</td><td>User gets an idea</td><td>User records &amp; edits a Reel</td><td>User posts the Reel</td></tr>
+      <tr><td>Goal</td><td>To be entertained</td><td>Find interesting content</td><td>To create something similar</td><td>To create an engaging Reel</td><td>To get views and likes</td></tr>
+      <tr><td>Touchpoint</td><td>Opens the app</td><td>Navigates to Reels tab</td><td>Saves audio / effect</td><td>Uses creation tools</td><td>Writes caption, clicks share</td></tr>
+      <tr><td>Emotion</td><td>🙂</td><td>😄</td><td>🤩</td><td>🤔</td><td>🤞</td></tr>
+      <tr><td>Pain point</td><td>Irrelevant content</td><td>Repetitive trends</td><td>Hard to find trending audio</td><td>Complex editing tools</td><td>Anxiety about performance</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- PRIORITIZATION -->
+<section id="prioritization">
+  <h2>Prioritization</h2>
+  <p>I scored five problems with RICE (Reach × Impact × Confidence ÷ Effort). The two highest scores, 90 and 84, were picked for immediate work.</p>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Problem / opportunity</th><th class="n">Reach</th><th class="n">Impact</th><th class="n">Confidence</th><th class="n">Effort</th><th class="n">Score</th></tr></thead>
+    <tbody>
+      <tr class="top"><td>Lack of clear categorization for Reels content (no tags or topic filters)</td><td class="n">8</td><td class="n">8</td><td class="n">75%</td><td class="n">5</td><td class="n">90</td></tr>
+      <tr class="top"><td>Inefficient discovery of niche creators; algorithmic suggestions are too broad</td><td class="n">9</td><td class="n">7</td><td class="n">80%</td><td class="n">6</td><td class="n">84</td></tr>
+      <tr><td>Limited creative tools compared to competitors (advanced editing, templates)</td><td class="n">7</td><td class="n">6</td><td class="n">90%</td><td class="n">4</td><td class="n">75</td></tr>
+      <tr><td>Difficulty tracking engagement metrics for individual Reels over time</td><td class="n">5</td><td class="n">8</td><td class="n">85%</td><td class="n">7</td><td class="n">60</td></tr>
+      <tr><td>Inconsistent video quality and playback across devices</td><td class="n">6</td><td class="n">5</td><td class="n">70%</td><td class="n">8</td><td class="n">52</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions">
+  <h2>Solution 1: Enhanced editing tools</h2>
+  <p>Give creators pro-level editing directly inside the Reels camera, which reduces friction and raises content quality. Users can trim, splice, add advanced effects and manage multi-track audio before publishing.</p>
+  <ol class="steps"><li>Reels camera</li><li>Select media &amp; record</li><li>Open Editing Studio</li><li>Timeline editing</li><li>Effects &amp; audio mix</li><li>Preview &amp; adjust</li><li>Captions &amp; share</li></ol>
+  <figure>
+    <img src="assets/insta/solution-editing.png" alt="Flow and screens for the Editing Studio: Reels camera entry, timeline editor, and preview and share" loading="lazy">
+    <figcaption>Entry from the Reels camera, an intuitive timeline with trimming, multi-track audio and effect overlays, then a final preview with captions.</figcaption>
+  </figure>
+
+  <p class="serif" style="margin-top:56px">Creators told me, in effect, that they want to <span class="ul">make something good</span> without <span class="circ">learning a whole editing suite.</span></p>
+
+  <h2 style="margin-top:48px">Solution 2: Collaborative Reels</h2>
+  <p>Several users contribute clips to one shared Reel. This answers the need for more interactive, co-creative formats: invite friends, combine clips, and post the final Reel to both profiles, which widens reach and encourages participation.</p>
+  <ol class="steps"><li>Open Reels camera</li><li>Tap Collaborate</li><li>Invite user</li><li>User accepts</li><li>Both record &amp; add clips</li><li>Edit together</li><li>Post to both profiles</li></ol>
+  <figure>
+    <img src="assets/insta/solution-collab.png" alt="Collaborative Reels flow, invite screen and shared Reel on both profiles" loading="lazy">
+    <figcaption>Left: a user invites a collaborator during Reel creation. Right: the final Reel appears on both profiles, showing shared authorship.</figcaption>
+  </figure>
+</section>
+
+<!-- METRICS -->
+<section id="metrics">
+  <h2>Success metrics</h2>
+  <p>Measured over one quarter, with the aim of each metric moving up.</p>
+  <div class="metrics">
+    <div>
+      <h3>User-centric</h3>
+      <ul>
+        <li><b>Increased engagement:</b> likes, comments and shares per Reel; clicks on the Share button</li>
+        <li><b>Higher content creation:</b> number of Reels created; Reel creation attempts</li>
+        <li><b>Longer viewing time:</b> average time spent watching Reels; session duration in the Reels tab</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Product-centric</h3>
+      <ul>
+        <li><b>Growth in DAU:</b> daily active users engaging with Reels; frequency of app opens</li>
+        <li><b>Increase in ad revenue:</b> revenue from Reels ads; number of ad impressions</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONCLUSION -->
+<section id="conclusion">
+  <h2>Conclusion</h2>
+  <p>The aim was to understand and improve the Reels experience to drive higher engagement and retention, with a focus on creation and discovery. The teardown surfaced three areas for growth.</p>
+  <div class="grid2">
+    <div class="rule"><h3>Problems identified</h3><ul><li>High friction for new creators to produce high-quality short-form video</li><li>Limited discovery of original, niche content outside viral trends</li><li>No clear monetization path for emerging Reels creators</li></ul></div>
+    <div class="rule"><h3>Solutions proposed</h3><ul><li>An enhanced Reels creation suite with AI-powered editing tools and templates</li><li>An integrated Creators Fund and better algorithmic matching for niche content discovery</li></ul></div>
+  </div>
+  <p class="serif">Fixing discovery and lowering the barrier to creating gives <span class="ul">viewers more to love</span> and gives creators <span class="ul">a reason to keep posting.</span></p>
+</section>
+
+<nav class="pager" aria-label="Case study navigation">
+  <a href="/dominos-packaging-redesign">&larr; Previous: Domino's New Packaging</a>
+  <a href="/">Home &rarr;</a>
+</nav>
+
+</div>
+</main>
+</body>
+</html>
